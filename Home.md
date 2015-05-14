@@ -1,1 +1,5 @@
-Welcome to the Synergy wiki. We are trying out GitHub for our wiki. Most of our content is still on our [legacy wiki](http://synergy-project.org/wiki/).
+Welcome to the Synergy wiki. We are trying out GitHub for our wiki.
+
+* [[Buildbot]]
+
+Most of our content is still on our [legacy wiki](http://synergy-project.org/wiki/).
