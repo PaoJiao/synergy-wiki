@@ -1,3 +1,5 @@
+List of officially supported Operating Systems.
+
 * Windows: XP, 7, 8.1, 10
 * Mac OS X: 10.5 to 10.10
 * Debian: 7 (wheezy), 8 (jessie), testing (stretch), unstable (sid)
