@@ -5,4 +5,4 @@ A few rules for raising issues:
 3. Bugs must include repro steps (and optionally actual and expected)
 4. Enhancements must describe a problem (and optionally, a solution)
 5. There is no need to use 'Synergy' in a bug title
-6. Please don't randomly capitalize words (this happens a lot)
+6. Don't randomly capitalize words (this happens a lot)
