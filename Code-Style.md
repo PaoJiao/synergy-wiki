@@ -395,7 +395,7 @@ always lowerCamel.
     return -1; // something bad happened
     return 42; // the wrong question was asked
 
-#### When error codes must be used, don't use magic numbers
+#### If error codes must be used, use constants instead of magic numbers
 
     // correct
     enum EFoobarErrors {
