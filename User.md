@@ -1,1 +1,1 @@
-[Legacy](http://synergy-project.org/wiki/User)
+[User](http://synergy-project.org/wiki/User) (legacy)
