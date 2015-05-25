@@ -1,0 +1,229 @@
+Frequently Asked Questions for Synergy Users
+--------------------------------------------
+
+This page is useful for solving common problems when using Synergy. For
+a guide on how to setup Synergy, please see the [User Guide][]. This FAQ
+is based on the original FAQ written for version 1.1 and may need
+updating.
+
+Features
+--------
+
+### Can the server and client be using different operating systems?
+
+Yes. The Synergy network protocol is platform neutral so Synergy doesn't
+care what operating systems are running on the server and clients. This
+also applies between 32-bit and 64-bit versions of all the operating
+systems.
+
+### Can Synergy do drag and drop of files between computers?
+
+Yes! This is supported on Windows Vista and newer, and Mac OS X 10.7 and
+newer. You must drag a single file icon to the edge of the screen in the
+direction of the client or server, and the file will be copied to the
+desktop of the other computer a few seconds later.
+
+### Can Synergy share the display in addition to the mouse and keyboard?
+
+No. Synergy is a KBM (KeyBoard, Mouse) solution not a KVM (Keyboard,
+Video, Mouse) solution. However, future versions will probably support
+KVM. Hopefully, this will make Synergy suitable for managing large
+numbers of headless servers.
+
+### Does Synergy do drag and drop of windows?
+
+No. Synergy does not currently do anything with video or visual
+elements. This is a frequently requested feature so we are always
+keeping an eye out for ways to accomplish this.
+
+### What's the difference between Synergy and x2x, x2vnc, etc?
+
+Unlike x2x, synergy supports any number of computers and it doesn't
+require X on Microsoft Windows platforms. It also has more advanced
+clipboard support and synchronizes screensavers. x2vnc is also limited
+to two computers, requires the separate VNC package, and is really only
+appropriate for using an X system to control a non-X system. However,
+the right tool for the job is whatever tool works best for you.
+
+### What security/encryption does synergy provide?
+
+Synergy now offers built-in encryption. A passphrase is entered on both
+the client and server sides to encrypt and decrypt the traffic at each
+end. The encryption method is currently an in-house developed cipher
+which has not yet been broken. Starting with version 1.7, Synergy uses
+SSL encryption (if enabled) and discontinued the in-house encryption.
+
+Strong encryption and authentication is also available through SSH
+(secure shell). Run the SSH daemon (i.e. server) on the same computer
+that you run the Synergy server. It requires no special configuration to
+support Synergy. On each Synergy client system, run SSH with port
+forwarding:
+
+`       ssh -f -N -L 24800:server-hostname:24800 server-hostname`
+
+where server-hostname is the name of the SSH/Synergy server. Once SSH
+authenticates itself, start the Synergy client normally, except use
+localhost or 127.0.0.1 as the server's address. SSH will then encrypt
+all communication on behalf of (or in addition to) Synergy.
+Authentication is handled by the SSH authentication.
+
+A free implementation of SSH for Linux and many Unix systems is OpenSSH.
+For Windows there's a port of OpenSSH using Cygwin.
+
+### What is Bonjour and why do I care?
+
+Bonjour is one application of the ZeroConf protocol, which was
+originally designed for things like printers and scanners to be
+automatically found on a network when a new computer connects. In the
+old days, you would have to dig into the printer's settings or print a
+label on the front of the printer to find its IP address and add it to
+your setup manually. This protocol was developed to make this process
+easier. It was also designed to be used with anything which needed to
+have a client find a server, which is the case with Synergy. We use
+ZeroConf (Bonjour) to allow Synergy Clients to automatically find
+Synergy Servers. It's not perfect yet, sometimes it still picks the
+wrong IP to connect to, in which case you will need to uncheck “auto
+config” and enter in the correct IP manually. We hope to improve this
+feature in future versions until it is one of those “can't live without”
+sort of things.
+
+### Why isn't Synergy ported to platform XYZ?
+
+Probably because the developers don't have access to platform XYZ and/or
+are unfamiliar with development on XYZ. Also, Synergy has inherently
+non-portable aspects so there's a not-insignificant effort involved in
+porting.
+
+Setup
+-----
+
+### What should I call my screens in the configuration?
+
+The short answer is that you should use the name Synergy automatically
+detects whenever possible. In the GUI, this appears under the Client
+section, labeled “Screen Name”.
+
+You can use any unique name in the configuration file for each screen
+but it's easiest to use the hostname of the computer. That's the
+computer name not including the domain. For example, a computer with the
+fully qualified domain name xyz.foo.com has the hostname xyz. There
+should also be an alias for xyz to xyz.foo.com. If you don't use the
+computer's hostname, you have to tell Synergy the name of the screen
+using a command line option, or the startup dialog on Windows.
+
+Some systems are configured to report the fully qualified domain name as
+the hostname. For those systems it will be easier to use the FQDN as the
+screen name. Also note that a Mac OS X system named xyz may report its
+hostname as xyz.local. If that's the case for you then use xyz.local as
+the screen name.
+
+### How do I stop my game from minimizing when I leave the screen?
+
+Many full screen applications, particularly games, automatically
+minimize when they're no longer the active (foreground) application on
+Microsoft Windows. The Synergy server normally becomes the foreground
+when you switch to another screen in order to more reliably capture all
+user input causing those full screen applications to minimize. To
+prevent Synergy from stealing the foreground just click “Configure
+Server” and “Advanced Server Options” and check “Don't take foreground
+window on Windows servers.” If you turn this on then be aware that
+Synergy may not function correctly when certain programs, particularly
+the command prompt, are the foreground when you switch to other screens.
+Simply make a different program the foreground before switching to work
+around that.
+
+===Why doesn't ctrl+alt+del work on secondary screens?===
+Source: [http://www.robertwrose.com/2012/06/enabling-ctrl-alt-del-in-windows-7-over-synergy.html#comments Enabling CTRL-ALT-DEL in Windows 7 over Synergy]
+
+Using a Windows 7 machine as a client: With the default Windows settings you can not enter a CTRL-ALT-DEL SAS (Secure Attention Sequence) over Synergy on the Windows lock screen. This can be frustrating if you lock your computer frequently or login remotely.
+
+You can allow this behavior by allowing "services" to issue the SAS in the Windows Logon Options.  These are found in the Local Group Policy Editor.
+
+# Go to the Local Group Policy Editor (Type "gpedit.msc" in the run menu)
+# Dig down to Computer Configuration -> Administrative Templates -> Windows Components -> Windows Logon Options
+# Open up the "Disable or enable software Secure Attention Sequence" option
+# Set it to "Enabled" and then select "Services and Ease of Access applications" below, click OK
+
+You should now be able to issue a CTRL-ALT-DEL to Windows 7 over Synergy while on the lock screen. Note: Sometimes the CTRL and ALT keys stick, just press them each once to un-stick them.
+
+On Windows servers, ctrl+alt+del is always intercepted by Windows and is never passed to Synergy. We have implemented ctrl+alt+pause/break as a workaround, which will send a ctrl+alt+del sequence across to the client.
+
+On Mac laptops, the key labeled "delete" is actually backspace and ctrl+command+delete won't work. However fn+delete really is delete so fn+ctrl+command+delete will act as ctrl+alt+del on a windows secondary screen.
+
+===Why do my Caps-Lock, Num-Lock, Scroll-Lock keys act funny?===
+Some systems treat the Caps-Lock, Num-Lock, and Scroll-Lock keys differently than all the others. Whereas most keys report going down when physically pressed and going up when physically released, on these systems the Caps-Lock and Num-Lock keys report going down when being activated and going up when being deactivated. That is, when you press and release, say, Caps-Lock to activate it, it only reports going down, and when you press and release to deactivate it, it only reports going up. This confuses Synergy.
+
+There are options to fix this in the GUI settings. Or, if you use a configuration file, in the screens section, following each screen that has the problem, any or all of these lines as appropriate:
+
+        halfDuplexCapsLock = true
+        halfDuplexNumLock = true
+        halfDuplexScrollLock = true
+
+Then restart Synergy on the server or reload the configuration.
+
+===Does AltGr/Mode-Switch/ISO_Level3_Shift work?===
+Synergy does support the [[Altgr|AltGr]] button, but not to the same level as other, more common modifier keys. There is a bug in more recent versions which breaks this for some users; we plan to investigate this as soon as we get a chance. Patches thoughtfully considered.
+
+===The screen saver never starts. Why not?===
+Different platforms have different causes. Linux: The screen saver will not start while the mouse is on a client screen. This is a consequence of how X Windows, Synergy and xscreensaver work. Windows/Mac: This can result from a bug in the "Screen Saver Sync" feature. It doesn't happen to everyone, but turn this feature off (Configure Server -> Advanced Server Options) and reboot to fix it.
+
+==Errors==
+
+===My client can't connect. What's wrong?===
+Usually when the client can't connect, it will give you a reason. Some common ones are things like "Connection timed out" or "Connection refused". Some things to check are that the correct Server IP is entered (uncheck "auto config" if you need to override) and whether there is a firewall in the way. Also make sure the Synergy server is running and not giving any serious error messages.
+
+===Why doesn't my keyboard work on the client?===
+This assumes that the mouse does work on the client. This most often happens on Mac OSX. There is an option for "Secure Keyboard Entry" that seems to be put into effect whether the user selects it or not. If you run SecureAnywhere, it does this too. Open the Terminal app, and then pull down the Terminal menu. You'll see the option listed here. If it's checked, uncheck it. If it's unchecked, check it, and then uncheck it again.
+
+===What does "Cannot initialize hook library" mean?===
+This error can occur on a Synergy server running on a Microsoft Windows operating system. It means that Synergy is already running or possibly was not shut down properly. If it's running then first end the Synergy task. If it's not then try logging off and back on or rebooting then starting Synergy again.
+
+===I get the error 'Xlib: No protocol specified'. Why?===
+You're running Synergy without authorization to connect to the X display. Typically the reason is running Synergy as root when logged in as non-root. Just run Synergy as the same user that's logged in.
+
+### Linking fails on Solaris. What's wrong?
+
+Did you add
+
+`       --x-includes=/usr/openwin/include --x-libraries=/usr/openwin/lib`
+
+to the configure command line? Solaris puts the X11 includes and
+libraries in an unusual place and the above lets Synergy find them.
+
+### I can't switch screens anymore for no apparent reason. Why?
+
+Check that your Scroll Lock is not turned on. Also check that your
+screen icons on your Configure Server grid share an edge.
+
+### The cursor goes to secondary screen but won't come back. Why?
+
+Check your Scroll Lock key status - if this key is activated, Synergy
+will not switch screens.
+
+There is a bug involving Windows 8 and high-resolution screens. When it
+uses Desktop Display Scaling, Synergy is no longer able to read the
+mouse position correctly, and the cursor ends up stuck in the
+lower-right corner of the client (and invisible for some reason). You
+can tell if this is your case by right-clicking and see where the menu
+appears. See the bug at
+<https://github.com/synergy/synergy/issues/4041>.
+
+If you have written your configuration file from scratch, you must
+indicate the neighbors of every screen. Just because you've configured
+'Apple' to be to the left of 'Orange' does not mean that 'Orange' is to
+the right of 'Apple'. You must provide both in the configuration.
+
+### The cursor wraps from one edge of the screen to the opposite. Why?
+
+Double-check your screen arrangement in the grid - click “Configure
+Server” on your main Synergy window and make sure the screens are
+arranged in the same way that they are set up on your desk.
+
+If you're using a configuration file, check your links to make sure they
+point to the screen you intend. If you list 'Orange' to be to the left
+of 'Orange' then moving the mouse off the left edge of 'Orange' will
+make it jump to the right edge. Remove the offending line from the
+configuration if you don't want that behavior.
+
+===Cursor Stuck in bottom corner of machine on windows===
+On Windows machines with HiDPI screens, synergy malfunctions. To fix this, change the compatibility mode for the synergys.exe and syngergyc.exe to "Deactivate scaling for hiDPI" and "run as Windows 7" for "All Users". More information can be found in the [https://github.com/synergy/synergy/issues/4041 github issue].
