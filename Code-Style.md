@@ -376,7 +376,7 @@ always lowerCamel.
     return a == b;
 
     // incorrect
-    if (a) {
+    if (a == b) {
         return true;
     }
     else {
