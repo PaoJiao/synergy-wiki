@@ -361,9 +361,11 @@ potentially misleading, as it suggests that the file contains a class.
 
     // correct
     TcpFoobar m_tcpFoobar;
+    FoobarTcp m_foobarTcp;
 
     # incorrect
     TCPFoobar m_TCPFoobar;
+    FoobarTCP m_FoobarTCP;
 
 **Rationale:** TCPFoobar could be misread as TCPF-oobar, and members are
 always lowerCamel.
