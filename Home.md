@@ -1,5 +1,5 @@
 Welcome to the Synergy wiki.
 
-* [[Issues]]
-* [[Code Style]]
-* [[Buildbot]]
+What are you?
+* [[User]]
+* [[Developer]]
