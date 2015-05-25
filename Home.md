@@ -1,5 +1,6 @@
-Welcome to the Synergy wiki.
+**Welcome to the Synergy wiki.**
 
-What are you?
+*What are you?*
+
 * [[User]]
 * [[Developer]]
