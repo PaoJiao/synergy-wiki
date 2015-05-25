@@ -132,54 +132,118 @@ the command prompt, are the foreground when you switch to other screens.
 Simply make a different program the foreground before switching to work
 around that.
 
-===Why doesn't ctrl+alt+del work on secondary screens?===
-Source: [http://www.robertwrose.com/2012/06/enabling-ctrl-alt-del-in-windows-7-over-synergy.html#comments Enabling CTRL-ALT-DEL in Windows 7 over Synergy]
+### Why doesn't ctrl+alt+del work on secondary screens?
 
-Using a Windows 7 machine as a client: With the default Windows settings you can not enter a CTRL-ALT-DEL SAS (Secure Attention Sequence) over Synergy on the Windows lock screen. This can be frustrating if you lock your computer frequently or login remotely.
+Source: [Enabling CTRL-ALT-DEL in Windows 7 over Synergy][]
 
-You can allow this behavior by allowing "services" to issue the SAS in the Windows Logon Options.  These are found in the Local Group Policy Editor.
+Using a Windows 7 machine as a client: With the default Windows settings
+you can not enter a CTRL-ALT-DEL SAS (Secure Attention Sequence) over
+Synergy on the Windows lock screen. This can be frustrating if you lock
+your computer frequently or login remotely.
 
-# Go to the Local Group Policy Editor (Type "gpedit.msc" in the run menu)
-# Dig down to Computer Configuration -> Administrative Templates -> Windows Components -> Windows Logon Options
-# Open up the "Disable or enable software Secure Attention Sequence" option
-# Set it to "Enabled" and then select "Services and Ease of Access applications" below, click OK
+You can allow this behavior by allowing “services” to issue the SAS in
+the Windows Logon Options. These are found in the Local Group Policy
+Editor.
 
-You should now be able to issue a CTRL-ALT-DEL to Windows 7 over Synergy while on the lock screen. Note: Sometimes the CTRL and ALT keys stick, just press them each once to un-stick them.
+1.  Go to the Local Group Policy Editor (Type “gpedit.msc” in the run
+    menu)
+2.  Dig down to Computer Configuration -\> Administrative Templates -\>
+    Windows Components -\> Windows Logon Options
+3.  Open up the “Disable or enable software Secure Attention Sequence”
+    option
+4.  Set it to “Enabled” and then select “Services and Ease of Access
+    applications” below, click OK
 
-On Windows servers, ctrl+alt+del is always intercepted by Windows and is never passed to Synergy. We have implemented ctrl+alt+pause/break as a workaround, which will send a ctrl+alt+del sequence across to the client.
+You should now be able to issue a CTRL-ALT-DEL to Windows 7 over Synergy
+while on the lock screen. Note: Sometimes the CTRL and ALT keys stick,
+just press them each once to un-stick them.
 
-On Mac laptops, the key labeled "delete" is actually backspace and ctrl+command+delete won't work. However fn+delete really is delete so fn+ctrl+command+delete will act as ctrl+alt+del on a windows secondary screen.
+On Windows servers, ctrl+alt+del is always intercepted by Windows and is
+never passed to Synergy. We have implemented ctrl+alt+pause/break as a
+workaround, which will send a ctrl+alt+del sequence across to the
+client.
 
-===Why do my Caps-Lock, Num-Lock, Scroll-Lock keys act funny?===
-Some systems treat the Caps-Lock, Num-Lock, and Scroll-Lock keys differently than all the others. Whereas most keys report going down when physically pressed and going up when physically released, on these systems the Caps-Lock and Num-Lock keys report going down when being activated and going up when being deactivated. That is, when you press and release, say, Caps-Lock to activate it, it only reports going down, and when you press and release to deactivate it, it only reports going up. This confuses Synergy.
+On Mac laptops, the key labeled “delete” is actually backspace and
+ctrl+command+delete won't work. However fn+delete really is delete so
+fn+ctrl+command+delete will act as ctrl+alt+del on a windows secondary
+screen.
 
-There are options to fix this in the GUI settings. Or, if you use a configuration file, in the screens section, following each screen that has the problem, any or all of these lines as appropriate:
+  [Enabling CTRL-ALT-DEL in Windows 7 over Synergy]: http://www.robertwrose.com/2012/06/enabling-ctrl-alt-del-in-windows-7-over-synergy.html#comments
 
-        halfDuplexCapsLock = true
-        halfDuplexNumLock = true
-        halfDuplexScrollLock = true
+### Why do my Caps-Lock, Num-Lock, Scroll-Lock keys act funny?
+
+Some systems treat the Caps-Lock, Num-Lock, and Scroll-Lock keys
+differently than all the others. Whereas most keys report going down
+when physically pressed and going up when physically released, on these
+systems the Caps-Lock and Num-Lock keys report going down when being
+activated and going up when being deactivated. That is, when you press
+and release, say, Caps-Lock to activate it, it only reports going down,
+and when you press and release to deactivate it, it only reports going
+up. This confuses Synergy.
+
+There are options to fix this in the GUI settings. Or, if you use a
+configuration file, in the screens section, following each screen that
+has the problem, any or all of these lines as appropriate:
+
+`       halfDuplexCapsLock = true`\
+`       halfDuplexNumLock = true`\
+`       halfDuplexScrollLock = true`
 
 Then restart Synergy on the server or reload the configuration.
 
-===Does AltGr/Mode-Switch/ISO_Level3_Shift work?===
-Synergy does support the [[Altgr|AltGr]] button, but not to the same level as other, more common modifier keys. There is a bug in more recent versions which breaks this for some users; we plan to investigate this as soon as we get a chance. Patches thoughtfully considered.
+### Does AltGr/Mode-Switch/ISO\_Level3\_Shift work?
 
-===The screen saver never starts. Why not?===
-Different platforms have different causes. Linux: The screen saver will not start while the mouse is on a client screen. This is a consequence of how X Windows, Synergy and xscreensaver work. Windows/Mac: This can result from a bug in the "Screen Saver Sync" feature. It doesn't happen to everyone, but turn this feature off (Configure Server -> Advanced Server Options) and reboot to fix it.
+Synergy does support the [AltGr][] button, but not to the same level as
+other, more common modifier keys. There is a bug in more recent versions
+which breaks this for some users; we plan to investigate this as soon as
+we get a chance. Patches thoughtfully considered.
 
-==Errors==
+  [AltGr]: Altgr "wikilink"
 
-===My client can't connect. What's wrong?===
-Usually when the client can't connect, it will give you a reason. Some common ones are things like "Connection timed out" or "Connection refused". Some things to check are that the correct Server IP is entered (uncheck "auto config" if you need to override) and whether there is a firewall in the way. Also make sure the Synergy server is running and not giving any serious error messages.
+### The screen saver never starts. Why not?
 
-===Why doesn't my keyboard work on the client?===
-This assumes that the mouse does work on the client. This most often happens on Mac OSX. There is an option for "Secure Keyboard Entry" that seems to be put into effect whether the user selects it or not. If you run SecureAnywhere, it does this too. Open the Terminal app, and then pull down the Terminal menu. You'll see the option listed here. If it's checked, uncheck it. If it's unchecked, check it, and then uncheck it again.
+Different platforms have different causes. Linux: The screen saver will
+not start while the mouse is on a client screen. This is a consequence
+of how X Windows, Synergy and xscreensaver work. Windows/Mac: This can
+result from a bug in the “Screen Saver Sync” feature. It doesn't happen
+to everyone, but turn this feature off (Configure Server -\> Advanced
+Server Options) and reboot to fix it.
 
-===What does "Cannot initialize hook library" mean?===
-This error can occur on a Synergy server running on a Microsoft Windows operating system. It means that Synergy is already running or possibly was not shut down properly. If it's running then first end the Synergy task. If it's not then try logging off and back on or rebooting then starting Synergy again.
+Errors
+------
 
-===I get the error 'Xlib: No protocol specified'. Why?===
-You're running Synergy without authorization to connect to the X display. Typically the reason is running Synergy as root when logged in as non-root. Just run Synergy as the same user that's logged in.
+### My client can't connect. What's wrong?
+
+Usually when the client can't connect, it will give you a reason. Some
+common ones are things like “Connection timed out” or “Connection
+refused”. Some things to check are that the correct Server IP is entered
+(uncheck “auto config” if you need to override) and whether there is a
+firewall in the way. Also make sure the Synergy server is running and
+not giving any serious error messages.
+
+### Why doesn't my keyboard work on the client?
+
+This assumes that the mouse does work on the client. This most often
+happens on Mac OSX. There is an option for “Secure Keyboard Entry” that
+seems to be put into effect whether the user selects it or not. If you
+run SecureAnywhere, it does this too. Open the Terminal app, and then
+pull down the Terminal menu. You'll see the option listed here. If it's
+checked, uncheck it. If it's unchecked, check it, and then uncheck it
+again.
+
+### What does “Cannot initialize hook library” mean?
+
+This error can occur on a Synergy server running on a Microsoft Windows
+operating system. It means that Synergy is already running or possibly
+was not shut down properly. If it's running then first end the Synergy
+task. If it's not then try logging off and back on or rebooting then
+starting Synergy again.
+
+### I get the error 'Xlib: No protocol specified'. Why?
+
+You're running Synergy without authorization to connect to the X
+display. Typically the reason is running Synergy as root when logged in
+as non-root. Just run Synergy as the same user that's logged in.
 
 ### Linking fails on Solaris. What's wrong?
 
@@ -225,5 +289,11 @@ of 'Orange' then moving the mouse off the left edge of 'Orange' will
 make it jump to the right edge. Remove the offending line from the
 configuration if you don't want that behavior.
 
-===Cursor Stuck in bottom corner of machine on windows===
-On Windows machines with HiDPI screens, synergy malfunctions. To fix this, change the compatibility mode for the synergys.exe and syngergyc.exe to "Deactivate scaling for hiDPI" and "run as Windows 7" for "All Users". More information can be found in the [https://github.com/synergy/synergy/issues/4041 github issue].
+### Cursor Stuck in bottom corner of machine on windows
+
+On Windows machines with HiDPI screens, synergy malfunctions. To fix
+this, change the compatibility mode for the synergys.exe and
+syngergyc.exe to “Deactivate scaling for hiDPI” and “run as Windows 7”
+for “All Users”. More information can be found in the [github issue][].
+
+  [github issue]: https://github.com/synergy/synergy/issues/4041
