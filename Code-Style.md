@@ -382,3 +382,13 @@ always lowerCamel.
     else {
         return false;
     }
+
+#### Prefer throwing rather than returning error codes
+
+    // correct
+    throw GreatDisturbanceInForce("millions of voices suddenly cried out in terror, and were suddenly silenced");
+    throw MonkiesHaveTakenOverThePlanet(monkeyCount);
+
+    // incorrect
+    return -1; // something bad happened
+    return 42; // the wrong question was asked
