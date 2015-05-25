@@ -1,3 +1,3 @@
-[User](http://synergy-project.org/wiki/User) (legacy wiki)
+Legacy wiki: [User](http://synergy-project.org/wiki/User)
 
 * [[Synergy FAQ]]
