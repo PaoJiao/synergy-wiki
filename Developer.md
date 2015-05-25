@@ -1,4 +1,4 @@
-[Developer](http://synergy-project.org/wiki/Developer) (legacy)
+[Developer](http://synergy-project.org/wiki/Developer) (legacy wiki)
 
 * [[Issues]]
 * [[Code Style]]
