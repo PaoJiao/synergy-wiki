@@ -392,8 +392,11 @@ always lowerCamel.
     throw MonkiesHaveTakenOverThePlanet(monkeyCount);
 
     // incorrect
-    return -1; // something bad happened
     return 42; // the wrong question was asked
+    return -1; // there's a new virus in the database
+    return -1; // the rabbit is in the administration system
+    return -1; // too many garbage files, need more time
+    return -1; // expected cake, but there was none
 
 #### If error codes must be used, use constants instead of magic numbers
 
