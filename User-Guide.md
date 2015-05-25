@@ -2,7 +2,7 @@ Frequently Asked Questions for Synergy Users
 --------------------------------------------
 
 This page is useful for solving common problems when using Synergy. For
-a guide on how to setup Synergy, please see the [User Guide][]. This FAQ
+a guide on how to setup Synergy, please see the [[User Guide]]. This FAQ
 is based on the original FAQ written for version 1.1 and may need
 updating.
 
