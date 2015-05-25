@@ -367,3 +367,16 @@ potentially misleading, as it suggests that the file contains a class.
 
 **Rationale:** TCPFoobar could be misread as TCPF-oobar, and members are
 always lowerCamel.
+
+#### Return from expression instead of returning true or false
+
+    // correct
+    return a == b;
+
+    // incorrect
+    if (a) {
+        return true;
+    }
+    else {
+        return false;
+    }
