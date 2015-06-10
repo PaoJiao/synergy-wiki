@@ -63,7 +63,7 @@ The server computer will share its keyboard and mouse with clients. It needs to 
 * To move a client, drag the existing screen to another cell.
 * If you drag a screen on top of another screen, the screens will switch places.
 Note: This tool imposes a 5x3 limit of screens, though it is possible to have more screens
-by editing the [[Text Config|conﬁguration file]] manually.
+by editing the [[conﬁguration file|Text Config]] manually.
 
 Once you have added a client to your grid, it will have the name "Unnamed". Double-click the icon to change its name to the name of your client.
 
@@ -75,7 +75,7 @@ Now you need to click "Apply" to activate the conﬁguration. If the Apply butto
 
 At this point you should note the "IP Addresses" line at the top of the main Synergy window. You will use one of the IP Addresses listed here on each Client computer to connect it to the Server.
 
-''Note: A Synergy installation will have a default port number set for connecting (client) or listening (server). The server port on the Synergy server must not be blocked by a firewall (see the [http://synergy2.sourceforge.net/trouble.html Troubleshooting] page). Make sure the port the Synergy server is using allows incoming connections and that it is the same port number listed in the Synergy client (see '''Configure a Client''')''
+_Note: A Synergy installation will have a default port number set for connecting (client) or listening (server). The server port on the Synergy server must not be blocked by a firewall (see the [[Troubleshooting]] page). Make sure the port the Synergy server is using allows incoming connections and that it is the same port number listed in the Synergy client (see [Configure a Client](#configure-a-client))_
 
 ## Configure a Client
 Once you've conﬁgured your Server, you need to connect each Client to the server. Assuming you selected "Client" during the wizard, the Client option should be checked on the main window. In the "Server IP" field, enter the IP address of the server. This will be the one from the Server's Synergy screen, in the field named "IP Addresses".
@@ -83,7 +83,7 @@ Note: This field will also accept a hostname if you have DNS conﬁgured on your
 
 Click Apply or Start.
 
-''Note: The port number on the Synergy client must be set to the same number as the port number on the Synergy server. You may check this by going to Edit --> Settings (Win/Linux) or Synergy --> Preferences to display what port numbers each are set. ''
+_Note: The port number on the Synergy client must be set to the same number as the port number on the Synergy server. You may check this by going to Edit --> Settings (Win/Linux) or Synergy --> Preferences to display what port numbers each are set._
 
 Startup on Boot
 ---------------
