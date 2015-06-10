@@ -1,5 +1,3 @@
-Legacy version: [User Guide](http://synergy-project.org/wiki/User_Guide)
-
 Intro
 -----
 
