@@ -3,7 +3,7 @@
 ### [[User]]
 
 1. [[Synergy-FAQ]]
-
+2. [[User Guide]]
 
 ### [[Developer]]
 
