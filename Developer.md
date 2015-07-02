@@ -4,3 +4,4 @@ Legacy version: [Developer](http://synergy-project.org/wiki/Developer)
 * [[Code Style]]
 * [[Buildbot]]
 * [[Compiling]]
+* [[Release Process]]
