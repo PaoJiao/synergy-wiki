@@ -3,7 +3,7 @@
 **Note:** Takes approx 1-2 hours (depending on testing).
 
 1. Create release branch (e.g. 1.2.3-stable)
-2. Copy milestone to ChangeLog
+2. Copy [milestone](https://github.com/synergy/synergy/milestones) to ChangeLog
 3. Ensure version in CMakeLists.txt is correct
 4. Push and wait for buildbot to build (be patient)
 5. Wait for packages to be uploaded to webserver
