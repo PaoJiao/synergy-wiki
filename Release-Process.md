@@ -21,7 +21,7 @@
 
 This should be done for major minor releases, but not for maintenance releases.
 
-1. Post on Synergy blog (same as email)
+1. Post on [Synergy blog](http://synergyopensource.wordpress.com/) (same as email)
 2. Email subscription list (include blog link)
 3. Message mailing list (include ChangeLog)
 4. Post on the Synergy Forums
