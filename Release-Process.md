@@ -35,5 +35,5 @@ This should be done for major minor releases, but not for maintenance releases.
 
 ## Chinese
 
-Post on Renren page
-Post on Weibo (左耳朵耗子 IT程序猿)
+1. Post on [Renren page](http://page.renren.com/601718008)
+2. Post on Weibo ([左耳朵耗子](http://weibo.com/haoel) [IT程序猿](http://weibo.com/kuqin))
