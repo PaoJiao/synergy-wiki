@@ -24,10 +24,10 @@ This should be done for major minor releases, but not for maintenance releases.
 1. Post on [Synergy blog](http://synergyopensource.wordpress.com/) (same as email)
 2. Email subscription list (include blog link)
 3. Message mailing list (include ChangeLog)
-4. Post on the Synergy Forums
-5. Post on Facebook page (include blog link)
-6. Post on Twitter (include blog link)
-7. Post on Google+ page (include blog link)
+4. Post on the [Synergy Forums](http://synergy-project.org/forum/)
+5. Post on [Facebook page](https://www.facebook.com/SynergyOpenSource) (include blog link)
+6. Post on [Twitter](https://twitter.com/SynergyDev) (include blog link)
+7. Post on [Google+ page](https://plus.google.com/b/109104035534174281072/+Synergy/posts) (include blog link)
 8. Share on LinkedIn
 9. Share on StumbleUpon
 10.Share on reddit
