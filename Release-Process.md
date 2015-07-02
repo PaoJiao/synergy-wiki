@@ -28,10 +28,10 @@ This should be done for major minor releases, but not for maintenance releases.
 5. Post on [Facebook page](https://www.facebook.com/SynergyOpenSource) (include blog link)
 6. Post on [Twitter](https://twitter.com/SynergyDev) (include blog link)
 7. Post on [Google+ page](https://plus.google.com/b/109104035534174281072/+Synergy/posts) (include blog link)
-8. Share on LinkedIn
-9. Share on StumbleUpon
-10.Share on reddit
-11. Update Wikipedia versions (en, de, fr es, no, ru)
+8. Share on [LinkedIn](https://www.linkedin.com/home)
+9. Share on [StumbleUpon](https://www.stumbleupon.com/)
+10.Share on [reddit](https://www.reddit.com/)
+11. Update Wikipedia versions ([en](http://en.wikipedia.org/wiki/Synergy_(software)), [de](http://de.wikipedia.org/wiki/Synergy_(Software)), [fr](http://fr.wikipedia.org/wiki/Synergy_(logiciel)) [es](http://es.wikipedia.org/wiki/Synergy), [no](http://no.wikipedia.org/wiki/Synergy_(programvare)), [ru](http://ru.wikipedia.org/wiki/Synergy_(%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0)))
 
 ## Chinese
 
