@@ -1,4 +1,4 @@
-# Checklist
+## Checklist
 
 Note: Takes approx 1-2 hours (depending on testing).
 
