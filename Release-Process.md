@@ -1,6 +1,6 @@
 ## Checklist
 
-### Note: Takes approx 1-2 hours (depending on testing).
+**Note:** Takes approx 1-2 hours (depending on testing).
 
 1. Create release branch (e.g. 1.2.3-stable)
 2. Copy milestone to ChangeLog
@@ -15,7 +15,7 @@
 11. Upload to public website and test links
 12. Set current version in website settings
 13. Install previous version and test update check feature
-14. If master: set next version in CMakeLists.txt
+14. **If master:** set next version in CMakeLists.txt
 
 # Announce
 
