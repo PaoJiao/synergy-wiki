@@ -17,7 +17,7 @@
 13. Install previous version and test update check feature
 14. **If master:** set next version in CMakeLists.txt
 
-# Announce
+## Announce
 
 This should be done for major minor releases, but not for maintenance releases.
 
@@ -33,7 +33,7 @@ This should be done for major minor releases, but not for maintenance releases.
 10.Share on reddit
 11. Update Wikipedia versions (en, de, fr es, no, ru)
 
-# Chinese
+## Chinese
 
 Post on Renren page
 Post on Weibo (左耳朵耗子 IT程序猿)
