@@ -1,6 +1,6 @@
 ## Checklist
 
-Note: Takes approx 1-2 hours (depending on testing).
+### Note: Takes approx 1-2 hours (depending on testing).
 
 1. Create release branch (e.g. 1.2.3-stable)
 2. Copy milestone to ChangeLog
