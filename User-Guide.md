@@ -1,4 +1,5 @@
-[TOC]Intro
+[TOC]
+Intro
 -----
 
 Synergy lets you easily share your mouse and keyboard between multiple computers on your desk, and it’s Free and Open Source. Just move your mouse off the edge of one computer’s screen on to another. You can even share all of your clipboards. All you need is a network connection. Synergy is cross-platform (works on Windows, Mac OS X and Linux).
