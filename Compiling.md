@@ -12,7 +12,7 @@ Dependencies
 
 -   [Visual C++ Express 2008] (or VC++ 6.0 and above)
 -   [CMake]
--   [Python] (2.x)
+-   [Python] 2.x
 -   [Qt SDK 2010.02] (provides qmake and MinGW used for building
     the GUI. Note: use the MinGW version provided with Qt as a mismatch
     can cause random crashes)
