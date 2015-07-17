@@ -5,7 +5,7 @@ Synergy lets you easily share your mouse and keyboard between multiple computers
 
 This user guide is useful for setting up Synergy. For answers to common problems, please see the [[Synergy FAQ]]. This user guide is written for Synergy version 1.4 – please upgrade if you are using an older version (like 1.3). To ﬁnd your version, click the "Help" menu, and select "About" or "About Synergy".
 
-More information and download links can be found at [our website](http://synergy-project.org).
+More information and download links can be found at [the Synergy website](http://synergy-project.org).
 
 Install
 -------
