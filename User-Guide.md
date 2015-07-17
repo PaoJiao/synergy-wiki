@@ -111,4 +111,4 @@ This usually occurs in Vista and above, and is due to UAC in Windows. The soluti
 Click the "Edit" menu and select "Settings". Then change the "Logging level" drop-down to "Debug" or higher. The debug output should appear in the "Log" area of the main window (if not, try restarting the program). You are able to copy text from this area by right clicking.
 
 ### Where do I go for more troubleshooting?
-There is some additional troubleshooting in the [[Synergy FAQ]].
+There is some additional troubleshooting in the [[User FAQ]].
