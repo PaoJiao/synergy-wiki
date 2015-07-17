@@ -1,7 +1,7 @@
 Introduction
 ------------
 
-This guide is for Synergy version 1.3.5 and above. First you need to download the [Source-Code], then install the [dependencies](#dependencies), and finally follow the [compile instructions](#compile).
+This guide is for Synergy version 1.3.5 and above. First you need to download the [[Source Code]], then install the [dependencies](#dependencies), and finally follow the [compile instructions](#compile).
 
 Dependencies
 ------------
