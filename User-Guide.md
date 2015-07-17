@@ -3,11 +3,6 @@ Intro
 
 Synergy lets you easily share your mouse and keyboard between multiple computers on your desk, and it’s Free and Open Source. Just move your mouse off the edge of one computer’s screen on to another. You can even share all of your clipboards. All you need is a network connection. Synergy is cross-platform (works on Windows, Mac OS X and Linux).
 
-```
-[[images/ManualIntro.jpg]] 
-Image needs to be added
-```
-
 This user guide is useful for setting up Synergy. For answers to common problems, please see the [[Synergy FAQ]]. This user guide is written for Synergy version 1.4 – please upgrade if you are using an older version (like 1.3). To ﬁnd your version, click the "Help" menu, and select "About" or "About Synergy".
 
 More information and download links can be found at [our website](http://synergy-project.org).
@@ -115,4 +110,5 @@ This usually occurs in Vista and above, and is due to UAC in Windows. The soluti
 ### How do I send developers the debug output?
 Click the "Edit" menu and select "Settings". Then change the "Logging level" drop-down to "Debug" or higher. The debug output should appear in the "Log" area of the main window (if not, try restarting the program). You are able to copy text from this area by right clicking.
 
-### There is some additional troubleshooting in the [[Synergy FAQ]].
+### Where do I go for more troubleshooting?
+There is some additional troubleshooting in the [[Synergy FAQ]].
