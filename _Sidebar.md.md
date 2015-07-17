@@ -9,6 +9,6 @@
 ### [[Developer]]
 
 1. [[Issues]]
+4. [[Compiling]]
 2. [[Code Style]]
 3. [[Buildbot]]
-4. [[Compiling]]
