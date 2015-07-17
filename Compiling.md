@@ -121,11 +121,7 @@ If you already have [MacPorts], run:
 
     sudo port install cmake
 
-### Ubuntu 10.04 LTS
-
-    sudo apt-get install cmake make g++ xorg-dev libqt4-dev libcurl4-openssl-dev libavahi-compat-libdnssd-dev libssl-dev
-
-### Ubuntu 15.04
+### Ubuntu 10.04 to 15.04
 
     sudo apt-get install cmake make g++ xorg-dev libqt4-dev libcurl4-openssl-dev libavahi-compat-libdnssd-dev libssl-dev
 
