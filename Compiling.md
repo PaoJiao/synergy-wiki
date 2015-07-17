@@ -10,7 +10,8 @@ Dependencies
 
 #### Windows XP (and above)
 
--   [Visual C++ Express 2008] (or VC++ 6.0 and above)
+-   Visual Studio 2010 or [Visual C++ Express 2008]
+-   Visual Studio 2010 SP1
 -   [CMake]
 -   [Python] 2.x
 -   [Qt SDK 2010.02] (provides qmake and MinGW used for building
