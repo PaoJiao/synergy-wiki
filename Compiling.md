@@ -17,8 +17,7 @@ Dependencies
 -   [Qt SDK 2010.02] (provides qmake and MinGW used for building
     the GUI. Note: use the MinGW version provided with Qt as a mismatch
     can cause random crashes)
--   [Wix] v3.8 (for building the windows installer, since Synergy
-    version 1.4.17)
+-   [Wix v3.8](http://wixtoolset.org/releases/)
 -   [Bonjour SDK for Windows](https://developer.apple.com/downloads/?q=Bonjour%20SDK%20for%20Windows)
 
 You may need to add your Python install directory to the end of your
