@@ -19,6 +19,7 @@ Dependencies
     can cause random crashes)
 -   [Wix] v3.8 (for building the windows installer, since Synergy
     version 1.4.17)
+-   Bonjour SDK
 
 You may need to add your Python install directory to the end of your
 PATH environment variable (System &gt; Advanced System Settings &gt;
