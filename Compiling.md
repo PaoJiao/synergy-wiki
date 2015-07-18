@@ -201,8 +201,7 @@ the root of the source tree (not in the build directory).
 Building installers
 -------------------
 
-Use the `hm package` command to build installers. Of course you can only
-build those that are applicable for your platform.
+Use the `hm package [os]` command to build installers. Requires the [WiX Toolset](http://wixtoolset.org/).
 
   [Visual C++ Express 2008]: http://www.microsoft.com/express/vc/
   [Code::Blocks]: http://www.codeblocks.org/
