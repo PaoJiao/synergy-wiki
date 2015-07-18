@@ -14,9 +14,7 @@ Dependencies
 -   Visual Studio 2010 SP1
 -   [CMake]
 -   [Python] 2.x
--   [Qt SDK 2010.02] (provides qmake and MinGW used for building
-    the GUI. Note: use the MinGW version provided with Qt as a mismatch
-    can cause random crashes)
+-   [Qt SDK 2010.02]
 -   [Wix v3.8](http://wixtoolset.org/releases/)
 -   [Bonjour SDK for Windows](https://developer.apple.com/downloads/?q=Bonjour%20SDK%20for%20Windows)
 
