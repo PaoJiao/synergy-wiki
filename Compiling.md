@@ -26,6 +26,8 @@ prompt.
 Using Python 3.x will result in syntax errors as print became a function
 rather than a statement: [What's new in Python 3.0]
 
+Note: If you want to change the installed directory of Bonjour SDK, please double check the BONJOUR_SDK_HOME environment variable after installation.
+
 ##### Windows x64
 
 -   All dependencies required for Windows x86
