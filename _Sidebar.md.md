@@ -7,7 +7,7 @@
 1. [[Text Config]]
 1. [Legacy Wiki](http://synergy-project.org/wiki/User)
 
-### [[Developer]]
+### Developer
 
 1. [[Issues]]
 1. [[Compiling]]
