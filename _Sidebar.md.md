@@ -1,10 +1,11 @@
 # [[Home]]
 
-### [[User]]
+### User
 
 1. [[User Guide]]
-2. [[User FAQ]]
-3. [[Text Config]]
+1. [[User FAQ]]
+1. [[Text Config]]
+1. [Legacy Wiki](http://synergy-project.org/wiki/User)
 
 ### [[Developer]]
 
@@ -14,3 +15,4 @@
 1. [[Buildbot]]
 1. [[Source Code]]
 1. [[Version Planning]]
+1. [Legacy Wiki](http://synergy-project.org/wiki/Developer)
