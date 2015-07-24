@@ -78,7 +78,7 @@ Note: This field will also accept a hostname if you have DNS conﬁgured on your
 
 Click Apply or Start.
 
-_Note: The port number on the Synergy client must be set to the same number as the port number on the Synergy server. You may check this by going to Edit --> Settings (Win/Linux) or Synergy --> Preferences to display what port numbers each are set._
+_Note: The port number on the Synergy client must be set to the same number as the port number on the Synergy server. You may check this by going to Edit --> Settings (Win/Linux) or Synergy --> Preferences (Mac) to display what port numbers each are set. The default is 24800._
 
 Startup on Boot
 ---------------
