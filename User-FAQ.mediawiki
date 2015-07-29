@@ -85,7 +85,9 @@ Some systems treat the ''Caps Lock'', ''Num-Lock'', and ''Scroll Lock'' keys dif
 There are options to fix this in the GUI settings. Or, if you use a configuration file, in the ''screens'' section, following each screen that has the problem, any or all of these lines as appropriate:
 
 ''halfDuplexCapsLock = true''
+
 ''halfDuplexNumLock = true''
+
 ''halfDuplexScrollLock = true''
 
 Then restart Synergy on the server or reload the configuration.
@@ -132,14 +134,14 @@ Check that your Scroll Lock is not turned on. Also check that your screen icons 
 
 Check your ''Scroll Lock'' key status. If this key is activated, Synergy will not switch screens.
 
-There is a bug involving Windows 8 and high-resolution screens. When it uses ''Desktop Display Scaling'', Synergy is no longer able to read the mouse position correctly, and the cursor ends up stuck in the lower-right corner of the client (and invisible for some reason). You can tell if this is your case by right-clicking and see where the menu appears. See the bug [[https://github.com/synergy/synergy/issues/4041 here]].
+There is a bug involving Windows 8 and high-resolution screens. When it uses ''Desktop Display Scaling'', Synergy is no longer able to read the mouse position correctly, and the cursor ends up stuck in the lower-right corner of the client (and invisible for some reason). You can tell if this is your case by right-clicking and see where the menu appears. See the bug [https://github.com/synergy/synergy/issues/4041 here].
 
 If you have written your configuration file from scratch, you must indicate the neighbors of every screen. Just because you've configured ''Apple'' to be to the left of ''Orange'' does not mean that ''Orange'' is to the right of ''Apple''. You must provide both in the configuration.
 
 ===The cursor wraps from one edge of the screen to the opposite. Why?===
 
 Double-check your screen arrangement in the grid. In the Synergy GUI click ''Configure Server'' and make sure the screens are arranged in the same way that they are set up on your desk.
- 
+
 If you're using a configuration file, check your links to make sure they point to the screen you intend. If you list ''Orange'' to be to the left of ''Orange'' then moving the mouse off the left edge of ''Orange'' will make it jump to the right edge. Remove the offending line from the configuration if you don't want that behavior.
 
 ===Cursor Stuck in bottom corner of machine on windows===
