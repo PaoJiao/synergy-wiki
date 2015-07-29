@@ -18,7 +18,7 @@ To install Synergy on Windows, follow these steps:
 # click ''Install'' to begin the installation
 # once finished, click ''Close'' to ﬁnish the installation
 
-If this is your ﬁrst installation, the setup wizard should appear when you ﬁrst run Synergy. The wizard may also appear if we've changed something or added a new feature. Note that on Windows the wizard may have started behind another window. Once you have installed Synergy on all of your machines, skip to the [[User_Guide#Configure|Configure]] section of this guide.
+If this is your ﬁrst installation, the setup wizard should appear when you ﬁrst run Synergy. The wizard may also appear if we've changed something or added a new feature. Note that on Windows the wizard may have started behind another window. Once you have installed Synergy on all of your machines, skip to the [[User Guide#Configure|Configure]] section of this guide.
 
 ===Mac OS X===
 To install Synergy on Mac OS X, follow these steps:
@@ -28,7 +28,7 @@ To install Synergy on Mac OS X, follow these steps:
 # open your ''Applications'' folder
 # find the new Synergy app and double-click
 
-If this is your ﬁrst installation, the setup wizard should appear when you ﬁrst run Synergy. The wizard may also appear if we've changed something or added a new feature. Once you have installed Synergy on all of your machines, skip to the [[User_Guide#Configure|Configure]] section of this guide.
+If this is your ﬁrst installation, the setup wizard should appear when you ﬁrst run Synergy. The wizard may also appear if we've changed something or added a new feature. Once you have installed Synergy on all of your machines, skip to the [[User Guide#Configure|Configure]] section of this guide.
 
 ===Linux===
 To install Synergy on Linux, follow these steps:
@@ -68,7 +68,7 @@ At this point you should note the ''IP Addresses'' line at the top of the main S
 
 '''Note:''' A Synergy installation will have a default port number set for connecting (client) or listening (server). The server port on the Synergy server must not be blocked by a firewall (see the [[User Guide#Troubleshooting|Troubleshooting]] section). Make sure the port that the Synergy server is using allows incoming connections and that it is the same port number listed in the Synergy client (see [[User Guide#Configure_a_Client|Configure a Client]]).
 
-===Configure a Client===
+===Configure a Client
 Once you've conﬁgured your Server, you need to connect each Client to the server. Assuming you selected ''Client'' during the wizard, the Client option should be checked on the main window. In the ''Server IP'' field, enter the IP address of the server. This will be the one from the Server's ''Synergy'' screen, in the ''IP Addresses'' field.
 '''Note:''' This field will also accept a hostname if you have DNS conﬁgured on your local network (most users do not).
 
@@ -86,7 +86,7 @@ There is currently no way to log in to a Mac or Linux through Synergy. We have n
 
 ==Troubleshooting==
 
-===My Client and Server both state they are "connected" but my mouse does not leave the screen===
+====My Client and Server both state they are "connected" but my mouse does not leave the screen====
 Is your ''Scroll Lock'' key activated? This is useful for when playing video games or other full screen applications. The Scroll Lock key can be used to prevent the mouse switching input to another screen. Users that don't have a Scroll Lock key can re-assign the lock key in the Synergy GUI at ''Conﬁgure Server'' --> ''Hotkeys'' tab.
 
 ===Why is the mouse over-sensitive in games on the client?===
