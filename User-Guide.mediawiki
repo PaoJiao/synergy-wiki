@@ -71,7 +71,7 @@ _Note: A Synergy installation will have a default port number set for connecting
 
 ===Configure a Client===
 Once you've conﬁgured your Server, you need to connect each Client to the server. Assuming you selected "Client" during the wizard, the Client option should be checked on the main window. In the "Server IP" field, enter the IP address of the server. This will be the one from the Server's Synergy screen, in the field named "IP Addresses".
-Note: This field will also accept a hostname if you have DNS conﬁgured on your local network (most users do not).
+'''''Note:''''' ''This field will also accept a hostname if you have DNS conﬁgured on your local network (most users do not).''
 
 Click Apply or Start.
 
