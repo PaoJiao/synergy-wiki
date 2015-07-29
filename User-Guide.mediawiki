@@ -67,15 +67,15 @@ Now you need to click "Apply" to activate the conﬁguration. If the Apply butto
 
 At this point you should note the "IP Addresses" line at the top of the main Synergy window. You will use one of the IP Addresses listed here on each Client computer to connect it to the Server.
 
-_Note: A Synergy installation will have a default port number set for connecting (client) or listening (server). The server port on the Synergy server must not be blocked by a firewall (see the [[User Guide#Troubleshooting|Troubleshooting]] section). Make sure the port the Synergy server is using allows incoming connections and that it is the same port number listed in the Synergy client (see [[User Guide#Configure a Client|Configure a Client]]).
+'''Note:''' A Synergy installation will have a default port number set for connecting (client) or listening (server). The server port on the Synergy server must not be blocked by a firewall (see the [[User Guide#Troubleshooting|Troubleshooting]] section). Make sure the port the Synergy server is using allows incoming connections and that it is the same port number listed in the Synergy client (see [[User Guide#Configure a Client|Configure a Client]]).
 
 ===Configure a Client===
 Once you've conﬁgured your Server, you need to connect each Client to the server. Assuming you selected "Client" during the wizard, the Client option should be checked on the main window. In the "Server IP" field, enter the IP address of the server. This will be the one from the Server's Synergy screen, in the field named "IP Addresses".
-'''''Note:''''' ''This field will also accept a hostname if you have DNS conﬁgured on your local network (most users do not).''
+'''Note:''' This field will also accept a hostname if you have DNS conﬁgured on your local network (most users do not).
 
 Click Apply or Start.
 
-'''''Note:''''' ''The port number on the Synergy client must be set to the same number as the port number on the Synergy server. You may check this by going to Edit --> Settings (Win/Linux) or Synergy --> Preferences (Mac) to display what port numbers each are set. The default is 24800.''
+'''Note:''' The port number on the Synergy client must be set to the same number as the port number on the Synergy server. You may check this by going to Edit --> Settings (Win/Linux) or Synergy --> Preferences (Mac) to display what port numbers each are set. The default is 24800.
 
 ==Startup on Boot==
 
