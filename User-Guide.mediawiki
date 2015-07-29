@@ -67,7 +67,7 @@ Now you need to click "Apply" to activate the conﬁguration. If the Apply butto
 
 At this point you should note the "IP Addresses" line at the top of the main Synergy window. You will use one of the IP Addresses listed here on each Client computer to connect it to the Server.
 
-_Note: A Synergy installation will have a default port number set for connecting (client) or listening (server). The server port on the Synergy server must not be blocked by a firewall (see the [[#Troubleshooting] section). Make sure the port the Synergy server is using allows incoming connections and that it is the same port number listed in the Synergy client (see [[#Configure a Client]]).
+_Note: A Synergy installation will have a default port number set for connecting (client) or listening (server). The server port on the Synergy server must not be blocked by a firewall (see the [[#Troubleshooting]] section). Make sure the port the Synergy server is using allows incoming connections and that it is the same port number listed in the Synergy client (see [[#Configure a Client]]).
 
 ===Configure a Client===
 Once you've conﬁgured your Server, you need to connect each Client to the server. Assuming you selected "Client" during the wizard, the Client option should be checked on the main window. In the "Server IP" field, enter the IP address of the server. This will be the one from the Server's Synergy screen, in the field named "IP Addresses".
