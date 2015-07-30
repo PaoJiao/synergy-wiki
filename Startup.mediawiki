@@ -1,0 +1,162 @@
+==How to make Synergy run automatically at startup==
+
+===Windows===
+
+The official way is to use the Windows service feature in 1.4 which works with Windows Vista/7. This is now the default behavior upon installation. To have Synergy ''not'' start on boot, you need to edit the properties of the service and set it to Manual.
+
+===Mac===
+
+You can use a [[Startup/Mac OSX plist Instructions | plist through launchd]]. There's also an example of this method in the source code.
+
+You can use [[Startup/Mac OSX LoginItems Instructions | Login Items in the Accounts control panel]]. 1.4.12 w/ encryption - 8/21/13 [[User:Kitz | Kitz]]
+
+===Linux===
+
+Originates from Bug #1755
+
+Howto start synergy client (synergyc) at boot on FC11 (Fedora Core 11)
+
+This is not really a bug report - but just some hints how to successfuly install synergyc so that it start at boot in Fedora Core 11. 
+Please integrate this in the main help.
+
+<pre>
+/etc/gdm/Init/Default:
+# This script needs to start synergyc as user root - this synergyc runs on the
+# login screen. IMPORTANT: I've found that at boot time NAME LOOKUP does not
+# YET work so you MUST use the server's IP ADDRESS otherwise synergyc will
+# fail to connect and exit after a few seconds (--reconnect does not work):
+# so the BUG REPORT/enhancement request would be to make --reconnect work so
+# that it never/ever exits synergyc - even if name lookup does not work, or
+# if there is no display, etc.. As a (bad) alternative you can also use: 
+# (sleep 10; /usr/bin/synergyc YOUR_SERVER_HOSTNAME) &
+# NOTE: I've also found that sometimes you need to kill synergyc with -9
+/usr/bin/killall -9 synergyc 
+sleep 1 
+/usr/bin/synergyc YOUR_SERVER_IP
+
+/etc/gdm/PostLogin/Default:
+# this script needs to kill the root synergyc started by Init/Default
+/usr/bin/killall synergyc 
+sleep 1 
+
+/etc/gdm/Xsession:
+# this script will start the user synergyc - the one that runs after you have logged in 
+# Note: here you can also use your server's hostname, instead of the IP
+/usr/bin/killall synergyc # no need, I guess?
+sleep 1 
+/usr/bin/synergyc YOUR_SERVER_IP
+</pre>
+
+I took a different approach - wrote a script to start/stop synergyc. 
+
+I changed my scripts as follows:
+
+<pre>
+# end of file, before exit 0
+/etc/gdm/Init/Default:# SYNERGY BEGIN
+/etc/gdm/Init/Default:# start synergy as root user (login screen)
+/etc/gdm/Init/Default:/usr/local/bin/synergyc-ctl.sh start
+/etc/gdm/Init/Default:# SYNERGY END
+
+# top of file, after comments
+# For at least CentOS 6.2, this needs to be in /etc/gdm/PreSession/Default
+/etc/gdm/PostLogin/Default:# SYNERGY BEGIN
+/etc/gdm/PostLogin/Default:# stop root synergy (login screen)
+/etc/gdm/PostLogin/Default:/usr/local/bin/synergyc-ctl.sh stop
+/etc/gdm/PostLogin/Default:# SYNERGY END
+
+# top of file, after comments
+/etc/gdm/Xsession:# SYNERGY BEGIN
+/etc/gdm/Xsession:# start synergy as login user
+/etc/gdm/Xsession:/usr/local/bin/synergyc-ctl.sh start
+/etc/gdm/Xsession:# SYNERGY END
+</pre>
+
+Here's also /usr/local/bin/synergyc-ctl.sh:
+
+Here is an [https://gist.github.com/roadst4r/487bb0365d488a9f9ce7 updated version of this script] which includes support for setting crypto, display, logs, screenname.
+
+<pre>
+#!/bin/sh
+OP=${1}
+
+# put the synergy server IP here (at boot time name lookup does not work
+# and synergyc will fail and exit, using the IP prevents the problem)
+SERVER_IP=192.168.1.10
+
+SYNERGYC=/usr/bin/synergyc
+PS=/bin/ps
+GREP=/bin/grep
+WC=/usr/bin/wc
+PIDOF=/sbin/pidof
+SLEEP=/bin/sleep
+
+# check synergyc is running
+function sc_check
+{
+  N=`${PS} -ef | ${GREP} "${SYNERGYC}"  | ${GREP} -v "${GREP}" | ${WC} -l`
+  return $N
+}
+
+# kill synergyc if running
+function sc_kill
+{
+  SIG=""
+  while true
+  do
+    sc_check
+    if [ $? -eq 1 ]
+    then
+      PIDS=`${PIDOF} "${SYNERGYC}"`
+      if [ ${PIDS} != "" ]
+      then
+        kill ${SIG} ${PIDS}
+      fi
+    else
+      break
+    fi
+
+    ${SLEEP} 1
+    SIG="-9"
+  done
+}
+
+# start synergyc
+function sc_start
+{
+  while true
+  do
+    ${SYNERGYC} "${SERVER_IP}"
+
+    ${SLEEP} 2
+
+    sc_check
+    if [ $? -eq 1 ]
+    then
+      break
+    fi
+  done
+}
+
+case "${OP}" in
+  start)
+    sc_kill
+    sc_start
+  ;;
+  stop)
+    sc_kill
+  ;;
+  *)
+    echo "usage: synergyc-ctl [start|stop]"
+    exit 1
+  ;;
+esac
+
+exit 0
+</pre>
+
+You can also simply put the command to start synergy as a daemon in ~/.xinitrc, though this won't give you the fine-grained control of a startup script.
+
+ synergys --daemon --restart --display :0 --address 10.137.10.163
+ 
+ tinywm
