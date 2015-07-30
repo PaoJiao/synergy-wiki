@@ -2,35 +2,35 @@
 
 ===Fully Supported===
 
-# Windows XP SP3 through latest non-beta version
-# Ubuntu 14.04
-# Mac OS 10.6 through the latest non-beta version
+* Windows XP SP3 through latest non-beta version
+* Ubuntu 14.04
+* Mac OS 10.6 through the latest non-beta version
 
 ===Partly Supported===
 
 We're not actively testing on these platforms, so our software may not work properly but may also work without issues.
 
-# Windows 2003 Server
-# openSUSE
-# Fedora
-# Ubuntu 13.10 and below, or 14.10 and above
-# RedHat 6
+* Windows 2003 Server
+* openSUSE
+* Fedora
+* Ubuntu 13.10 and below, or 14.10 and above
+* RedHat 6
 
 ===Unsupported===
 
 We are no longer supporting these platforms due to lack of support for new features.
 
-# Mac OS 10.5 Leopard and below
-# Windows NT/2000
-# Windows 95/98/ME
+* Mac OS 10.5 Leopard and below
+* Windows NT/2000
+* Windows 95/98/ME
 
 ==Network requirements==
 
-# Systems using Synergy must be on the same local network.
-# The network can be wired or wireless.
+* Systems using Synergy must be on the same local network.
+* The network can be wired or wireless.
 
 ==Other requirements==
 
-# The Synergy system acting as the "server" must have a keyboard and mouse (or pointing device).
-# The "client" systems can have keyboards/mice, but none are necessary once they are configured and Synergy is running. It will be necessary to control them without Synergy (either locally or via a remote login) until Synergy is up and running on the server and client.
-# Synergy is a KBM application (KeyBoard and Mouse), not KVM (Keyboard, Video, and Mouse) so in most circumstances each system must have a monitor.
+* The Synergy system acting as the "server" must have a keyboard and mouse (or pointing device).
+* The "client" systems can have keyboards/mice, but none are necessary once they are configured and Synergy is running. It will be necessary to control them without Synergy (either locally or via a remote login) until Synergy is up and running on the server and client.
+* Synergy is a KBM application (KeyBoard and Mouse), not KVM (Keyboard, Video, and Mouse) so in most circumstances each system must have a monitor.
