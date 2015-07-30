@@ -1,14 +1,18 @@
-== About textual configuration files ==
+==About textual configuration files==
 
 Most of the time, needing to deal with text-based configuration files directly can be avoided by using the GUI, however there are times when a text config is necessary.
 
-When a text-based configuration file is needed you can specify it on the command-line using the <code>--config</code> option. Example: <code>synergys --config /path/to/synergy.conf</code>   Synergy also checks certain pathnames to load the configuration file if you don't specify a path using the <code>--config</code>. Running <code>synergys --help</code> reports those pathnames.
+When a text-based configuration file is needed you can specify it on the command-line using the <code>--config</code> option. Example:
 
-If you need to access a feature that is not available in the GUI, but otherwise have it working, you can get a good starting point by exporting your config from the GUI by using the File -> Save Configuration As... option.
+  synergys --config /path/to/synergy.conf
 
-== Why would I want to use a text-based config? ==
+Synergy also checks certain pathnames to load the configuration file if you don't specify a path using the <code>--config</code>. Running <code>synergys --help</code> reports those pathnames.
 
-The number one reason is that you don't really have a choice. If you aren't using a gui than you have to use a text-based config file.
+If you need to access a feature that is not available in the GUI, but otherwise have it working, you can get a good starting point by exporting your config from the GUI by using the ''File'' --> ''Save Configuration As...'' option.
+
+==Why would I want to use a text-based config?==
+
+The number one reason is that you don't really have a choice. If you aren't using a GUI than you have to use a text-based config file.
 
 The second reason is that it gives you more control. The GUI cannot create advanced configuration such as non-reciprocal connections. An example of a non-reciprocal connection would be that if you go right from screen A you get to screen B, but if you then go left from screen B you get to screen C rather than back to screen A as you would in a reciprocal connection.
 
@@ -17,13 +21,13 @@ Other considerations:
 * It's easier to share configs with people
 * You can have multiple config files (like if you use a laptop in multiple places)
 
-== File Format ==
+==File Format==
 
 The configuration file is a plain text file. Use any text editor to create the configuration file. The file is broken into sections and each section has the form:
 
- section: ''name''
- 	''args''
- end
+  section: ''name''
+  	''args''
+  end
 
 Comments are introduced by ''#'' and continue to the end of the line. ''name'' must be one of the following:
 
@@ -462,21 +466,21 @@ section: options
 end
 </pre>
 
-=== AltGr key ===
+===AltGr key===
 
-The following screen config allows the mapping for Alt to AltGr. Although this may not work, see [[#1]]
+The following screen config allows the mapping for Alt to AltGr. Although this may not work, see [https://github.com/synergy/synergy/issues/4411 bug #4411].
 <pre>
-section: screens
-	client1:
-		altgr = alt          # mapping to fix AltGr key not working on windows clients (e.g. @-Symbol etc.).
-		                     # See reference [1]
-end
+  section: screens
+	  client1:
+  		altgr = alt          # mapping to fix AltGr key not working on windows clients (e.g. @-Symbol etc.).
+  		                     # See reference [1]
+  end
 </pre>
 
 See also: the man page for synergys
 
 <span id="1">[1]</span> [https://github.com/synergy/synergy/issues/4411 Synergy Issue Tracker Bug #4411 - AltGr not sent to client from server]
 
-== Tips/Notes ==
+==Tips/Notes==
 
 The GUI actually creates a text-based config behind the scenes.
