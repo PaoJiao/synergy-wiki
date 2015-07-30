@@ -25,9 +25,9 @@ Other considerations:
 
 The configuration file is a plain text file. Use any text editor to create the configuration file. The file is broken into sections and each section has the form:
 
-  section: ''name''
-  	''args''
-  end
+ section: ''name''
+ 	''args''
+ end
 
 Comments are introduced by ''#'' and continue to the end of the line. ''name'' must be one of the following:
 
