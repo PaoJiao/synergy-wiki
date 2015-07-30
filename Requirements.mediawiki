@@ -1,12 +1,12 @@
-Supported operating systems.
+==Supported operating systems==
 
-==Fully Supported==
+===Fully Supported===
 
   * Windows XP SP3 through latest non-beta version
   * Ubuntu 14.04
   * Mac OS 10.6 through the latest non-beta version
 
-==Partly Supported==
+===Partly Supported===
 
 We're not actively testing on these platforms, so our software may not work properly but may also work without issues.
 
@@ -16,7 +16,7 @@ We're not actively testing on these platforms, so our software may not work prop
   * Ubuntu 13.10 and below, or 14.10 and above
   * RedHat 6
 
-==Unsupported==
+===Unsupported===
 
 We are no longer supporting these platforms due to lack of support for new features.
 
