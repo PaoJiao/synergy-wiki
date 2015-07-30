@@ -2,11 +2,9 @@ Supported operating systems.
 
 ==Fully Supported==
 
-  * Windows XP SP3
-  * Windows Vista SP1
-  * Windows 7
+  * Windows XP SP3 through latest non-beta version
   * Ubuntu 14.04
-  * Mac OS 10.6 through the latest customer-release version.
+  * Mac OS 10.6 through the latest non-beta version
 
 ==Partly Supported==
 
