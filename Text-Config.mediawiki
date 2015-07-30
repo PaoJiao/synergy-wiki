@@ -51,7 +51,7 @@ The file is parsed top to bottom and names cannot be used before they've been de
          halfDuplexNumLock = true
      curly:
          meta = alt
- end
+  end
 
 This declares three screens named ''moe'', ''larry'', and ''curly''. Screen ''larry'' has half-duplex ''Caps Lock'' and ''Num Lock'' keys (see below) and screen ''curly'' converts the ''Meta'' modifier key to the ''Alt'' modifier key.
 
@@ -83,7 +83,7 @@ A screen can have the following options:
 :<code>meta = {shift|ctrl|alt|meta|super|none}</code>
 :<code>super = {shift|ctrl|alt|meta|super|none}</code>
 : Map a modifier key pressed on the server's keyboard to a different modifier on this client. This option only has an effect on a client screen; it's accepted and ignored on the server screen.
-:For instance, you can map the ''Shift'' key to ''Shift'' (the default), ''Ctrl'', ''Alt'', ''Meta'', ''Super'', or nothing. Normally, you wouldn't remap ''Shift'' or ''Ctrl''. You might, however, have an X11 server with ''Meta'' bound to the ''Alt'' keys. To use this server effectively with a Windows client, which doesn't use ''Meta'' but uses ''Alt'' extensively, you'll want the Windows client to map ''Meta'' to ''Alt'' (using <code>meta = alt</code>).
+: For instance, you can map the ''Shift'' key to ''Shift'' (the default), ''Ctrl'', ''Alt'', ''Meta'', ''Super'', or nothing. Normally, you wouldn't remap ''Shift'' or ''Ctrl''. You might, however, have an X11 server with ''Meta'' bound to the ''Alt'' keys. To use this server effectively with a Windows client, which doesn't use ''Meta'' but uses ''Alt'' extensively, you'll want the Windows client to map ''Meta'' to ''Alt'' (using <code>meta = alt</code>).
 
 ===aliases===
 
@@ -137,12 +137,12 @@ Note that links do not have to be symmetrical; for instance, here the edge betwe
 ====List of options====
 
 * <code>heartbeat = N</code>
-:The server will expect each client to send a message no less than every ''N'' milliseconds. If no message arrives from a client within ''3N'' seconds the server forces that client to disconnect.
-:If synergy fails to detect clients disconnecting while the server is sleeping or vice versa, try using this option.
+: The server will expect each client to send a message no less than every ''N'' milliseconds. If no message arrives from a client within ''3N'' seconds the server forces that client to disconnect.
+: If synergy fails to detect clients disconnecting while the server is sleeping or vice versa, try using this option.
 
 * <code>switchCorners = <corners></code>
-:Synergy won't switch screens when the mouse reaches the edge of the screen if it's in a listed corner. The size of all corners is given by the <code>switchCornerSize</code> option.
-:Corners are specified by a list using the following names:
+: Synergy won't switch screens when the mouse reaches the edge of the screen if it's in a listed corner. The size of all corners is given by the <code>switchCornerSize</code> option.
+: Corners are specified by a list using the following names:
 :* <code>none</code> -- no corners
 :* <code>top-left</code> -- the top left corner
 :* <code>top-right</code> -- the top right corner
@@ -153,25 +153,25 @@ Note that links do not have to be symmetrical; for instance, here the edge betwe
 :* <code>top</code> -- left and right top corners
 :* <code>bottom</code> -- left and right bottom corners
 :* <code>all</code> -- all corners
-:The first name in the list is one of the above names and defines the initial set of corners. Subsequent names are prefixed with + or - to add the corner to or remove the corner from the set, respectively. For example: <code>all -left +top-left</code>  starts will all corners, removes the left corners (top and bottom) then adds the top-left back in, resulting in the top-left, bottom-left and bottom-right corners.
+: The first name in the list is one of the above names and defines the initial set of corners. Subsequent names are prefixed with + or - to add the corner to or remove the corner from the set, respectively. For example: <code>all -left +top-left</code>  starts will all corners, removes the left corners (top and bottom) then adds the top-left back in, resulting in the top-left, bottom-left and bottom-right corners.
 
 * <code>switchCornerSize = N</code>
-:Sets the size of all corners in pixels. The cursor must be within <code>N</code> pixels of the corner to be considered to be in the corner.
+: Sets the size of all corners in pixels. The cursor must be within <code>N</code> pixels of the corner to be considered to be in the corner.
 
 * <code>switchDelay = N</code>
-:Synergy won't switch screens when the mouse reaches the edge of a screen unless it stays on the edge for <code>N</code> milliseconds. This helps prevent unintentional switching when working near the edge of a screen.
+: Synergy won't switch screens when the mouse reaches the edge of a screen unless it stays on the edge for <code>N</code> milliseconds. This helps prevent unintentional switching when working near the edge of a screen.
 
 * <code>switchDoubleTap = N</code>
 : Synergy won't switch screens when the mouse reaches the edge of a screen unless it's moved away from the edge and then back to the edge within <code>N</code> milliseconds. With the option you have to quickly tap the edge twice to switch. This helps prevent unintentional switching when working near the edge of a screen.
 
 * <code>screenSaverSync = {true|false}</code>
-: If set to ''false'' then synergy won't synchronize screen savers. Client screen savers will start according to their individual configurations. The server screen saver won't start if there is input, even if that input is directed toward a client screen.
+: If set to ''false'' then Synergy won't synchronize screen savers. Client screen savers will start according to their individual configurations. The server screen saver won't start if there is input, even if that input is directed toward a client screen.
 
 * <code>relativeMouseMoves = {true|false}</code>
-: If set to ''true'' then secondary screens move the mouse using relative rather than absolute mouse moves when and only when the cursor is locked to the screen (by Scroll Lock or a configured hot key). This is intended to make synergy work better with certain games. If set to ''false'' or not set then all mouse moves are absolute.
+: If set to ''true'' then secondary screens move the mouse using relative rather than absolute mouse moves when and only when the cursor is locked to the screen (by ''Scroll Lock'' or a configured hot key). This is intended to make Synergy work better with certain games. If set to ''false'' or not set then all mouse moves are absolute.
 
 * <code>keystroke(key) = actions</code>
-: Binds the ''key'' combination key to the given ''actions''. ''key'' is an optional list of modifiers (''shift'', ''control'', ''alt'', ''meta'' or ''super'') optionally followed by a character or a key name, all separated by + (plus signs). You must have either modifiers or a character/key name or both. See below for [[#Keynames|valid key names]] and [[#Actions| actions]].
+: Binds the ''key'' combination key to the given ''actions''. ''key'' is an optional list of modifiers (''shift'', ''control'', ''alt'', ''meta'' or ''super'') optionally followed by a character or a key name, all separated by + (plus signs). You must have either modifiers or a character/key name or both. See below for [[#Keynames|valid key names]] and [[#Actions|actions]].
 : Keyboard hot keys are handled while the cursor is on the primary screen and secondary screens. Separate actions can be assigned to press and release.
 
 * <code>mousebutton(button) = actions</code>
@@ -180,9 +180,9 @@ Note that links do not have to be symmetrical; for instance, here the edge betwe
 
 You can use both the <code>switchDelay</code> and <code>switchDoubleTap</code> options at the same time. Synergy will switch when either requirement is satisfied.
 
-==== Actions ====
+====Actions====
 
-Actions are two lists of individual actions separated by commas. The two lists are separated by a semicolon. Either list can be empty and if the second list is empty then the semicolon is optional. The first list lists actions to take when the condition becomes true (e.g. the hot key or mouse button is pressed) and the second lists actions to take when the condition becomes false (e.g. the hot key or button is released). The condition becoming true is called activation and becoming false is called deactivation. Allowed individual actions are:
+Actions are two lists of individual actions separated by commas. The two lists are separated by a '';'' (semicolon). Either list can be empty and if the second list is empty then the semicolon is optional. The first list lists actions to take when the condition becomes true (e.g. the hot key or mouse button is pressed) and the second lists actions to take when the condition becomes false (e.g. the hot key or button is released). The condition becoming true is called activation and becoming false is called deactivation. Allowed individual actions are:
 
 * <code>keystroke(key[,screens])</code>
 
@@ -191,7 +191,7 @@ Actions are two lists of individual actions separated by commas. The two lists a
 * <code>keyUp(key[,screens])</code>
 : Synthesizes the modifiers and key given in ''key'' which has the same form as described in the ''keystroke'' option. If given, ''screens'' lists the screen or screens to direct the event to, regardless of the active screen. If not given then the event is directed to the active screen only.
 : ''keyDown'' synthesizes a key press and ''keyUp'' synthesizes a key release. ''keystroke'' synthesizes a key press on activation and a release on deactivation and is equivalent to a ''keyDown'' on activation and ''keyUp'' on deactivation.
-: ''screens'' is either * to indicate all screens or a colon (:) separated list of screen names. (Note that the screen name must have already been encountered in the configuration file so you'll probably want to put actions at the bottom of the file.)
+: ''screens'' is either ''*'' (asterisk) to indicate all screens or a '':'' (colon) separated list of screen names. (Note that the screen name must have already been encountered in the configuration file so you'll probably want to put ''actions'' at the bottom of the file.)
 
 * <code>mousebutton(button)</code>
 * <code>mouseDown(button)</code>
@@ -200,7 +200,7 @@ Actions are two lists of individual actions separated by commas. The two lists a
 : ''mouseDown'' synthesizes a mouse press and ''mouseUp'' synthesizes a mouse release. ''mousebutton'' synthesizes a mouse press on activation and a release on deactivation and is equivalent to a ''mouseDown'' on activation and ''mouseUp'' on deactivation.
 
 * <code>lockCursorToScreen(mode)</code>
-: Locks the cursor to or unlocks the cursor from the active screen. ''mode'' can be ''off'' to unlock the cursor, ''on'' to lock the cursor, or ''toggle'' to toggle the current state. The default is ''toggle''. If the configuration has no <code>lockCursorToScreen</code> action and Scroll Lock is not used as a hot key then Scroll Lock toggles cursor locking.
+: Locks the cursor to or unlocks the cursor from the active screen. ''mode'' can be ''off'' to unlock the cursor, ''on'' to lock the cursor, or ''toggle'' to toggle the current state. The default is ''toggle''. If the configuration has no <code>lockCursorToScreen</code> action and ''Scroll Lock'' is not used as a hot key then ''Scroll Lock'' toggles cursor locking.
 
 * <code>switchToScreen(screen)</code>
 : Jump to screen with name or alias ''screen''.
@@ -376,111 +376,111 @@ Valid key names are:
 * Tilde
 |}
 
-Additionally, a name of the form <code>\uXXXX</code> where <code>XXXX</code> is a hexadecimal number is interpreted as a unicode character code. Key and modifier names are case-insensitive. Keys that don't exist on the keyboard or in the default keyboard layout will not work.
+Additionally, a name of the form <code>\uXXXX</code> where ''XXXX'' is a hexadecimal number is interpreted as a unicode character code. Key and modifier names are case-insensitive. Keys that don't exist on the keyboard or in the default keyboard layout will not work.
 
-== Example textual configuration file ==
+==Example textual configuration file==
 
 This example comes from doc/synergy-basic.conf
 
 <pre>
-# sample synergy configuration file
-#
-# comments begin with the # character and continue to the end of
-# line.  comments may appear anywhere the syntax permits.
-# +-------+  +--------+ +---------+
-# |Laptop |  |Desktop1| |iMac     |
-# |       |  |        | |         |
-# +-------+  +--------+ +---------+
-
-section: screens
-	# three hosts named:  Laptop, Desktop1, and iMac
-	# These are the nice names of the hosts to make it easy to write the config file
-	# The aliases section below contain the "actual" names of the hosts (their hostnames)
-	Laptop:
-	Desktop1:
-	iMac:
-end
-
-section: links
-	# iMac is to the right of Desktop1
-	# Laptop is to the left of Desktop1
-	Desktop1:
-		right(0,100) = iMac # the numbers in parentheses indicate the percentage of the screen's edge to be considered active for switching)
-		left  = Laptop
-		shift = shift (shift, alt, super, meta can be mapped to any of the others)
-
-	# Desktop1 is to the right of Laptop
-	Laptop:
-		right = Desktop1
-
-	# Desktop1 is to the left of iMac
-	iMac:
-		left  = Desktop1
-end
-
-section: aliases
-	# The "real" name of iMac is John-Smiths-iMac-3.local. 
-	# If we wanted we could remove this alias and instead use John-Smiths-iMac-3.local everywhere iMac is above. 
-	# Hopefully it should be easy to see why using an alias is nicer
-	iMac:
-		John-Smiths-iMac-3.local
-end
+ # sample synergy configuration file
+ #
+ # comments begin with the # character and continue to the end of
+ # line.  comments may appear anywhere the syntax permits.
+ # +-------+  +--------+ +---------+
+ # |Laptop |  |Desktop1| |iMac     |
+ # |       |  |        | |         |
+ # +-------+  +--------+ +---------+
+ 
+ section: screens
+ 	# three hosts named:  Laptop, Desktop1, and iMac
+ 	# These are the nice names of the hosts to make it easy to write the config file
+ 	# The aliases section below contain the "actual" names of the hosts (their hostnames)
+ 	Laptop:
+ 	Desktop1:
+ 	iMac:
+ end
+ 
+ section: links
+ 	# iMac is to the right of Desktop1
+ 	# Laptop is to the left of Desktop1
+ 	Desktop1:
+ 		right(0,100) = iMac # the numbers in parentheses indicate the percentage of the screen's edge to be considered active for switching)
+ 		left  = Laptop
+ 		shift = shift (shift, alt, super, meta can be mapped to any of the others)
+ 
+ 	# Desktop1 is to the right of Laptop
+ 	Laptop:
+ 		right = Desktop1
+ 
+ 	# Desktop1 is to the left of iMac
+ 	iMac:
+ 		left  = Desktop1
+ end
+ 
+ section: aliases
+ 	# The "real" name of iMac is John-Smiths-iMac-3.local. 
+ 	# If we wanted we could remove this alias and instead use John-Smiths-iMac-3.local everywhere iMac is above. 
+ 	# Hopefully it should be easy to see why using an alias is nicer
+ 	iMac:
+ 		John-Smiths-iMac-3.local
+ end
 </pre>
 
-== Available options ==
+==Available options==
 
-=== Focus Preservation ===
+===Focus Preservation===
 
 The following section can be added to the screens section of the config (as shown) to let windows keep focus when you switch screens. This overrides the default option of making windows lose focus when you switch to a different machine. 
 <pre>
-section: screens
-	client1:
-		preserveFocus = true # Don't drop focus when switching screens
-		
-end
+ section: screens
+ 	client1:
+ 		preserveFocus = true # Don't drop focus when switching screens
+ 		
+ end
 </pre>
 
-=== Cursor Wrapping ===
+===Cursor Wrapping===
 
 The text config allows screens to be wrapped around. For example, with two machines (a server and a client), the mouse can go off the right of the server onto the left side of the client, then off the right side of the client back onto the left side of server. This config also uses control+super+(left/right) to switch between machines on keypress.
 
 <pre>
-# Physical monitor arrangement, with machine names as used by Synergy.
-#  +----------+----------+
-#  | syn-serv | syn-cli  |
-#  |          |          |
-#  +----------+----------+
-
-section: screens
-    syn-serv:
-    syn-cli:
-end
-section: links
-    syn-serv:
-        left = syn-cli     # "wrapping" arrangement
-        right = syn-cli    # "normal" arrangement
-    syn-cli:
-        left = syn-serv    # "normal"
-        right = syn-serv   # "wrapping"
-end
-section: options
-        keystroke(control+super+right) = switchInDirection(right) # Switch screens on keypress 
-        keystroke(control+super+left) = switchInDirection(left)
-end
+ # Physical monitor arrangement, with machine names as used by Synergy.
+ #  +----------+----------+
+ #  | syn-serv | syn-cli  |
+ #  |          |          |
+ #  +----------+----------+ 
+ 
+ section: screens
+     syn-serv:
+     syn-cli:
+ end
+ section: links
+     syn-serv:
+         left = syn-cli     # "wrapping" arrangement
+         right = syn-cli    # "normal" arrangement
+     syn-cli:
+         left = syn-serv    # "normal"
+         right = syn-serv   # "wrapping"
+ end
+ section: options
+         keystroke(control+super+right) = switchInDirection(right) # Switch screens on keypress 
+         keystroke(control+super+left) = switchInDirection(left)
+ end
 </pre>
 
 ===AltGr key===
 
-The following screen config allows the mapping for Alt to AltGr. Although this may not work, see [https://github.com/synergy/synergy/issues/4411 bug #4411].
+The following screen config allows the mapping for ''Alt'' to ''AltGr''. Although this may not work, see [https://github.com/synergy/synergy/issues/4411 bug #4411].
 <pre>
-  section: screens
-	  client1:
-  		altgr = alt          # mapping to fix AltGr key not working on windows clients (e.g. @-Symbol etc.).
-  		                     # See reference [1]
-  end
+ section: screens
+ 	  client1:
+   		altgr = alt          # mapping to fix AltGr key not working on windows clients (e.g. @-Symbol etc.).
+   		                     # See reference [1]
+ end
 </pre>
 
-See also: the man page for synergys
+See also: the man page for ''synergys''.
 
 <span id="1">[1]</span> [https://github.com/synergy/synergy/issues/4411 Synergy Issue Tracker Bug #4411 - AltGr not sent to client from server]
 
