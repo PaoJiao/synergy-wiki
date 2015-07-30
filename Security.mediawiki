@@ -1,0 +1,121 @@
+==For 1.7.0 and above==
+
+Synergy 1.7.0 introduces SSL based encryption as a [[plugins|plugin]] to synergy. This is much more secure than the previous in-house encryption.
+
+===Installing Plugin===
+
+Normally, the plugin in installed during the setup wizard for Synergy Pro users. The SSL plugin can be installed manually, if installed from the source code. To compile the source code see [[Compiling]]. After compiling, the plugin can be found in <code> sourceDir/bin/plugins/</code>. To manually install a plugin, just copy the plugin from the <code>bin</code> folder to the plugin directory. To find the plugin directory see [[Plugins]].
+
+OpenSSL also needs to be installed. On most linux distros OpenSSL can be installed through the package manager.
+
+===Generating Certificate and Fingerprint===
+
+====Linux====
+
+The following commands 1) make the directories, 2) create the certificate, 3) create the local fingerprint, and 4) clean up the fingerprint file.
+
+  mkdir -p ~/.synergy/SSL/Fingerprints
+  openssl req -x509 -nodes -days 365 -subj /CN=Synergy -newkey rsa:1024 -keyout ~/.synergy/SSL/Synergy.pem -out ~/.synergy/SSL/Synergy.pem
+  openssl x509 -fingerprint -sha1 -noout -in ~/.synergy/SSL/Synergy.pem > ~/.synergy/SSL/Fingerprints/Local.txt
+  sed -e "s/.*=//" -i ~/.synergy/SSL/Fingerprints/Local.txt
+
+==For 1.4.12 to 1.6.x==
+
+Synergy 1.4.12 features encryption using an in-house developed cypher, which can be configured using the Synergy GUI. For users in security-critical environments, we recommend using the Synergy encryption, along with additional security precautions (such as SSH tunneling described below).
+
+==For 1.4.11 and below==
+
+Synergy version 1.4.11 and below does not support any authentication or encryption. Any computer can connect to the Synergy server if it provides a screen name known to the server. All data is transferred between the server and the clients unencrypted which means that anyone can, for instance, extract the key presses used to type a password. Therefore, Synergy should not be used on untrusted networks.
+
+However, there are tools that can add authentication and encryption to Synergy without modifying either those tools or Synergy. One such tool is SSH (which stands for Secure SHell). A free implementation of SSH is called OpenSSH and runs on Linux, many Unixes, and in Windows if used with Cygwin.
+
+===Configuring the Server===
+
+Install the OpenSSH server on the same computer as the Synergy server. Configure the OpenSSH server as usual and start it, Synergy doesn't demand any special options in OpenSSH. Start the Synergy server as usual.
+
+===Configuring the Clients===
+
+Install the OpenSSH client on each Synergy client computer. Then, on each client, start the OpenSSH client using port forwarding:
+
+  ssh -f -N -L localhost:24800:server-hostname:24800 server-hostname
+
+Or, if that does not work, try:
+
+  ssh user@server-hostname -L 24800:localhost:24800 -N
+
+The server-hostname is the name or address of the computer with the OpenSSH and Synergy servers. The 24800 is the default network port used by Synergy, change this if using a different port. Finally, start the Synergy client normally except use localhost as the server host name. For example:
+
+  synergyc -f localhost
+
+Synergy will then run normally except all communication is passed through OpenSSH which decrypts/encrypts it on behalf of Synergy.
+
+===(Optional) Configuring the Clients with autossh===
+
+[http://www.harding.motd.ca/autossh/ Autossh] is a tool for OpenSSH to automatically monitor and re-establish SSH tunnels.
+
+An example script for creating the SSH tunnel and connecting the Synergy client through it:
+
+  #!/bin/sh
+  
+  #Start SSH-tunnel to destination server
+  autossh -f -N -q -L 24800:localhost:24800 username@server
+  
+  #Start synergy client
+  synergyc localhost
+
+Now both Synergy and SSH run as background services. This script can be used in your X session startup.
+
+===Setting up Synergy through SSL tunneling===
+
+Sometimes you would like to choose SSL instead of SSH, for example if you don't want or can't run SSH service on the host. This means that you actually have to set up your own CA/PKI infrastructure, which sounds terribly cumbersome, but is actually not difficult (if using correct tools).
+
+====Creating certificates using certtool from gnutls-bin package====
+
+Server: create CA private key
+
+ certtool -p --outfile ca.key
+
+Server: create CA certificate. Make sure you answer "Y" to "Does the certificate belong to an authority?" and "Will the certificate be used to sign other certificates?" questions.
+
+ certtool -s --load-privkey ca.key --outfile ca.crt
+
+Server: generate server key
+
+ certtool -p --outfile srv.key
+
+Server: generate server certificate. Answer "Y" to questions about certificate usage for signing and encryption.
+
+ certtool -c --load-ca-privkey ca.key --load-ca-certificate ca.crt --load-privkey srv.key --outfile srv.crt
+
+Client: generate private key
+
+ certtool -p --outfile client.key
+
+Client: generate certificate request
+
+ certtool -q --outfile client.req --load-privkey client.key
+
+Transfer client.req from client to server. socat and netcat are your friends ;)
+
+ srv$ socat -d -d tcp-l:1234,reuseaddr - > client.req
+ client$ socat tcp:srv.local:1234 - < client.req
+
+Server: sign client request. Answer "Y" to questions about certificate usage for signing and encryption.
+
+ certtool -c --load-ca-privkey ca.key --load-ca-certificate ca.crt --load-request client.req --outfile client.crt
+
+Transfer client.crt and ca.crt from server to client.
+
+Voilà! Now we have working PKI infrastructure. For additional security you might use a completely different machine for CA stuff ;)
+
+====Running Synergy over SSL using socat====
+
+Current example assumes that you have working configuration in: $HOME/.synergy.conf
+
+At server:
+  synergys -a 127.0.0.1
+  socat -d -d openssl-listen:1234,reuseaddr,fork,cert=srv.crt,key=srv.key,cafile=ca.crt tcp:localhost:24800
+
+At client (replace srv.local with your appropriate server name/ip):
+  synergyc localhost
+  socat -d -d tcp-l:24800,bind=127.0.0.1,reuseaddr,fork openssl:srv.local:1234,cafile=ca.crt,key=client.key,cert=client.crt
