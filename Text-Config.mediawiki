@@ -4,7 +4,7 @@ Most of the time, needing to deal with text-based configuration files directly c
 
 When a text-based configuration file is needed you can specify it on the command-line using the <code>--config</code> option. Example:
 
-  synergys --config /path/to/synergy.conf
+ synergys --config /path/to/synergy.conf
 
 Synergy also checks certain pathnames to load the configuration file if you don't specify a path using the <code>--config</code>. Running <code>synergys --help</code> reports those pathnames.
 
@@ -36,11 +36,11 @@ Comments are introduced by ''#'' and continue to the end of the line. ''name'' m
 * ''links''
 * ''options''
 
-See below for further explanation of each section type. The configuration file is case-sensitive so <code>Section</code>, <code>SECTION</code>, and <code>section</code> are all different and only the last is valid. Screen names are the exception; screen names are case-insensitive.
+See below for further explanation of each section type. The configuration file is case-sensitive so <code>Section</code>, <code>SECTION</code>, and <code>section</code> are all different and only the last is valid. Screen names are the exception, they are case-insensitive.
 
 The file is parsed top to bottom and names cannot be used before they've been defined in the <code>screens</code> or <code>aliases</code> sections. So the <code>links</code> and <code>aliases</code> must appear after the <code>screens</code> and <code>links</code> cannot refer to aliases unless the <code>aliases</code> appear before the <code>links</code>.
 
-=== screens ===
+===screens===
 
 ''args'' is a list of screen names, one name per line, each followed by a colon. Names are arbitrary strings but they must be unique. The hostname of each computer is recommended. (This is the computer's network name on win32 and the name reported by the program hostname on Unix and OS X. Note that OS X may append .local to the name you gave your computer; e.g. somehost.local.) There must be a screen name for the server and each client. Each screen can specify a number of options. Options have the form name = value and are listed one per line after the screen name.
 
@@ -53,20 +53,20 @@ The file is parsed top to bottom and names cannot be used before they've been de
          meta = alt
  end
 
-This declares three screens named ''moe'', ''larry'', and ''curly''. Screen ''larry'' has half-duplex Caps Lock and Num Lock keys (see below) and screen ''curly'' converts the meta modifier key to the alt modifier key.
+This declares three screens named ''moe'', ''larry'', and ''curly''. Screen ''larry'' has half-duplex ''Caps Lock'' and ''Num Lock'' keys (see below) and screen ''curly'' converts the ''Meta'' modifier key to the ''Alt'' modifier key.
 
-==== screen options ====
+====screen options====
 
 A screen can have the following options:
 
 * <code>halfDuplexCapsLock = {true|false}</code>
-: This computer has a Caps Lock key that doesn't report a press and a release event when the user presses it but instead reports a press event when it's turned on and a release event when it's turned off. If Caps Lock acts strangely on all screens then you may need to set this option to true on the server screen. If it acts strangely on one screen then that screen may need the option set to true.
+: This computer has a ''Caps Lock'' key that doesn't report a press and a release event when the user presses it but instead reports a press event when it's turned on and a release event when it's turned off. If ''Caps Lock'' acts strangely on all screens then you may need to set this option to true on the server screen. If it acts strangely on one screen then that screen may need the option set to true.
 
 * <code>halfDuplexNumLock = {true|false}</code>
-: This is identical to <code>halfDuplexCapsLock</code> except it applies to the Num Lock key.
+: This is identical to <code>halfDuplexCapsLock</code> except it applies to the ''Num Lock'' key.
 
 * <code>halfDuplexScrollLock = {true|false}</code>
-: This is identical to <code>halfDuplexCapsLock</code> except it applies to the Scroll Lock key. Note that, by default, synergy uses Scroll Lock to keep the cursor on the current screen. That is, when Scroll Lock is toggled on, the cursor is locked to the screen that it's currently on. You can use that to prevent accidental switching. You can also configure other hot keys to do that; see lockCursorToScreen.
+: This is identical to <code>halfDuplexCapsLock</code> except it applies to the ''Scroll Lock'' key. Note that, by default, Synergy uses ''Scroll Lock'' to keep the cursor on the current screen. That is, when ''Scroll Lock'' is toggled on, the cursor is locked to the screen that it's currently on. You can use that to prevent accidental switching. You can also configure other hot keys to do that; see lockCursorToScreen.
 
 * <code>switchCorners = &lt;corners&gt;</code>
 : See switchCorners below.
@@ -83,11 +83,11 @@ A screen can have the following options:
 :<code>meta = {shift|ctrl|alt|meta|super|none}</code>
 :<code>super = {shift|ctrl|alt|meta|super|none}</code>
 : Map a modifier key pressed on the server's keyboard to a different modifier on this client. This option only has an effect on a client screen; it's accepted and ignored on the server screen.
-:You can map, say, the shift key to shift (the default), ctrl, alt, meta, super or nothing. Normally, you wouldn't remap shift or ctrl. You might, however, have an X11 server with meta bound to the Alt keys. To use this server effectively with a windows client, which doesn't use meta but uses alt extensively, you'll want the windows client to map meta to alt (using <code>meta = alt</code>).
+:For instance, you can map the ''Shift'' key to ''Shift'' (the default), ''Ctrl'', ''Alt'', ''Meta'', ''Super'', or nothing. Normally, you wouldn't remap ''Shift'' or ''Ctrl''. You might, however, have an X11 server with ''Meta'' bound to the ''Alt'' keys. To use this server effectively with a Windows client, which doesn't use ''Meta'' but uses ''Alt'' extensively, you'll want the Windows client to map ''Meta'' to ''Alt'' (using <code>meta = alt</code>).
 
-=== aliases ===
+===aliases===
 
-''args'' is a list of screen names just like in the ''screens'' section except each screen is followed by a list of aliases, one per line, not followed by a colon. An alias is a screen name and must be unique. During screen name lookup each alias is equivalent to the screen name it aliases. So a client can connect using its canonical screen name or any of its aliases.
+''args'' is a list of screen names just like in the ''screens'' section except each screen is followed by a list of aliases, one per line, not followed by a colon. An ''alias'' is a screen name and must be unique. During screen name lookup each alias is equivalent to the screen name it aliases. So a client can connect using its canonical screen name or any of its aliases.
 
  section: aliases
      larry:
@@ -98,9 +98,12 @@ A screen can have the following options:
 
 Screen ''larry'' is also known as ''larry.stooges.com'' and can connect as either name. Screen ''curly'' is also known as ''shemp'' (hey, it's just an example).
 
-=== links ===
+===links===
 
-''args'' is a list of screen names just like in the ''screens'' section except each screen is followed by a list of links, one per line. Each link has the form <code>{left|right|up|down}[<range>] = name[<range>]</code>. A link indicates which screen is adjacent in the given direction.
+''args'' is a list of screen names just like in the ''screens'' section except each screen is followed by a list of links, one per line. Each link has the form:
+ {left|right|up|down}[<range>] = name[<range>]
+
+A link indicates which screen is adjacent in the given direction.
 
 Each side of a link can specify a range which defines a portion of an edge. A range on the direction is the portion of edge you can leave from while a range on the screen is the portion of edge you'll enter into. Ranges are optional and default to the entire edge. All ranges on a particular direction of a particular screen must not overlap.
 
@@ -122,7 +125,7 @@ This indicates that screen ''larry'' is to the right of screen ''moe'' (so movin
 
 Note that links do not have to be symmetrical; for instance, here the edge between ''moe'' and ''curly'' maps to different ranges depending on if you're going up or down. In fact links don't have to be bidirectional. You can configure the right of ''moe'' to go to ''larry'' without a link from the left of ''larry'' to ''moe''. It's possible to configure a screen with no outgoing links; the cursor will get stuck on that screen unless you have a hot key configured to switch off of that screen.
 
-=== options ===
+===options===
 
 ''args'' is a list of lines of the form <code>name = value</code>. These set the global options.
 
@@ -131,15 +134,15 @@ Note that links do not have to be symmetrical; for instance, here the edge betwe
      switchDelay = 500
  end
 
-==== List of Options ====
+====List of options====
 
 * <code>heartbeat = N</code>
-: The server will expect each client to send a message no less than every <code>N</code> milliseconds. If no message arrives from a client within <code>3N</code> seconds the server forces that client to disconnect.
+:The server will expect each client to send a message no less than every ''N'' milliseconds. If no message arrives from a client within ''3N'' seconds the server forces that client to disconnect.
 :If synergy fails to detect clients disconnecting while the server is sleeping or vice versa, try using this option.
 
 * <code>switchCorners = <corners></code>
-: Synergy won't switch screens when the mouse reaches the edge of the screen if it's in a listed corner. The size of all corners is given by the <code>switchCornerSize</code> option.
-: Corners are specified by a list using the following names:
+:Synergy won't switch screens when the mouse reaches the edge of the screen if it's in a listed corner. The size of all corners is given by the <code>switchCornerSize</code> option.
+:Corners are specified by a list using the following names:
 :* <code>none</code> -- no corners
 :* <code>top-left</code> -- the top left corner
 :* <code>top-right</code> -- the top right corner
@@ -153,10 +156,10 @@ Note that links do not have to be symmetrical; for instance, here the edge betwe
 :The first name in the list is one of the above names and defines the initial set of corners. Subsequent names are prefixed with + or - to add the corner to or remove the corner from the set, respectively. For example: <code>all -left +top-left</code>  starts will all corners, removes the left corners (top and bottom) then adds the top-left back in, resulting in the top-left, bottom-left and bottom-right corners.
 
 * <code>switchCornerSize = N</code>
-: Sets the size of all corners in pixels. The cursor must be within <code>N</code> pixels of the corner to be considered to be in the corner.
+:Sets the size of all corners in pixels. The cursor must be within <code>N</code> pixels of the corner to be considered to be in the corner.
 
 * <code>switchDelay = N</code>
-: Synergy won't switch screens when the mouse reaches the edge of a screen unless it stays on the edge for <code>N</code> milliseconds. This helps prevent unintentional switching when working near the edge of a screen.
+:Synergy won't switch screens when the mouse reaches the edge of a screen unless it stays on the edge for <code>N</code> milliseconds. This helps prevent unintentional switching when working near the edge of a screen.
 
 * <code>switchDoubleTap = N</code>
 : Synergy won't switch screens when the mouse reaches the edge of a screen unless it's moved away from the edge and then back to the edge within <code>N</code> milliseconds. With the option you have to quickly tap the edge twice to switch. This helps prevent unintentional switching when working near the edge of a screen.
