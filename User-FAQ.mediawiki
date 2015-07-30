@@ -105,7 +105,7 @@ Different platforms have different causes. Linux: The screen saver will not star
 ===How can I send my Synergy log content?===
 It's easy to send us your log content so that we can help debug an issue. First, turn up the logging level (for most cases) to at least ''Debug''. In the Synergy GUI, go to ''Edit'' --> ''Settings'' --> ''Logging''. In ''Logging level:'' choose ''Debug'' and click ''OK''. Then, click ''Apply'', or if using 1.4.12 or older you may need to click ''Stop'' and then ''Start'' if using Desktop Mode.
 
-In the log output area, you can ''Select All'' highlight the log content to copy the entire log. However, for most troubleshooting the log content we need is just the lines from the time period of the issue (Synergy disconnect, failure to copy from remote clipboard...). You can paste your results on [http://pastebin.com/ Pastebin] and send us the link, or if just a few dozen lines or less simply copy the content into your email, Google Group message, or forum post.
+In the ''Log'' output area, you can ''Select All'' highlight the log content to copy the entire log. However, for most troubleshooting the log content we need is just the lines from the time period of the issue (Synergy disconnect, failure to copy from remote clipboard...). You can paste your results on [http://pastebin.com/ Pastebin] and send us the link, or if just a few dozen lines or less simply copy the content into your email, Google Group message, or forum post.
 
 ==Errors==
 
