@@ -3,30 +3,18 @@
 ==User==
 
 [[User Guide]]
-
 [[User FAQ]]
-
 [[Text Config]]
-
 [[Security]]
-
 [[Requirements]]
-
 [http://synergy-project.org/wiki/User Legacy Wiki]
-
 
 ==Developer==
 
 [[Issues]]
-
 [[Compiling]]
-
 [[Code Style]]
-
 [[Buildbot]]
-
 [[Source Code]]
-
 [[Version Planning]]
-
 [http://synergy-project.org/wiki/Developer Legacy Wiki]
