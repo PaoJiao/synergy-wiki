@@ -101,8 +101,10 @@ If this doesn't work, you can try to lock the mouse to your client screen by pre
 ===Why do certain programs stop me from moving the mouse off screen?===
 This usually occurs in Windows Vista and above, and is due to UAC in Windows. The solution to this is to run Synergy in ''Elevated'' mode (this can be selected at the bottom of the main Synergy window). You can also try launching Synergy as an administrator. Note that running Synergy in Elevated mode carries potential trade-offs with things like clipboard and file sharing functionality.
 
-===How do I send developers the debug output?===
-In the Synergy GUI, click the ''Edit'' menu and select ''Settings''. Then change the ''Logging level'' drop-down to ''Debug'' or higher. The debug output should appear in the ''Log'' area of the main window (if not, try restarting the program). You are able to copy text from this area by right-clicking.
+===How can I send developers my Synergy log content?===
+It's easy to send us your log content so that we can help debug an issue. First, turn up the logging level (for most cases) to at least ''Debug''. In the Synergy GUI, go to ''Edit'' --> ''Settings'' --> ''Logging''. In ''Logging level:'' choose ''Debug'' and click ''OK''. Then, click ''Apply'', or if using 1.4.12 or older you may need to click ''Stop'' and then ''Start'' if using Desktop Mode.
+
+In the ''Log'' output area, you can ''Select All'' highlight the log content to copy the entire log. However, for most troubleshooting the log content we need is just the lines from the time period of the issue (Synergy disconnect, failure to copy from remote clipboard...). You can paste your results on [http://pastebin.com/ Pastebin] and send us the link, or if just a few dozen lines or less simply copy the content into your email, Google Group message, or forum post.
 
 ===Where do I go for more troubleshooting?===
 There is some additional troubleshooting in the [[User FAQ]].
