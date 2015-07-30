@@ -1,0 +1,27 @@
+Supported operating systems.
+
+==Fully Supported==
+
+  * Windows XP SP3
+  * Windows Vista SP1
+  * Windows 7
+  * Ubuntu 14.04
+  * Mac OS 10.6 through the latest customer-release version.
+
+==Partly Supported==
+
+We're not actively testing on these platforms, so our software may not work properly but may also work without issues.
+
+  * Windows 2003 Server
+  * openSUSE
+  * Fedora
+  * Ubuntu 13.10 and below, or 14.10 and above
+  * RedHat 6
+
+==Unsupported==
+
+We are no longer supporting these platforms due to lack of support for new features.
+
+  * Mac OS 10.5 Leopard and below
+  * Windows NT/2000
+  * Windows 95/98/ME
