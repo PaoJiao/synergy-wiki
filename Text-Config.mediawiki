@@ -59,16 +59,16 @@ This declares three screens named ''moe'', ''larry'', and ''curly''. Screen ''la
 
 A screen can have the following options:
 
-* <code>halfDuplexCapsLock = {true|false}</code>
+<code>halfDuplexCapsLock = {true|false}</code>
 : This computer has a ''Caps Lock'' key that doesn't report a press and a release event when the user presses it but instead reports a press event when it's turned on and a release event when it's turned off. If ''Caps Lock'' acts strangely on all screens then you may need to set this option to true on the server screen. If it acts strangely on one screen then that screen may need the option set to true.
 
-* <code>halfDuplexNumLock = {true|false}</code>
+<code>halfDuplexNumLock = {true|false}</code>
 : This is identical to <code>halfDuplexCapsLock</code> except it applies to the ''Num Lock'' key.
 
-* <code>halfDuplexScrollLock = {true|false}</code>
+<code>halfDuplexScrollLock = {true|false}</code>
 : This is identical to <code>halfDuplexCapsLock</code> except it applies to the ''Scroll Lock'' key. Note that, by default, Synergy uses ''Scroll Lock'' to keep the cursor on the current screen. That is, when ''Scroll Lock'' is toggled on, the cursor is locked to the screen that it's currently on. You can use that to prevent accidental switching. You can also configure other hot keys to do that; see lockCursorToScreen.
 
-* <code>switchCorners = &lt;corners&gt;</code>
+<code>switchCorners = &lt;corners&gt;</code>
 : See switchCorners below.
 
 * <code>switchCornerSize = N</code>
