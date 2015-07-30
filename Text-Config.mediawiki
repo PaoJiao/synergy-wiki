@@ -59,16 +59,16 @@ This declares three screens named ''moe'', ''larry'', and ''curly''. Screen ''la
 
 A screen can have the following options:
 
-<code>halfDuplexCapsLock = {true|false}</code>
+* <code>halfDuplexCapsLock = {true|false}</code>
 : This computer has a ''Caps Lock'' key that doesn't report a press and a release event when the user presses it but instead reports a press event when it's turned on and a release event when it's turned off. If ''Caps Lock'' acts strangely on all screens then you may need to set this option to true on the server screen. If it acts strangely on one screen then that screen may need the option set to true.
 
-<code>halfDuplexNumLock = {true|false}</code>
+* <code>halfDuplexNumLock = {true|false}</code>
 : This is identical to <code>halfDuplexCapsLock</code> except it applies to the ''Num Lock'' key.
 
-<code>halfDuplexScrollLock = {true|false}</code>
+* <code>halfDuplexScrollLock = {true|false}</code>
 : This is identical to <code>halfDuplexCapsLock</code> except it applies to the ''Scroll Lock'' key. Note that, by default, Synergy uses ''Scroll Lock'' to keep the cursor on the current screen. That is, when ''Scroll Lock'' is toggled on, the cursor is locked to the screen that it's currently on. You can use that to prevent accidental switching. You can also configure other hot keys to do that; see lockCursorToScreen.
 
-<code>switchCorners = &lt;corners&gt;</code>
+* <code>switchCorners = &lt;corners&gt;</code>
 : See switchCorners below.
 
 * <code>switchCornerSize = N</code>
@@ -78,10 +78,10 @@ A screen can have the following options:
 : This option works around a bug in the XTest extension when used in combination with Xinerama. It affects X11 clients only. Not all versions of the XTest extension are aware of the Xinerama extension. As a result, they do not move the mouse correctly when using multiple Xinerama screens. This option is currently ''true'' by default. If you know your XTest extension is Xinerama aware then set this option to ''false''.
 
 * <code>shift = {shift|ctrl|alt|meta|super|none}</code>
-:<code>ctrl = {shift|ctrl|alt|meta|super|none}</code>
-:<code>alt = {shift|ctrl|alt|meta|super|none}</code>
-:<code>meta = {shift|ctrl|alt|meta|super|none}</code>
-:<code>super = {shift|ctrl|alt|meta|super|none}</code>
+* <code>ctrl = {shift|ctrl|alt|meta|super|none}</code>
+* <code>alt = {shift|ctrl|alt|meta|super|none}</code>
+* <code>meta = {shift|ctrl|alt|meta|super|none}</code>
+* <code>super = {shift|ctrl|alt|meta|super|none}</code>
 : Map a modifier key pressed on the server's keyboard to a different modifier on this client. This option only has an effect on a client screen; it's accepted and ignored on the server screen.
 : For instance, you can map the ''Shift'' key to ''Shift'' (the default), ''Ctrl'', ''Alt'', ''Meta'', ''Super'', or nothing. Normally, you wouldn't remap ''Shift'' or ''Ctrl''. You might, however, have an X11 server with ''Meta'' bound to the ''Alt'' keys. To use this server effectively with a Windows client, which doesn't use ''Meta'' but uses ''Alt'' extensively, you'll want the Windows client to map ''Meta'' to ''Alt'' (using <code>meta = alt</code>).
 
