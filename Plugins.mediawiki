@@ -1,0 +1,77 @@
+As of 1.7.0 Synergy has support for plugins on Unix and Windows. SSL encryption is offered as a plugin, and was the guinea pig for building the plugins system. Currently the plugins must be compiled C++, but future goals include python plugin support.
+
+== Usage ==
+
+=== Windows ===
+
+To add a plugin on Windows add it to the plugin directory. The plugin will be a *.dll and only needs to be copied to the plugins directory The default plugin directory is <code>%localappdata%\Synergy\Plugins</code>. To change this directory you can either:
+# Change the profile directory of Synergy with the <code>--profile-dir PROFILE_DIR</code> argument on the synergys or synergyc. This will change the profile directory and the plugin directory will in <code>PROFILE_DIR\Plugins</code>
+# Change the plugin directory directly (overrides profile directory) with the <code>--plugin-dir PLUGIN_DIR</code> argument on synergys or synergyc
+
+=== Unix ===
+
+To add a plugin on unix add it to the plugin directory. Simply copy the files to the plugin dir. The default plugin directory is <code>~/.synergy/plugins</code>. To change this directory you can either:
+# Change the profile directory of Synergy with the <code>--profile-dir PROFILE_DIR</code> argument on the synergys or synergyc. This will change the profile directory and the plugin directory will in <code>PROFILE_DIR/plugins</code>
+# Change the plugin directory directly (overrides profile directory) with the <code>--plugin-dir PLUGIN_DIR</code> argument on synergys or synergyc
+
+=== Mac ===
+The Plugin directory on OSX is found here by default: <code>/Users/[username]/Library/Synergy/Plugins</code>
+
+== Writing plugins ==
+Writing plugins for Synergy is easy. All you need is some existing knowledge about C++ and writing simple DLLs.
+
+=== Hello world ===
+
+Here's an example:
+
+<pre>
+// demoplugin.h
+
+#pragma once
+
+#define WIN32_LEAN_AND_MEAN
+#include <Windows.h>
+
+#if defined(DEMOPLUGIN_EXPORTS)
+#define DEMOPLUGIN_API __declspec(dllexport)
+#else
+#define DEMOPLUGIN_API __declspec(dllimport)
+#endif
+
+extern "C" {
+DEMOPLUGIN_API int init(void (*sendEvent)(const char*, void*), void (*log)(const char*));
+DEMOPLUGIN_API int cleanup();
+}
+</pre>
+
+<pre>
+// demoplugin.c
+
+extern "C" {
+
+int
+init(void (*sendEvent)(const char*, void*), void (*log)(const char*))
+{
+	log("hello world!");
+	return 0;
+}
+
+int
+cleanup()
+{
+	log("goodbye world!");
+	return 0;
+}
+
+}
+</pre>
+
+=== Raising events ===
+
+It is possible to talk to Synergy by raising events. The first parameter of the init function, <code>sendEvent</code> is a function pointer, which you can call like this:
+
+<pre>
+sendEvent("IPrimaryScreen::screensaverActivated");
+</pre>
+
+There is a limitation currently that only primary screen events can be raised, and the event target is also ignored. For a full list of events which can be raised on the primary screen, please see the <code>/src/lib/synergy/IPrimaryScreen.cpp</code> file.
