@@ -175,10 +175,10 @@ Note that links do not have to be symmetrical; for instance, here the edge betwe
 : Keyboard hot keys are handled while the cursor is on the primary screen and secondary screens. Separate actions can be assigned to press and release.
 
 * <code>mousebutton(button) = actions</code>
-: Binds the modifier and mouse button combination ''button'' to the given ''actions''. ''button'' is an optional list of modifiers (''shift'', ''control'', ''alt'', ''meta'' or ''super'') followed by a button number. The primary button (the left button for right handed users) is button 1, the middle button is 2, etc. Actions can be [[#Actions|found below]]
+: Binds the modifier and mouse button combination ''button'' to the given ''actions''. ''button'' is an optional list of modifiers (''shift'', ''control'', ''alt'', ''meta'' or ''super'') followed by a button number. The primary button (the left button for right handed users) is button 1, the middle button is 2, etc. Actions can be [[Text Config#Actions|found below]]
 : Mouse button actions are not handled while the cursor is on the primary screen. You cannot use these to perform an action while on the primary screen. Separate actions can be assigned to press and release.
 
-You can use both the <code>switchDelay</code> and <code>switchDoubleTap</code> options at the same time. Synergy will switch when either requirement is satisfied.
+You can use both the ''switchDelay'' and ''switchDoubleTap'' options at the same time. Synergy will switch when either requirement is satisfied.
 
 ====Actions====
 
@@ -200,7 +200,7 @@ Actions are two lists of individual actions separated by commas. The two lists a
 : ''mouseDown'' synthesizes a mouse press and ''mouseUp'' synthesizes a mouse release. ''mousebutton'' synthesizes a mouse press on activation and a release on deactivation and is equivalent to a ''mouseDown'' on activation and ''mouseUp'' on deactivation.
 
 * <code>lockCursorToScreen(mode)</code>
-: Locks the cursor to or unlocks the cursor from the active screen. ''mode'' can be ''off'' to unlock the cursor, ''on'' to lock the cursor, or ''toggle'' to toggle the current state. The default is ''toggle''. If the configuration has no <code>lockCursorToScreen</code> action and ''Scroll Lock'' is not used as a hot key then ''Scroll Lock'' toggles cursor locking.
+: Locks the cursor to or unlocks the cursor from the active screen. ''mode'' can be ''off'' to unlock the cursor, ''on'' to lock the cursor, or ''toggle'' to toggle the current state. The default is ''toggle''. If the configuration has no ''lockCursorToScreen'' action and ''Scroll Lock'' is not used as a hot key then ''Scroll Lock'' toggles cursor locking.
 
 * <code>switchToScreen(screen)</code>
 : Jump to screen with name or alias ''screen''.
