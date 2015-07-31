@@ -6,9 +6,9 @@ The official way is to use the Windows service feature in 1.4 which works with W
 
 ===Mac===
 
-You can use a [[Startup/Mac OSX plist Instructions | plist through launchd]]. There's also an example of this method in the source code.
+You can use a [[Startup Mac OS X plist instructions|plist through launchd]]. There's also an example of this method in the source code.
 
-You can use [[Startup/Mac OSX LoginItems Instructions | Login Items in the Accounts control panel]]. 1.4.12 w/ encryption - 8/21/13 [[User:Kitz | Kitz]]
+You can use [[Mac OS X LoginItems instructions|Login Items in the Accounts control panel]]. 1.4.12 w/ encryption - 8/21/13 [[User:Kitz | Kitz]]
 
 ===Linux===
 
