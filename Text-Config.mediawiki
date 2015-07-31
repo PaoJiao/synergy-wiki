@@ -376,6 +376,7 @@ Valid key names are:
 * Tilde
 |}
 
+
 Additionally, a name of the form <code>\uXXXX</code> where ''XXXX'' is a hexadecimal number is interpreted as a unicode character code. Key and modifier names are case-insensitive. Keys that don't exist on the keyboard or in the default keyboard layout will not work.
 
 ==Example textual configuration file==
@@ -431,7 +432,8 @@ This example comes from doc/synergy-basic.conf
 
 ===Focus Preservation===
 
-The following section can be added to the screens section of the config (as shown) to let windows keep focus when you switch screens. This overrides the default option of making windows lose focus when you switch to a different machine. 
+The following section can be added to the screens section of the config (as shown) to let windows keep focus when you switch screens. This overrides the default option of making windows lose focus when you switch to a different machine.
+
 <pre>
  section: screens
  	client1:
