@@ -1,0 +1,13 @@
+These are applications known to either interfere with Synergy's operation, or Synergy interferes with them in some way.
+
+* Photoshop
+* MS Office
+* WizMouse
+* AutoHotKey
+* iTerm2
+* Actual Multiple Monitors
+* Smoothmouse
+* SecureAnywhere
+* Stardock Fences
+* World of Warcraft and other fullscreen games (mouse movement goes crazy)
+* Ableton Live (knob and slider movement for native UI controls is broken)
