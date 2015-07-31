@@ -1,0 +1,68 @@
+==Motivation==
+
+As a platform for software based input sharing, Synergy currently requires the use of locally connected displays. This means that each physical (not locally virtualized) member of the Synergy network requires the deskspace of at least one monitor. This limitation can be overcome by some method of switching the input being given to a display. In general, this would be done manually, with either a physical input switcher or the monitor's built in controls. However, hardware switches can be clunky and expensive, and reaching out to navigate your monitor's menus every minute can be frustrating.
+
+For some, VNC would provide an acceptable solution, but its video performance, understandably, leaves a lot to be desired. Coupled with Synergy's very speedy input sharing, a software-based method of switching video among local boxes can be used to create what is effectively a soft KVM.
+
+==General Method==
+
+Every platform currently supported by Synergy provides methods of turning video outputs on and off at will from the command line.
+
+These are:
+
+* [http://www.x.org/wiki/Projects/XRandR XRandR] for Linux (or probably anything that uses X as basis for a desktop environment)
+* [http://en.wikipedia.org/wiki/Pmset Pmset] for OSX
+* [http://www.nirsoft.net/utils/nircmd.html NirCmd] for Windows ('''Untested''')
+
+We can use these tools to write scripts that will appropriately schedule the toggling of video outputs among the locally attached boxes, so as to provide the appearance of a hardware KVM switch. Existing OS and Synergy functionality can be used to enhance the effect, with globalized keybindings to toggle inputs and relocate focus, clipboard sharing, and flawless interscreen mouse transitions.
+
+==Linux <-> Mac OSX==
+
+I succesfully use the following script with a Linux server and Mac OSX client. I suspect that something similar will work with the majority of configurations, but I don't have the capacity for further testing right now.
+
+This script can be seen in action around 50 seconds into [http://youtu.be/-PyzHl-kqTk#t=50s this video].
+
+Potentially relevant parts of the setup shown are as follows:
+
+{| class="wikitable"
+|-
+! OS !! GPU !! Connected Monitors
+|-
+| Arch Linux || Radeon HD 7700 || Acer V2223W (DFP5) and Acer AL2223W (DFP6)
+|-
+| Mac OSX Lion (10.7.5) || NVIDIA GeForce 9400 || Acer AL2223W (DFP6)
+|}
+
+Arch is constantly displayed on DFP5, and I toggle between Arch and OSX on DFP6.
+
+I put the following shell script on the Linux server. Please feel free to improve it:
+<pre>
+#!/bin/bash
+
+CLIENT_MAC=00:00:00:00:00:00
+CLIENT_IP=192.168.1.XXX # a static IP for the client
+CLIENT_USER=user # we use this to login to the client through ssh
+
+# wake up the client. Only necessary if you want to let it sleep when idle.
+wol $CLIENT_MAC 
+
+TOGGLE=$HOME/.display_toggler
+if [ ! -e $TOGGLE ]; then 
+	touch $TOGGLE
+	xrandr --output DFP5 --off &&
+	ssh -ft $CLIENT_USER@$CLIENT_IP "sudo pmset force -a displaysleep 0"
+else
+	rm $TOGGLE
+	MAGIC_NUMBER=2147483648 # gives pmset a seizure, causing the video output to terminate 
+	xrandr --output DFP5 --auto --right-of DFP6 &&
+	ssh -ft $CLIENT_USER@$CLIENT_IP "sudo pmset force -a displaysleep $MAGIC_NUMBER"
+fi
+
+# the host appears to have lost or gained a monitor, so we need to inform Synergy of this
+sudo /etc/rc.d/synergys restart
+</pre>
+
+I use the WM on my Synergy host to map a keyboard shortcut to the toggle_display.sh script. Synergy is configured, using [http://synergy2.sourceforge.net/configuration.html keystrokes], to always forward this input event to the host, so that the script on the host can be triggered from anywhere. This configuration also requires that you've shared ssh keys between your server and client, and that both your local and remote users are passwordless sudoers or root, because pmset won't work without root.
+
+==Problems==
+* On at least some versions of OSX, you have to [http://mactips.dwhoard.com/mactips/system/wake-on-demand fiddle around] if you want to let it sleep in this configuration. The darkwake=no option worked for me.
