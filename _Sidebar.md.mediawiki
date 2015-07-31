@@ -12,7 +12,6 @@
 * [[IOS client]]
 * [[Android client]]
 * [[Conflicting software]]
-* [[Related software]]
 * [[Archived content]]
 * [http://synergy-project.org/wiki/User Legacy Wiki]
 
