@@ -32,5 +32,5 @@ We are no longer supporting these platforms due to lack of support for new featu
 ==Other requirements==
 
 * The Synergy system acting as the "server" must have a keyboard and mouse (or pointing device).
-* The "client" systems can have keyboards/mice, but none are necessary once they are configured and Synergy is running. It will be necessary to control them without Synergy (either locally or via a remote login) until Synergy is up and running on the server and client.
+* The "client" systems can have keyboards/mice, but those are not necessary once the clients are configured and Synergy is running. It will be necessary to control them without Synergy (either locally or via a remote login) until Synergy is up and running on the server and client.
 * Synergy is a KBM application (KeyBoard and Mouse), not KVM (Keyboard, Video, and Mouse) so in most circumstances each system must have a monitor.
