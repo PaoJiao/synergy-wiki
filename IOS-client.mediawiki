@@ -1,0 +1,9 @@
+'''Instructions:'''
+
+# Install MouseSupport package using Cydia
+# Run: <code>dpkg -i /ch.ringwald.synergyclient_0.8-9_iphoneos-arm.deb</code>
+# Reboot to get the application on the SpringBoard.
+
+'''Updated version:''' http://cydia.myrepospace.com/thenorth/ (landscape and keyboard support).
+
+'''Bugs:''' https://code.google.com/p/isynergyclient/issues/list
