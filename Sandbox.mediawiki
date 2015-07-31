@@ -117,8 +117,6 @@ A link indicates which screen is adjacent in the given direction.
 
 Each side of a link can specify a range which defines a portion of an edge. A range on the direction is the portion of edge you can leave from while a range on the screen is the portion of edge you'll enter into. Ranges are optional and default to the entire edge. All ranges on a particular direction of a particular screen must not overlap.
 
-A <range> is written as <code>(<start>,<end>)</code>. Both ''start'' and ''end'' are percentages in the range 0 to 100, inclusive. The start must be less than the end. 0 is the left or top of an edge and 100 is the right or bottom.
-
 
 
 
@@ -195,6 +193,7 @@ A <range> is written as <code>(<start>,<end>)</code>. Both ''start'' and ''end''
 
 
 
+A <range> is written as <code>(<start>,<end>)</code>. Both ''start'' and ''end'' are percentages in the range 0 to 100, inclusive. The start must be less than the end. 0 is the left or top of an edge and 100 is the right or bottom.
 
 <pre>
  section: links
