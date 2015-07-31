@@ -1,0 +1,1 @@
+In 1992, at MacHack, Eric Hayes partnered with a (future) co-worker to write what they called NetMouse, a very rough predecessor to Synergy.
