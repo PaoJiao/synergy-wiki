@@ -108,47 +108,6 @@ Screen ''larry'' is also known as ''larry.stooges.com'' and can connect as eithe
 
 ===links===
 
-''args'' is a list of screen names just like in the ''screens'' section except each screen is followed by a list of links, one per line. Each link has the form:
-<pre>
- {left|right|up|down}[<range>] = name[<range>]
-</pre>
-
-A link indicates which screen is adjacent in the given direction.
-
-Each side of a link can specify a range which defines a portion of an edge. A range on the direction is the portion of edge you can leave from while a range on the screen is the portion of edge you'll enter into. Ranges are optional and default to the entire edge. All ranges on a particular direction of a particular screen must not overlap.
-
-A <range> is written as <code>(<start>,<end>)</code>. Both ''start'' and ''end'' are percentages in the range 0 to 100, inclusive. The start must be less than the end. 0 is the left or top of an edge and 100 is the right or bottom.
-
-<pre>
- section: links
-     moe:
-         right        = larry
-         up(50,100)   = curly(0,50)
-     larry:
-         left         = moe
-         up(0,50)     = curly(50,100)
-     curly:
-         down(0,50)   = moe
-         down(50,100) = larry(0,50)
- end
-</pre>
-
-This indicates that screen ''larry'' is to the right of screen ''moe'' (so moving the cursor off the right edge of ''moe'' would make it appear at the left edge of ''larry''), the left half of curly is above the right half of ''moe'', ''moe'' is to the left of ''larry'' (edges are not necessarily symmetric so you have to provide both directions), the right half of curly is above the left half of ''larry'', all of ''moe'' is below the left half of ''curly'', and the left half of ''larry'' is below the right half of ''curly''.
-
-Note that links do not have to be symmetrical; for instance, here the edge between ''moe'' and ''curly'' maps to different ranges depending on if you're going up or down. In fact links don't have to be bidirectional. You can configure the right of ''moe'' to go to ''larry'' without a link from the left of ''larry'' to ''moe''. It's possible to configure a screen with no outgoing links; the cursor will get stuck on that screen unless you have a hot key configured to switch off of that screen.
-
-===options===
-
-''args'' is a list of lines of the form <code>name = value</code>. These set the global options.
-
-<pre>
- section: options
-     heartbeat = 5000
-     switchDelay = 500
- end
-</pre>
-
-====List of options====
 
 
 
@@ -216,6 +175,51 @@ Note that links do not have to be symmetrical; for instance, here the edge betwe
 
 
 
+
+
+
+
+''args'' is a list of screen names just like in the ''screens'' section except each screen is followed by a list of links, one per line. Each link has the form:
+<pre>
+ {left|right|up|down}[<range>] = name[<range>]
+</pre>
+
+A link indicates which screen is adjacent in the given direction.
+
+Each side of a link can specify a range which defines a portion of an edge. A range on the direction is the portion of edge you can leave from while a range on the screen is the portion of edge you'll enter into. Ranges are optional and default to the entire edge. All ranges on a particular direction of a particular screen must not overlap.
+
+A <range> is written as <code>(<start>,<end>)</code>. Both ''start'' and ''end'' are percentages in the range 0 to 100, inclusive. The start must be less than the end. 0 is the left or top of an edge and 100 is the right or bottom.
+
+<pre>
+ section: links
+     moe:
+         right        = larry
+         up(50,100)   = curly(0,50)
+     larry:
+         left         = moe
+         up(0,50)     = curly(50,100)
+     curly:
+         down(0,50)   = moe
+         down(50,100) = larry(0,50)
+ end
+</pre>
+
+This indicates that screen ''larry'' is to the right of screen ''moe'' (so moving the cursor off the right edge of ''moe'' would make it appear at the left edge of ''larry''), the left half of curly is above the right half of ''moe'', ''moe'' is to the left of ''larry'' (edges are not necessarily symmetric so you have to provide both directions), the right half of curly is above the left half of ''larry'', all of ''moe'' is below the left half of ''curly'', and the left half of ''larry'' is below the right half of ''curly''.
+
+Note that links do not have to be symmetrical; for instance, here the edge between ''moe'' and ''curly'' maps to different ranges depending on if you're going up or down. In fact links don't have to be bidirectional. You can configure the right of ''moe'' to go to ''larry'' without a link from the left of ''larry'' to ''moe''. It's possible to configure a screen with no outgoing links; the cursor will get stuck on that screen unless you have a hot key configured to switch off of that screen.
+
+===options===
+
+''args'' is a list of lines of the form <code>name = value</code>. These set the global options.
+
+<pre>
+ section: options
+     heartbeat = 5000
+     switchDelay = 500
+ end
+</pre>
+
+====List of options====
 
 * <code>heartbeat = N</code>
 : The server will expect each client to send a message no less than every ''N'' milliseconds. If no message arrives from a client within ''3N'' seconds the server forces that client to disconnect.
