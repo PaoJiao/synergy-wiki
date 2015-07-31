@@ -7,7 +7,6 @@
 * [[Text Config]]
 * [[Security]]
 * [[Requirements]]
-* [[Startup]]
 * [[Command line]]
 * [[Use as a KVM]]
 * [[IOS client]]
