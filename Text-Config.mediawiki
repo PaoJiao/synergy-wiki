@@ -442,7 +442,7 @@ The following section can be added to the screens section of the config (as show
 
 ===Cursor Wrapping===
 
-The text config allows screens to be wrapped around. For example, with two machines (a server and a client), the mouse can go off the right of the server onto the left side of the client, then off the right side of the client back onto the left side of server. This config also uses control+super+(left/right) to switch between machines on keypress.
+The text config allows screens to be wrapped around. For example, with two machines (a server and a client), the mouse can go off the right of the server onto the left side of the client, then off the right side of the client back onto the left side of server. This config also uses ''Ctrl''+''Super''+(''left arrow''/''right arrow'') to switch between machines on keypress.
 
 <pre>
  # Physical monitor arrangement, with machine names as used by Synergy.
