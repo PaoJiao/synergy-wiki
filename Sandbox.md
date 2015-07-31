@@ -1,0 +1,88 @@
+<pre>
+ section: screens
+ 	client1:
+ 		preserveFocus = true # Don't drop focus when switching screens
+ 		
+ end
+</pre>
+
+
+<pre>
+ # Physical monitor arrangement, with machine names as used by Synergy.
+ #  +----------+----------+
+ #  | syn-serv | syn-cli  |
+ #  |          |          |
+ #  +----------+----------+ 
+ 
+ section: screens
+     syn-serv:
+     syn-cli:
+ end
+ section: links
+     syn-serv:
+         left = syn-cli     # "wrapping" arrangement
+         right = syn-cli    # "normal" arrangement
+     syn-cli:
+         left = syn-serv    # "normal"
+         right = syn-serv   # "wrapping"
+ end
+ section: options
+         keystroke(control+super+right) = switchInDirection(right) # Switch screens on keypress 
+         keystroke(control+super+left) = switchInDirection(left)
+ end
+</pre>
+
+
+<pre>
+ section: screens
+ 	  client1:
+   		altgr = alt          # mapping to fix AltGr key not working on windows clients (e.g. @-Symbol etc.).
+   		                     # See reference [1]
+ end
+</pre>
+
+
+<pre>
+ # sample synergy configuration file
+ #
+ # comments begin with the # character and continue to the end of
+ # line.  comments may appear anywhere the syntax permits.
+ # +-------+  +--------+ +---------+
+ # |Laptop |  |Desktop1| |iMac     |
+ # |       |  |        | |         |
+ # +-------+  +--------+ +---------+
+ 
+ section: screens
+ 	# three hosts named:  Laptop, Desktop1, and iMac
+ 	# These are the nice names of the hosts to make it easy to write the config file
+ 	# The aliases section below contain the "actual" names of the hosts (their hostnames)
+ 	Laptop:
+ 	Desktop1:
+ 	iMac:
+ end
+ 
+ section: links
+ 	# iMac is to the right of Desktop1
+ 	# Laptop is to the left of Desktop1
+ 	Desktop1:
+ 		right(0,100) = iMac # the numbers in parentheses indicate the percentage of the screen's edge to be considered active for switching)
+ 		left  = Laptop
+ 		shift = shift (shift, alt, super, meta can be mapped to any of the others)
+ 
+ 	# Desktop1 is to the right of Laptop
+ 	Laptop:
+ 		right = Desktop1
+ 
+ 	# Desktop1 is to the left of iMac
+ 	iMac:
+ 		left  = Desktop1
+ end
+ 
+ section: aliases
+ 	# The "real" name of iMac is John-Smiths-iMac-3.local. 
+ 	# If we wanted we could remove this alias and instead use John-Smiths-iMac-3.local everywhere iMac is above. 
+ 	# Hopefully it should be easy to see why using an alias is nicer
+ 	iMac:
+ 		John-Smiths-iMac-3.local
+ end
+</pre>
