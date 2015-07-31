@@ -189,7 +189,7 @@ Neither the client nor server will automatically restart if an error occurs that
 <pre>
     synergys [options]
 </pre>
-The server accepts the [[Version 1.3#Common-Command-Line-Options|common options]] and:
+The server accepts the [[Version 1.3#Common_Command_Line_Options|common options]] and:
 
 {| class="wikitable" cellpadding="2"
 | '''-a,''' || '''--address address''' || listen for connections on address '''address'''
@@ -212,4 +212,4 @@ Where '''address''' has one of the following forms:
     synergyc [options] address[:port]
 </pre>
 
-'''address''' is the hostname or IP address of the server and '''port''' is the optional network port on the server to connect to.  The client accepts the [[Version 1.3#Common-Command-Line-Options|common options]].
+'''address''' is the hostname or IP address of the server and '''port''' is the optional network port on the server to connect to.  The client accepts the [[Version 1.3#Common_Command_Line_Options|common options]].
