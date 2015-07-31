@@ -4,7 +4,9 @@ Most of the time, needing to deal with text-based configuration files directly c
 
 When a text-based configuration file is needed you can specify it on the command-line using the <code>--config</code> option. Example:
 
+<pre>
  synergys --config /path/to/synergy.conf
+</pre>
 
 Synergy also checks certain pathnames to load the configuration file if you don't specify a path using the <code>--config</code>. Running <code>synergys --help</code> reports those pathnames.
 
@@ -25,9 +27,11 @@ Other considerations:
 
 The configuration file is a plain text file. Use any text editor to create the configuration file. The file is broken into sections and each section has the form:
 
+<pre>
  section: ''name''
  	''args''
  end
+</pre>
 
 Comments are introduced by ''#'' and continue to the end of the line. ''name'' must be one of the following:
 
@@ -44,6 +48,7 @@ The file is parsed top to bottom and names cannot be used before they've been de
 
 ''args'' is a list of screen names, one name per line, each followed by a colon. Names are arbitrary strings but they must be unique. The hostname of each computer is recommended. (This is the computer's network name on win32 and the name reported by the program hostname on Unix and OS X. Note that OS X may append .local to the name you gave your computer; e.g. somehost.local.) There must be a screen name for the server and each client. Each screen can specify a number of options. Options have the form name = value and are listed one per line after the screen name.
 
+<pre>
  section: screens
      moe:
      larry:
@@ -52,6 +57,7 @@ The file is parsed top to bottom and names cannot be used before they've been de
      curly:
          meta = alt
   end
+</pre>
 
 This declares three screens named ''moe'', ''larry'', and ''curly''. Screen ''larry'' has half-duplex ''Caps Lock'' and ''Num Lock'' keys (see below) and screen ''curly'' converts the ''Meta'' modifier key to the ''Alt'' modifier key.
 
@@ -89,19 +95,23 @@ A screen can have the following options:
 
 ''args'' is a list of screen names just like in the ''screens'' section except each screen is followed by a list of aliases, one per line, not followed by a colon. An ''alias'' is a screen name and must be unique. During screen name lookup each alias is equivalent to the screen name it aliases. So a client can connect using its canonical screen name or any of its aliases.
 
+<pre>
  section: aliases
      larry:
          larry.stooges.com
      curly:
          shemp
  end
+</pre>
 
 Screen ''larry'' is also known as ''larry.stooges.com'' and can connect as either name. Screen ''curly'' is also known as ''shemp'' (hey, it's just an example).
 
 ===links===
 
 ''args'' is a list of screen names just like in the ''screens'' section except each screen is followed by a list of links, one per line. Each link has the form:
+<pre>
  {left|right|up|down}[<range>] = name[<range>]
+</pre>
 
 A link indicates which screen is adjacent in the given direction.
 
@@ -109,6 +119,7 @@ Each side of a link can specify a range which defines a portion of an edge. A ra
 
 A <range> is written as <code>(<start>,<end>)</code>. Both ''start'' and ''end'' are percentages in the range 0 to 100, inclusive. The start must be less than the end. 0 is the left or top of an edge and 100 is the right or bottom.
 
+<pre>
  section: links
      moe:
          right        = larry
@@ -120,6 +131,7 @@ A <range> is written as <code>(<start>,<end>)</code>. Both ''start'' and ''end''
          down(0,50)   = moe
          down(50,100) = larry(0,50)
  end
+</pre>
 
 This indicates that screen ''larry'' is to the right of screen ''moe'' (so moving the cursor off the right edge of ''moe'' would make it appear at the left edge of ''larry''), the left half of curly is above the right half of ''moe'', ''moe'' is to the left of ''larry'' (edges are not necessarily symmetric so you have to provide both directions), the right half of curly is above the left half of ''larry'', all of ''moe'' is below the left half of ''curly'', and the left half of ''larry'' is below the right half of ''curly''.
 
@@ -129,10 +141,12 @@ Note that links do not have to be symmetrical; for instance, here the edge betwe
 
 ''args'' is a list of lines of the form <code>name = value</code>. These set the global options.
 
+<pre>
  section: options
      heartbeat = 5000
      switchDelay = 500
  end
+</pre>
 
 ====List of options====
 
