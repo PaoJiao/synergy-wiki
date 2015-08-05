@@ -59,7 +59,6 @@ Again from the Synergy install directory:
 ===Command line options===
 
 ====synergyc options====
-
 Taken from linux system:
 
  $ synergyc --help
@@ -93,7 +92,6 @@ The ''server address'' is of the form: <pre>[<hostname>][:<port>]</pre>. The ''h
 Unlike the synergys (Synergy server), the synergyc (Synergy client) has no config file. The options are set either at runtime by the command line on the client, or for settings inherited from Synergy server they are set at connection time.
 
 ====synergys options====
-
 Taken from a linux system:
 
  $ synergys --help
