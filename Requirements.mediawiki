@@ -2,9 +2,9 @@
 
 ===Fully Supported===
 
-* Windows XP SP3 through latest non-beta version
+* Windows XP SP3 through latest non-beta Windows
 * Ubuntu 14.04
-* Mac OS 10.6 through the latest non-beta version
+* Mac OS X 10.6 through the latest non-beta version
 
 ===Partly Supported===
 
