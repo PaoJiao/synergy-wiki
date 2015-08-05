@@ -1,1 +1,28 @@
-Legacy: [Source Code](http://synergy-project.org/wiki/Source_Code)
+'''Related:''' [[Compiling]], [[Hacking]]
+
+==Browse online==
+
+* Github: [http://github.com/synergy/synergy/ Github Repo]
+* WebSVN (legacy): [http://synergy-foss.org/code/ Browse], [http://synergy-foss.org/code/log.php?repname=synergy Log]
+* SourceForge (legacy): [http://synergy2.svn.sourceforge.net/viewvc/synergy2/ Browse], [http://synergy2.svn.sourceforge.net/viewvc/synergy2/branches/?view=log Log]
+
+==Downloading source zip==
+
+Github source [https://github.com/synergy/synergy/archive/master.zip zip of master (Beta)].
+You can also get [https://github.com/synergy/synergy/tags zips of releases].
+
+==Download from repository==
+
+Use this command to anonymously check out the latest project source code:
+ git clone https://github.com/synergy/synergy.git synergy
+ cd synergy
+
+Identify which version of Synergy you want to build:
+ git log --graph --all --decorate=full
+
+Checkout your target branch:
+ git checkout <branch, tag, or checksum here> -b myBranchName
+
+==GUI and IDE access==
+
+This project's git repository may be accessed using [http://git-scm.com/downloads git].
