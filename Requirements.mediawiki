@@ -5,6 +5,8 @@
 * Windows XP SP3 through latest non-beta Windows
 * Ubuntu 14.04
 * Mac OS X 10.6 through the latest non-beta version
+* RedHat 6 and above
+* Fedora 19-21
 
 ===Partly Supported===
 
@@ -14,7 +16,7 @@ We're not actively testing on these platforms, so our software may not work prop
 * openSUSE
 * Fedora
 * Ubuntu 13.10 and below, or 14.10 and above
-* RedHat 6
+* Fedora 22
 
 ===Unsupported===
 
