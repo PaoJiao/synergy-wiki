@@ -9,17 +9,14 @@ See [[Text Config]] for information on how to create a config file. If you have 
 
 ===Client===
 Open up a command prompt and cd into the Synergy install directory. Something like:
-
-cd "c:\program files\synergy"
+ cd "c:\program files\synergy"
 
 Then run the Synergy client binary, pointing it at the Synergy Server. Something like:
-
-synergyc [server IP]
+ synergyc [server IP]
 
 ===Server===
 Again from the Synergy install directory:
-
-synergys -c [path to config file]
+ synergys -c [path to config file]
 
 
 ==Mac==
