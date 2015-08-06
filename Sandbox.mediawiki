@@ -1,587 +1,217 @@
-==About textual configuration files==
+== Introduction ==
 
-Most of the time, needing to deal with text-based configuration files directly can be avoided by using the GUI, however there are times when a text config is necessary.
+Before building you will need to install the [[#Dependencies|dependencies]]. To build, use the <code>hm</code> (or <code>./hm.sh</code>) script located the root of our project directory. This is just a wrapper for <code>cmake</code>, so you don't need to use it, however we recommend you do. The <code>conf</code> command will generate the projects in the <code>build</code> directory (which can be opened manually and used for compiling).
 
-When a text-based configuration file is needed you can specify it on the command-line using the <code>--config</code> option. Example:
+This guide is for Synergy version 1.3.5 and above. First you need to download the [[Source Code]]. To compile 1.3.4 and below, please refer to the [http://synergy2.sourceforge.net/compiling.html legacy compile guide] on the old website. Automake will no longer be used, which means, but you can still use the GNU style <code>./configure; make</code> command sequence (the <code>configure</code> script just calls cmake). CMake is *not* a replacement for <code>make</code> or Visual Studio; it doesn't compile source code, but it does generate project files (like Makefile, Visual Studio, and Xcode) much like the <code>configure</code> command.
 
-<pre>
- synergys --config /path/to/synergy.conf
-</pre>
+The <code>-g1</code> argument (shown below) will cause the 1st CMake generator to be used; use the <code>hm genlist</code> command to see other generators. You may want to do this if you are building with Eclipse, for example.
 
-Synergy also checks certain pathnames to load the configuration file if you don't specify a path using the <code>--config</code>. Running <code>synergys --help</code> reports those pathnames.
+With no extra arguments, release build will be compiled. If you need the debug release, use the <code>-d</code> argument.
 
-If you need to access a feature that is not available in the GUI, but otherwise have it working, you can get a good starting point by exporting your config from the GUI by using the ''File'' --> ''Save Configuration As...'' option.
-
-==Why would I want to use a text-based config?==
-
-The number one reason is that you don't really have a choice. If you aren't using a GUI than you have to use a text-based config file.
-
-The second reason is that it gives you more control. The GUI cannot create advanced configuration such as non-reciprocal connections. An example of a non-reciprocal connection would be that if you go right from screen A you get to screen B, but if you then go left from screen B you get to screen C rather than back to screen A as you would in a reciprocal connection.
-
-Other considerations:
-* You can use a version control system
-* It's easier to share configs with people
-* You can have multiple config files (like if you use a laptop in multiple places)
-
-==File Format==
-
-The configuration file is a plain text file. Use any text editor to create the configuration file. The file is broken into sections and each section has the form:
+=== Windows ===
 
 <pre>
- section: ''name''
- 	''args''
- end
+hm conf -g1
+hm build
 </pre>
 
-Comments are introduced by ''#'' and continue to the end of the line. ''name'' must be one of the following:
-
-* ''screens''
-* ''aliases''
-* ''links''
-* ''options''
-
-See below for further explanation of each section type. The configuration file is case-sensitive so <code>Section</code>, <code>SECTION</code>, and <code>section</code> are all different and only the last is valid. Screen names are the exception, they are case-insensitive.
-
-The file is parsed top to bottom and names cannot be used before they've been defined in the <code>screens</code> or <code>aliases</code> sections. So the <code>links</code> and <code>aliases</code> must appear after the <code>screens</code> and <code>links</code> cannot refer to aliases unless the <code>aliases</code> appear before the <code>links</code>.
-
-===screens===
-
-''args'' is a list of screen names, one name per line, each followed by a colon. Names are arbitrary strings but they must be unique. The hostname of each computer is recommended. (This is the computer's network name on win32 and the name reported by the program hostname on Unix and OS X. Note that OS X may append .local to the name you gave your computer; e.g. somehost.local.) There must be a screen name for the server and each client. Each screen can specify a number of options. Options have the form name = value and are listed one per line after the screen name.
+=== Unix, Linux, Mac OS X ===
 
 <pre>
- section: screens
-     moe:
-     larry:
-         halfDuplexCapsLock = true
-         halfDuplexNumLock = true
-     curly:
-         meta = alt
-  end
+./hm.sh conf -g1 [-d] # Use -d to build a debug version.
+./hm.sh build [-d]
 </pre>
 
-This declares three screens named ''moe'', ''larry'', and ''curly''. Screen ''larry'' has half-duplex ''Caps Lock'' and ''Num Lock'' keys (see below) and screen ''curly'' converts the ''Meta'' modifier key to the ''Alt'' modifier key.
+After compiling the executables can be found in the <code>bin</code> directory in the root of the source tree (not in the build directory).
 
-====screen options====
+== Manual compiling ==
 
-A screen can have the following options:
+After configuring, if you want to build without using the <code>hm</code> script.
 
-* <code>halfDuplexCapsLock = {true|false}</code>
-: This computer has a ''Caps Lock'' key that doesn't report a press and a release event when the user presses it but instead reports a press event when it's turned on and a release event when it's turned off. If ''Caps Lock'' acts strangely on all screens then you may need to set this option to true on the server screen. If it acts strangely on one screen then that screen may need the option set to true.
-
-* <code>halfDuplexNumLock = {true|false}</code>
-: This is identical to <code>halfDuplexCapsLock</code> except it applies to the ''Num Lock'' key.
-
-* <code>halfDuplexScrollLock = {true|false}</code>
-: This is identical to <code>halfDuplexCapsLock</code> except it applies to the ''Scroll Lock'' key. Note that, by default, Synergy uses ''Scroll Lock'' to keep the cursor on the current screen. That is, when ''Scroll Lock'' is toggled on, the cursor is locked to the screen that it's currently on. You can use that to prevent accidental switching. You can also configure other hot keys to do that; see lockCursorToScreen.
-
-* <code>switchCorners = &lt;corners&gt;</code>
-: See switchCorners below.
-
-* <code>switchCornerSize = N</code>
-: See switchCornerSize below.
-
-* <code>xtestIsXineramaUnaware = {true|false}</code>
-: This option works around a bug in the XTest extension when used in combination with Xinerama. It affects X11 clients only. Not all versions of the XTest extension are aware of the Xinerama extension. As a result, they do not move the mouse correctly when using multiple Xinerama screens. This option is currently ''true'' by default. If you know your XTest extension is Xinerama aware then set this option to ''false''.
-
-* <code>shift = {shift|ctrl|alt|meta|super|none}</code>
-* <code>ctrl = {shift|ctrl|alt|meta|super|none}</code>
-* <code>alt = {shift|ctrl|alt|meta|super|none}</code>
-* <code>meta = {shift|ctrl|alt|meta|super|none}</code>
-* <code>super = {shift|ctrl|alt|meta|super|none}</code>
-: Map a modifier key pressed on the server's keyboard to a different modifier on this client. This option only has an effect on a client screen; it's accepted and ignored on the server screen.
-: For instance, you can map the ''Shift'' key to ''Shift'' (the default), ''Ctrl'', ''Alt'', ''Meta'', ''Super'', or nothing. Normally, you wouldn't remap ''Shift'' or ''Ctrl''. You might, however, have an X11 server with ''Meta'' bound to the ''Alt'' keys. To use this server effectively with a Windows client, which doesn't use ''Meta'' but uses ''Alt'' extensively, you'll want the Windows client to map ''Meta'' to ''Alt'' (using <code>meta = alt</code>).
-
-===aliases===
-
-''args'' is a list of screen names just like in the ''screens'' section except each screen is followed by a list of aliases, one per line, not followed by a colon. An ''alias'' is a screen name and must be unique. During screen name lookup each alias is equivalent to the screen name it aliases. So a client can connect using its canonical screen name or any of its aliases.
+=== Unix Makefiles ===
 
 <pre>
- section: aliases
-     larry:
-         larry.stooges.com
-     curly:
-         shemp
- end
+cd build/release # or build/debug if you configured with -d
+make
 </pre>
 
-Screen ''larry'' is also known as ''larry.stooges.com'' and can connect as either name. Screen ''curly'' is also known as ''shemp'' (hey, it's just an example).
+=== Visual Studio ===
 
-===links===
+# Open the <code>build</code> directory.
+# Double click: <code>synergy.sln</code>
+# Click <code>Build</code> from the menu, then click <code>Build Solution</code>.
 
-''args'' is a list of screen names just like in the ''screens'' section except each screen is followed by a list of links, one per line. Each link has the form:
+=== Xcode ===
+
+Run:
+
+ ./hm.sh conf -g2
+
+to create <code>synergy.xcodeproj</code>, then:
+
+# Open the <code>build</code> directory.
+# Double click: <code>synergy.xcodeproj</code>
+# Click <code>Build</code> from the menu, then click <code>Build</code>.
+
+'''Tip:''' To build for a different version of OS X than the one you are on, go to Project, Edit Project Settings, Build.  There you can change settings for Intel/PPC, 32/64-bit, and OS X version (scroll down for OS X version).  Release builds should be 32-bit Universal, with base SDK 10.5.
+
+=== Other IDEs ===
+
+Windows users can download a free version of [http://www.microsoft.com/express/vc/ Visual C++ Express 2008], which can open the Visual Studio 2008 files generated by CMake. Other supported project types are [http://www.codeblocks.org/ Code::Blocks], [http://www.eclipse.org/cdt/ Eclipse CDT], and [http://www.mingw.org/. MinGW]
+
+For Mac OS X users, although [//developer.apple.com/technology/xcode.html Xcode] isn't necessary for compiling on Mac OS X (you can just use Unix Makefiles), it is a neat IDE and very widely used (and it's free). There others, such as [http://www.codeblocks.org/ Code::Blocks] and [http://www.eclipse.org/cdt/ Eclipse CDT] which (apparently) work on Mac OS X.
+
+=== Building installers ===
+
+Use the <code>hm package</code> command to build installers. Of course you can only build those that are applicable for your platform.
+
+== Dependencies ==
+
+=== Windows ===
+
+==== Windows XP (and above) ====
+
+* [http://www.microsoft.com/express/vc/ Visual C++ Express 2008] (or VC++ 6.0 and above)
+* [http://www.cmake.org/cmake/resources/software.html CMake]
+* [http://www.python.org/download/ Python]
+* [http://synergy-foss.org/mirror/qt-sdk-win-opensource-2010.02.exe Qt SDK 2010.02] (provides qmake and MinGW used for building the GUI. Note: use the MinGW version provided with Qt as a mismatch can cause random crashes)
+* [http://wixtoolset.org/ Wix] v3.8 (for building the windows installer, since Synergy version 1.4.17)
+
+You may need to add your Python install directory to the end of your PATH environment variable (System > Advanced System Settings > Environment Variables) so that <code>hm</code> can be called from the command prompt.
+
+Using Python 3.x will result in syntax errors as print became a function rather than a statement:
+[http://docs.python.org/3.0/whatsnew/3.0.html#print-is-a-function What's new in Python 3.0]
+
+===== Windows x64 =====
+
+* All dependencies required for Windows x86
+* Visual Studio 2008 (x64) *SP1* or Visual Studio 2005 (x64) *SP1*
+* 64-bit compiler extensions installed (you may need to re-run Visual Studio setup)
+
+=== Mac OS X ===
+
+==== Mac OS X 10.10 Yosemite ====
+
+* Install cmake and Qt as usual (e.g. using brew):
 <pre>
- {left|right|up|down}[<range>] = name[<range>]
+brew install cmake
+brew install qt
 </pre>
+* Fix <code>./ext/toolchain/commands1.py</code>:
 
-A link indicates which screen is adjacent in the given direction.
+In the function configure_core(), at approx line 433, change 
 
-Each side of a link can specify a range which defines a portion of an edge. A range on the direction is the portion of edge you can leave from while a range on the screen is the portion of edge you'll enter into. Ranges are optional and default to the entire edge. All ranges on a particular direction of a particular screen must not overlap.
+<code>elif sys.platform == "darwin": </code> to read <code>if sys.platform == "darwin":</code>
 
+In the function macPostGuiMake(), at approx line 770 and/or 773 change the path to be what your Qt library path is, probably, 
 
+<code>frameworkRootDir = "/usr/local/Cellar/qt/4.8.7/Frameworks"</code>
 
+See [https://github.com/synergy/synergy/issues/4572 this github issue] for more information.
 
-
-
-
-
-
-
-
-
-
-
-
+* Now configure and build:
 <pre>
- # sample synergy configuration file
- #
- # comments begin with the # character and continue to the end of
- # line.  comments may appear anywhere the syntax permits.
- # +-------+  +--------+ +---------+
- # |Laptop |  |Desktop1| |iMac     |
- # |       |  |        | |         |
- # +-------+  +--------+ +---------+
- 
- section: screens
- 	# three hosts named:  Laptop, Desktop1, and iMac
- 	# These are the nice names of the hosts to make it easy to write the config file
- 	# The aliases section below contain the "actual" names of the hosts (their hostnames)
- 	Laptop:
- 	Desktop1:
- 	iMac:
- end
- 
- section: links
- 	# iMac is to the right of Desktop1
- 	# Laptop is to the left of Desktop1
- 	Desktop1:
- 		right(0,100) = iMac # the numbers in parentheses indicate the percentage of the screen's edge to be considered active for switching)
- 		left  = Laptop
- 		shift = shift (shift, alt, super, meta can be mapped to any of the others)
- 
- 	# Desktop1 is to the right of Laptop
- 	Laptop:
- 		right = Desktop1
- 
- 	# Desktop1 is to the left of iMac
- 	iMac:
- 		left  = Desktop1
- end
- 
- section: aliases
- 	# The "real" name of iMac is John-Smiths-iMac-3.local. 
- 	# If we wanted we could remove this alias and instead use John-Smiths-iMac-3.local everywhere iMac is above. 
- 	# Hopefully it should be easy to see why using an alias is nicer
- 	iMac:
- 		John-Smiths-iMac-3.local
- end
+./hm.sh conf -g1 --mac-sdk 10.10 --mac-identity test
+./hm.sh build
 </pre>
 
+Credits to [https://wordpress.update.sh/archives/410 this blog entry]
 
+==== Mac OS X 10.9 Mavericks ====
 
+[http://www.computersnyou.com/2025/2013/06/install-command-line-tools-in-osx-10-9-mavericks-how-to/ Install Command Line Tools In OSX 10.9 Mavericks]
 
+==== Mac OS X 10.4 (and above) ====
 
+* [http://developer.apple.com/technology/xcode.html XCode] (*with command line tools)
+* [http://synergy-foss.org/mirror/qt-sdk-mac-opensource-2010.03.dmg Qt SDK 2010.03] (provides qmake)
 
+To install the command line tools, Xcode > Preferences > Downloads and install component named "Command Line Tools".
 
-
-
-
-
-
-
-
-
-
-
-
-A <range> is written as <code>(<start>,<end>)</code>. Both ''start'' and ''end'' are percentages in the range 0 to 100, inclusive. The start must be less than the end. 0 is the left or top of an edge and 100 is the right or bottom.
-
-<pre>
- section: links
-     moe:
-         right        = larry
-         up(50,100)   = curly(0,50)
-     larry:
-         left         = moe
-         up(0,50)     = curly(50,100)
-     curly:
-         down(0,50)   = moe
-         down(50,100) = larry(0,50)
- end
-</pre>
-
-This indicates that screen ''larry'' is to the right of screen ''moe'' (so moving the cursor off the right edge of ''moe'' would make it appear at the left edge of ''larry''), the left half of curly is above the right half of ''moe'', ''moe'' is to the left of ''larry'' (edges are not necessarily symmetric so you have to provide both directions), the right half of curly is above the left half of ''larry'', all of ''moe'' is below the left half of ''curly'', and the left half of ''larry'' is below the right half of ''curly''.
-
-Note that links do not have to be symmetrical; for instance, here the edge between ''moe'' and ''curly'' maps to different ranges depending on if you're going up or down. In fact links don't have to be bidirectional. You can configure the right of ''moe'' to go to ''larry'' without a link from the left of ''larry'' to ''moe''. It's possible to configure a screen with no outgoing links; the cursor will get stuck on that screen unless you have a hot key configured to switch off of that screen.
-
-===options===
-
-''args'' is a list of lines of the form <code>name = value</code>. These set the global options.
+If you are missing the <code>/Developer</code> directory, you may need to run (assuming the path is correct):
 
 <pre>
- section: options
-     heartbeat = 5000
-     switchDelay = 500
- end
+mkdir /Developer
+cd /Developer
+ln -s /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Library
+ln -s /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/SDKs
 </pre>
 
-====List of options====
+'''Note:''' For Mac OS X 10.5 and above, Python should already be installed. Otherwise, visit the [http://www.cmake.org/cmake/resources/software.html CMake] and [http://www.python.org/download/ Python] download pages.
 
-* <code>heartbeat = N</code>
-: The server will expect each client to send a message no less than every ''N'' milliseconds. If no message arrives from a client within ''3N'' seconds the server forces that client to disconnect.
-: If synergy fails to detect clients disconnecting while the server is sleeping or vice versa, try using this option.
+'''Note:''' Upgrading Mac OS X may cause the command line tools and Qt libraries to be removed (even on minor upgrades), so you may have to reinstall both each time after doing this.
 
-* <code>switchCorners = <corners></code>
-: Synergy won't switch screens when the mouse reaches the edge of the screen if it's in a listed corner. The size of all corners is given by the <code>switchCornerSize</code> option.
-: Corners are specified by a list using the following names:
-:* <code>none</code> -- no corners
-:* <code>top-left</code> -- the top left corner
-:* <code>top-right</code> -- the top right corner
-:* <code>bottom-left</code> -- the bottom left corner
-:* <code>bottom-right</code> -- the bottom right corner
-:* <code>left</code> -- top and bottom left corners
-:* <code>right</code> -- top and bottom right corners
-:* <code>top</code> -- left and right top corners
-:* <code>bottom</code> -- left and right bottom corners
-:* <code>all</code> -- all corners
-: The first name in the list is one of the above names and defines the initial set of corners. Subsequent names are prefixed with + or - to add the corner to or remove the corner from the set, respectively. For example: <code>all -left +top-left</code>  starts will all corners, removes the left corners (top and bottom) then adds the top-left back in, resulting in the top-left, bottom-left and bottom-right corners.
+==== Using "brew" method ====
 
-* <code>switchCornerSize = N</code>
-: Sets the size of all corners in pixels. The cursor must be within <code>N</code> pixels of the corner to be considered to be in the corner.
+[http://mxcl.github.com/homebrew/ Brew] for Mac OS X is an alternative to MacPorts and Fink.
+<pre>
+brew install cmake
+</pre>
 
-* <code>switchDelay = N</code>
-: Synergy won't switch screens when the mouse reaches the edge of a screen unless it stays on the edge for <code>N</code> milliseconds. This helps prevent unintentional switching when working near the edge of a screen.
+==== Using "macports" method ====
 
-* <code>switchDoubleTap = N</code>
-: Synergy won't switch screens when the mouse reaches the edge of a screen unless it's moved away from the edge and then back to the edge within <code>N</code> milliseconds. With the option you have to quickly tap the edge twice to switch. This helps prevent unintentional switching when working near the edge of a screen.
-
-* <code>screenSaverSync = {true|false}</code>
-: If set to ''false'' then Synergy won't synchronize screen savers. Client screen savers will start according to their individual configurations. The server screen saver won't start if there is input, even if that input is directed toward a client screen.
-
-* <code>relativeMouseMoves = {true|false}</code>
-: If set to ''true'' then secondary screens move the mouse using relative rather than absolute mouse moves when and only when the cursor is locked to the screen (by ''Scroll Lock'' or a configured hot key). This is intended to make Synergy work better with certain games. If set to ''false'' or not set then all mouse moves are absolute.
-
-* <code>keystroke(key) = actions</code>
-: Binds the ''key'' combination key to the given ''actions''. ''key'' is an optional list of modifiers (''shift'', ''control'', ''alt'', ''meta'' or ''super'') optionally followed by a character or a key name, all separated by + (plus signs). You must have either modifiers or a character/key name or both. See below for [[Text Config#Keynames|valid key names]] and [[Text Config#Actions|actions]].
-: Keyboard hot keys are handled while the cursor is on the primary screen and secondary screens. Separate actions can be assigned to press and release.
-
-* <code>mousebutton(button) = actions</code>
-: Binds the modifier and mouse button combination ''button'' to the given ''actions''. ''button'' is an optional list of modifiers (''shift'', ''control'', ''alt'', ''meta'' or ''super'') followed by a button number. The primary button (the left button for right handed users) is button 1, the middle button is 2, etc. Actions can be [[Text Config#Actions|found below]]
-: Mouse button actions are not handled while the cursor is on the primary screen. You cannot use these to perform an action while on the primary screen. Separate actions can be assigned to press and release.
-
-You can use both the ''switchDelay'' and ''switchDoubleTap'' options at the same time. Synergy will switch when either requirement is satisfied.
-
-====Actions====
-
-Actions are two lists of individual actions separated by commas. The two lists are separated by a '';'' (semicolon). Either list can be empty and if the second list is empty then the semicolon is optional. The first list lists actions to take when the condition becomes true (e.g. the hot key or mouse button is pressed) and the second lists actions to take when the condition becomes false (e.g. the hot key or button is released). The condition becoming true is called activation and becoming false is called deactivation. Allowed individual actions are:
-
-* <code>keystroke(key[,screens])</code>
-
-* <code>keyDown(key[,screens])</code>
-
-* <code>keyUp(key[,screens])</code>
-: Synthesizes the modifiers and key given in ''key'' which has the same form as described in the ''keystroke'' option. If given, ''screens'' lists the screen or screens to direct the event to, regardless of the active screen. If not given then the event is directed to the active screen only.
-: ''keyDown'' synthesizes a key press and ''keyUp'' synthesizes a key release. ''keystroke'' synthesizes a key press on activation and a release on deactivation and is equivalent to a ''keyDown'' on activation and ''keyUp'' on deactivation.
-: ''screens'' is either ''*'' (asterisk) to indicate all screens or a '':'' (colon) separated list of screen names. (Note that the screen name must have already been encountered in the configuration file so you'll probably want to put ''actions'' at the bottom of the file.)
-
-* <code>mousebutton(button)</code>
-* <code>mouseDown(button)</code>
-* <code>mouseUp(button)</code>
-: Synthesizes the modifiers and mouse button given in ''button'' which has the same form as described in the ''mousebutton'' option.
-: ''mouseDown'' synthesizes a mouse press and ''mouseUp'' synthesizes a mouse release. ''mousebutton'' synthesizes a mouse press on activation and a release on deactivation and is equivalent to a ''mouseDown'' on activation and ''mouseUp'' on deactivation.
-
-* <code>lockCursorToScreen(mode)</code>
-: Locks the cursor to or unlocks the cursor from the active screen. ''mode'' can be ''off'' to unlock the cursor, ''on'' to lock the cursor, or ''toggle'' to toggle the current state. The default is ''toggle''. If the configuration has no ''lockCursorToScreen'' action and ''Scroll Lock'' is not used as a hot key then ''Scroll Lock'' toggles cursor locking.
-
-* <code>switchToScreen(screen)</code>
-: Jump to screen with name or alias ''screen''.
-
-* <code>switchInDirection(dir)</code>
-: Switch to the screen in the direction ''dir'', which may be one of ''left'', ''right'', ''up'' or ''down''.
-
-====Keynames====
-Valid key names are:
-
-{|
-|
-* AppMail
-* AppMedia
-* AppUser1
-* AppUser2
-* AudioDown
-* AudioMute
-* AudioNext
-* AudioPlay
-* AudioPrev
-* AudioStop
-* AudioUp
-* BackSpace
-* Begin
-* Break
-* Cancel
-* CapsLock
-* Clear
-* Delete
-* Down
-* Eject
-* End
-* Escape
-* Execute
-* F1
-* F2
-* F3
-|
-* F4
-* F5
-* F6
-* F7
-* F8
-* F9
-* F10
-* F11
-* F12
-* F13
-* F14
-* F15
-* F16
-* F17
-* F18
-* F19
-* F20
-* F21
-* F22
-* F23
-* F24
-* F25
-* F26
-* F27
-* F28
-* F29
-|
-* F30
-* F31
-* F32
-* F33
-* F34
-* F35
-* Find
-* Help
-* Home
-* Insert
-* KP_0
-* KP_1
-* KP_2
-* KP_3
-* KP_4
-* KP_5
-* KP_6
-* KP_7
-* KP_8
-* KP_9
-* KP_Add
-* KP_Begin
-* KP_Decimal
-* KP_Delete
-* KP_Divide
-* KP_Down
-|
-* KP_End
-* KP_Enter
-* KP_Equal
-* KP_F1
-* KP_F2
-* KP_F3
-* KP_F4
-* KP_Home
-* KP_Insert
-* KP_Left
-* KP_Multiply
-* KP_PageDown
-* KP_PageUp
-* KP_Right
-* KP_Separator
-* KP_Space
-* KP_Subtract
-* KP_Tab
-* KP_Up
-* Left
-* LeftTab
-* Linefeed
-* Menu
-* NumLock
-* PageDown
-* PageUp
-|
-* Pause
-* Print
-* Redo
-* Return
-* Right
-* ScrollLock
-* Select
-* Sleep
-* Space
-* SysReq
-* Tab
-* Undo
-* Up
-* WWWBack
-* WWWFavorites
-* WWWForward
-* WWWHome
-* WWWRefresh
-* WWWSearch
-* WWWStop
-* Space
-* Exclaim
-* DoubleQuote
-* Number
-* Dollar
-* Percent
-|
-* Ampersand
-* Apostrophe
-* ParenthesisL
-* ParenthesisR
-* Asterisk
-* Plus
-* Comma
-* Minus
-* Period
-* Slash
-* Colon
-* Semicolon
-* Less
-* Equal
-* Greater
-* Question
-* At
-* BracketL
-* Backslash
-* BracketR
-* Circumflex
-* Underscore
-* Grave
-* BraceL
-* Bar
-* BraceR
-* Tilde
-|}
-
-Additionally, a name of the form <code>\uXXXX</code> where ''XXXX'' is a hexadecimal number is interpreted as a unicode character code. Key and modifier names are case-insensitive. Keys that don't exist on the keyboard or in the default keyboard layout will not work.
-
-==Example textual configuration file==
-
-This example comes from doc/synergy-basic.conf
+If you already have [http://www.macports.org/install.php MacPorts], run:
 
 <pre>
- # sample synergy configuration file
- #
- # comments begin with the # character and continue to the end of
- # line.  comments may appear anywhere the syntax permits.
- # +-------+  +--------+ +---------+
- # |Laptop |  |Desktop1| |iMac     |
- # |       |  |        | |         |
- # +-------+  +--------+ +---------+
- 
- section: screens
- 	# three hosts named:  Laptop, Desktop1, and iMac
- 	# These are the nice names of the hosts to make it easy to write the config file
- 	# The aliases section below contain the "actual" names of the hosts (their hostnames)
- 	Laptop:
- 	Desktop1:
- 	iMac:
- end
- 
- section: links
- 	# iMac is to the right of Desktop1
- 	# Laptop is to the left of Desktop1
- 	Desktop1:
- 		right(0,100) = iMac # the numbers in parentheses indicate the percentage of the screen's edge to be considered active for switching)
- 		left  = Laptop
- 		shift = shift (shift, alt, super, meta can be mapped to any of the others)
- 
- 	# Desktop1 is to the right of Laptop
- 	Laptop:
- 		right = Desktop1
- 
- 	# Desktop1 is to the left of iMac
- 	iMac:
- 		left  = Desktop1
- end
- 
- section: aliases
- 	# The "real" name of iMac is John-Smiths-iMac-3.local. 
- 	# If we wanted we could remove this alias and instead use John-Smiths-iMac-3.local everywhere iMac is above. 
- 	# Hopefully it should be easy to see why using an alias is nicer
- 	iMac:
- 		John-Smiths-iMac-3.local
- end
+sudo port install cmake
 </pre>
 
-==Available options==
-
-===Focus Preservation===
-
-The following section can be added to the screens section of the config (as shown) to let windows keep focus when you switch screens. This overrides the default option of making windows lose focus when you switch to a different machine.
+=== Ubuntu 10.04 LTS ===
 
 <pre>
- section: screens
- 	client1:
- 		preserveFocus = true # Don't drop focus when switching screens
- 		
- end
-</pre><pre>
- section: screens
- 	client1:
- 		preserveFocus = true # Don't drop focus when switching screens
- 		
- end
+sudo apt-get install cmake make g++ xorg-dev libqt4-dev libcurl4-openssl-dev libavahi-compat-libdnssd-dev libssl-dev
 </pre>
 
-===Cursor Wrapping===
-
-The text config allows screens to be wrapped around. For example, with two machines (a server and a client), the mouse can go off the right of the server onto the left side of the client, then off the right side of the client back onto the left side of server. This config also uses ''Ctrl''+''Super''+(''left arrow''/''right arrow'') to switch between machines on keypress.
+=== Ubuntu 15.04 ===
 
 <pre>
- # Physical monitor arrangement, with machine names as used by Synergy.
- #  +----------+----------+
- #  | syn-serv | syn-cli  |
- #  |          |          |
- #  +----------+----------+ 
- 
- section: screens
-     syn-serv:
-     syn-cli:
- end
- section: links
-     syn-serv:
-         left = syn-cli     # "wrapping" arrangement
-         right = syn-cli    # "normal" arrangement
-     syn-cli:
-         left = syn-serv    # "normal"
-         right = syn-serv   # "wrapping"
- end
- section: options
-         keystroke(control+super+right) = switchInDirection(right) # Switch screens on keypress 
-         keystroke(control+super+left) = switchInDirection(left)
- end
+sudo apt-get install cmake make g++ xorg-dev libqt4-dev libcurl4-openssl-dev libavahi-compat-libdnssd-dev libssl-dev
 </pre>
 
-===AltGr key===
+=== CentOS 6.5 ===
 
-The following screen config allows the mapping for ''Alt'' to ''AltGr''. Although this may not work, see [https://github.com/synergy/synergy/issues/4411 bug #4411].
 <pre>
- section: screens
- 	  client1:
-   		altgr = alt          # mapping to fix AltGr key not working on windows clients (e.g. @-Symbol etc.).
-   		                     # See reference [1]
- end
+su
+yum install cmake make gcc-c++ libX11-devel libXext-devel libXi-devel libXtst-devel libXinerama-devel libcurl-devel qt-devel avahi-compat-libdns_sd-devel openssl-devel
+PATH="$PATH:/usr/lib64/qt4/bin:/usr/lib/qt4/bin"
 </pre>
 
-See also: the man page for ''synergys''.
+=== Fedora 20 ===
 
-<span id="1">[1]</span> [https://github.com/synergy/synergy/issues/4411 Synergy Issue Tracker Bug #4411 - AltGr not sent to client from server]
+<pre>
+sudo yum install cmake make gcc-c++ libX11-devel libXtst-devel libXext-devel libXinerama-devel libcurl-devel qt-devel avahi-compat-libdns_sd-devel openssl-devel
+PATH="$PATH:/usr/lib64/qt4/bin:/usr/lib/qt4/bin"
+</pre>
 
-==Tips/Notes==
+=== OpenSUSE 11.1 ===
 
-The GUI actually creates a text-based config behind the scenes.
+<pre>
+su
+yast2 -i cmake python gcc-c++ xorg-x11-devel libcurl-devel (SSL dev package, not sure what it's called on SuSE)
+</pre>
+
+=== Mandriva One 2009 ===
+
+<pre>
+su
+urpmi cmake python gcc-c++ make xorg-x11-dev libcurl-dev (SSL dev package, not sure what it's called on Mandriva)
+</pre>
+
+=== OpenSolaris 2009.06 ===
+
+<pre>
+su
+pkg install SUNWPython SUNWcmake SUNWgcc SUNWxorg-headers SUNWxwinc libcurl-devel (SSL dev package, not sure what it's called on Solaris)
+</pre>
+
+=== Unix or other Linux ===
+
+* CMake
+* Python
+* GNU Make
+* GCC (2.95 and up)
+* X11R4 and up (headers and libraries)
+* Xtst (e.g. libXtst-devel)
+* Qt 2010.03
+* libCURL
+* SSL dev package
