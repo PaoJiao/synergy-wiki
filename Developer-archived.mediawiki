@@ -1,0 +1,6 @@
+==Content from old wiki which may be useful==
+
+This page links to pages on the Synergy wiki on GitHub, which contain content from the old wiki that may not be current/relevant to the latest software but might still be useful to somebody.
+
+===Diagram===
+
