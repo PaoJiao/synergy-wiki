@@ -30,7 +30,7 @@ Synergy now offers built-in encryption. A passphrase is entered on both the clie
 
 Strong encryption and authentication is also available through SSH (secure shell). Run the SSH daemon (i.e. server) on the same computer that you run the Synergy server. It requires no special configuration to support Synergy. On each Synergy client system, run SSH with port forwarding:
 
-''ssh -f -N -L 24800:server-hostname:24800 server-hostname''
+ ssh -f -N -L 24800:server-hostname:24800 server-hostname
 
 ...where ''server-hostname'' is the name of the SSH/Synergy server. Once SSH authenticates itself, start the Synergy client normally, except use localhost or 127.0.0.1 as the server's address. SSH will then encrypt all communication on behalf of (or in addition to) Synergy.
 Authentication is handled by the SSH authentication.
@@ -84,11 +84,11 @@ Some systems treat the ''Caps Lock'', ''Num-Lock'', and ''Scroll Lock'' keys dif
 
 There are options to fix this in the GUI settings. Or, if you use a configuration file, in the ''screens'' section, following each screen that has the problem, any or all of these lines as appropriate:
 
-''halfDuplexCapsLock = true''
+ halfDuplexCapsLock = true
 
-''halfDuplexNumLock = true''
+ halfDuplexNumLock = true
 
-''halfDuplexScrollLock = true''
+ halfDuplexScrollLock = true
 
 Then restart Synergy on the server or reload the configuration.
 
@@ -129,7 +129,7 @@ You're running Synergy without authorization to connect to the X display. Typica
 
 Did you add
 
-''--x-includes=/usr/openwin/include --x-libraries=/usr/openwin/lib''
+ --x-includes=/usr/openwin/include --x-libraries=/usr/openwin/lib
 
 ...to the configure command line? Solaris puts the X11 includes and libraries in an unusual place and the above lets Synergy find them.
 
