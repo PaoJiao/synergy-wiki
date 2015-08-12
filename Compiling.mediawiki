@@ -58,7 +58,7 @@ Credits to [https://wordpress.update.sh/archives/410 this blog entry]
 * [https://github.com/synergy/synergy/wiki/*with%20command%20line%20tools XCode] (with command line tools)
 * [https://github.com/synergy/synergy/wiki/provides%20qmake Qt SDK 2010.03] (provides qmake)
 
-To install the command line tools: <pre> Xcode --> Preferences --> Downloads and install ''Command Line Tools''.
+To install the command line tools: <pre> Xcode --> Preferences --> Downloads and install ''Command Line Tools''.</pre>
 
 If you are missing the ''/Developer'' directory, you may need to run (assuming the path is correct):
  mkdir /Developer
