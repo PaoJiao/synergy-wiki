@@ -10,7 +10,7 @@ These are for Windows XP SP3 (the earliest Windows supported) and above.
 
 * Visual Studio 2010 or Visual C++ Express 2010
 * Visual Studio 2010 SP1
-* [http://www.cmake.org/cmake/resources/software.html CMake]
+* [http://www.cmake.org/cmake/resources/software.html CMake 2.8]
 * [http://www.python.org/download/ Python 2.x]
 * [http://synergy-foss.org/mirror/qt-sdk-win-opensource-2010.02.exe Qt SDK 2010.02]
 * [http://wixtoolset.org/releases/ Wix v3.8]
