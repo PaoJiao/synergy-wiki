@@ -39,10 +39,10 @@ brew install cmake
 brew install qt
 ```
 
-* Fix "./ext/toolchain/commands1.py"
- * In the function "configure\_core()" at approx line 433, change <code>elif sys.platform == "darwin":</code> to read <code>if sys.platform == "darwin":</code>
- * In the function "macPostGuiMake()" at approx line 770 and/or 773 change the path to be what your Qt library path is, probably "frameworkRootDir = "/usr/local/Cellar/qt/4.8.7/Frameworks"
- * See [https://github.com/synergy/synergy/issues/4572 this] github issue for more information.
+* **Fix "./ext/toolchain/commands1.py"**
+* In the function "configure\_core()" at approx line 433, change <code>elif sys.platform == "darwin":</code> to read <code>if sys.platform == "darwin":</code>
+* In the function "macPostGuiMake()" at approx line 770 and/or 773 change the path to be what your Qt library path is, probably "frameworkRootDir = "/usr/local/Cellar/qt/4.8.7/Frameworks"
+* See [https://github.com/synergy/synergy/issues/4572 this] github issue for more information.
 
 * Now configure and build
 
