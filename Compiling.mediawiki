@@ -37,9 +37,7 @@ Note: If you want to change the installed directory of Bonjour SDK, please doubl
  brew install qt
 
 * Fix <code>./ext/toolchain/commands1.py</code>:
-
   * In the function <code>configure\_core()</code> at approx line 433, change <code>elif sys.platform == "darwin": </code> to read <code>if sys.platform == "darwin":</code>
-
   * In the function <code>macPostGuiMake()</code> at approx line 770 and/or 773 change the path to be what your Qt library path is, probably <code>frameworkRootDir = "/usr/local/Cellar/qt/4.8.7/Frameworks"</code>
 
 See [https://github.com/synergy/synergy/issues/4572 this github issue] for more information.
