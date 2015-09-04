@@ -99,7 +99,7 @@ First, enable relative mouse movements on the server:
 If this doesn't work, you can try to lock the mouse to your client screen by pressing the ''Scroll Lock'' key. Press it again to unlock.
 
 ===Why do certain programs stop me from moving the mouse off screen?===
-This usually occurs in Windows Vista and above, and is due to UAC in Windows. The solution to this is to run Synergy in ''Elevated'' mode (this can be selected at the bottom of the main Synergy window). You can also try launching Synergy as an administrator. Note that running Synergy in Elevated mode carries potential trade-offs with things like clipboard and file sharing functionality.
+This usually occurs in Windows Vista and above, and is due to UAC in Windows. The solution to this is to run Synergy in ''Elevated'' mode (this can be selected on the Settings page, under the Edit menu). Note that running Synergy in Elevated mode carries potential trade-offs with things like clipboard and file sharing functionality.
 
 ===How can I send developers my Synergy log content?===
 It's easy to send us your log content so that we can help debug an issue. First, turn up the logging level (for most cases) to at least ''Debug''. In the Synergy GUI, go to ''Edit'' --> ''Settings'' --> ''Logging''. In ''Logging level:'' choose ''Debug'' and click ''OK''. Then, click ''Apply'', or if using 1.4.12 or older you may need to click ''Stop'' and then ''Start'' if using Desktop Mode.
