@@ -26,7 +26,7 @@ Unlike x2x, synergy supports any number of computers and it doesn't require X on
 
 ===What security/encryption does synergy provide?===
 
-Synergy now offers built-in encryption. A passphrase is entered on both the client and server sides to encrypt and decrypt the traffic at each end. The encryption method had been an in-house developed cipher which has not yet been broken. Starting with version 1.7, Synergy uses SSL encryption (if enabled) as a plugin and discontinued the in-house encryption.
+Synergy uses SSL encryption (available to Pro edition users).
 
 Strong encryption and authentication is also available through SSH (secure shell). Run the SSH daemon (i.e. server) on the same computer that you run the Synergy server. It requires no special configuration to support Synergy. On each Synergy client system, run SSH with port forwarding:
 
