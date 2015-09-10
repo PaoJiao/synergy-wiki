@@ -47,6 +47,10 @@ Probably because the developers don't have access to platform XYZ and/or are unf
 
 ==Setup==
 
+===Do all computers need to be on the same network?===
+
+Can the client ping the server? If so then Synergy should work. However, if the client can't connect directly to the server, then you'll be unable to use Synergy. You may be able to use VPN to connect the client to the same network as the server (if you're in a corporate environment, ask your system administrator).
+
 ===What should I call my screens in the configuration?===
 
 The short answer is that you should use the name Synergy automatically detects whenever possible. In the GUI, this appears under the Client section, labeled ''Screen Name''.
