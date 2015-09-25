@@ -134,4 +134,4 @@ With no extra arguments, release build will be compiled. If you need the debug r
 After compiling, the binaries can be found in the ''bin'' directory in the root of the source tree (not in the build directory).
 
 ==Building installers==
-Use the <code>hm package [os]</code> command to build installers. Requires the [http://wixtoolset.org/ WiX Toolset].
+Use the <code>hm package [os]</code> command to build installers. On Windows the [http://wixtoolset.org/ WiX Toolset] is required.
