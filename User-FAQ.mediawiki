@@ -10,7 +10,7 @@ Yes. The Synergy network protocol is platform neutral so Synergy doesn't care wh
 
 ===Can Synergy do drag and drop of files between computers?===
 
-Yes! This is supported on Windows 8 and newer, and Mac OS X 10.7 and newer. You must drag a single file icon to the edge of the screen in the direction of the client or server, and the file will be copied to the desktop of the other computer a few seconds later. This has some limitations depending on version of SSL and whether SSL is running, partially fixed for 1.7.3 and to be much improved for 1.7.4.
+Yes! This is supported on Windows Vista and newer, and Mac OS X 10.7 and newer. You must drag a single file icon to the edge of the screen in the direction of the client or server, and the file will be copied to the desktop of the other computer a few seconds later. This has some limitations depending on version of SSL and whether SSL is running, partially fixed for 1.7.3 and to be much improved for 1.7.4.
 
 ===Can Synergy share the display in addition to the mouse and keyboard?===
 
