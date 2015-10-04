@@ -22,6 +22,10 @@ Using Python 3.x will result in syntax errors as print became a function rather 
 
 Note: If you want to change the installed directory of Bonjour SDK, please double check the BONJOUR_SDK_HOME environment variable after installation.
 
+Note: You may need to add your QT directory to your PATH environment variable, especially for the qmake and mingw32-make. make sure:
+* In the Path, add X:\Qt\2010.02\qt\bin before others (to avoid lib conflict).
+* add D:\Qt\2010.02\bin;D:\Qt\2010.02\mingw\bin into the Path.
+
 ===Windows 64-bit===
 
 * All dependencies required for [[Compiling#Windows_x86|Windows x86]]
