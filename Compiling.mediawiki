@@ -59,8 +59,8 @@ Credits to [https://wordpress.update.sh/archives/410 this blog entry]
 [http://www.computersnyou.com/2025/2013/06/install-command-line-tools-in-osx-10-9-mavericks-how-to/ Install Command Line Tools In OSX 10.9 Mavericks]
 
 ====Mac OS X 10.4 through 10.8.x====
-* [https://github.com/synergy/synergy/wiki/*with%20command%20line%20tools XCode] (with command line tools)
-* [https://github.com/synergy/synergy/wiki/provides%20qmake Qt SDK 2010.03] (provides qmake)
+* [https://developer.apple.com/xcode/download/ XCode] (with command line tools. Make sure to download the Xcode version for your OS X version, e.g Xcode 3.1.4 for 10.5)
+* [http://download.qt.io/archive/qt/4.6/qt-mac-opensource-4.6.3.dmg.mirrorlist Qt SDK 2010.03] (provides qmake)
 
 To install the command line tools: <pre> Xcode --> Preferences --> Downloads and install ''Command Line Tools''.</pre>
 
