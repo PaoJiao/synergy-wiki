@@ -79,7 +79,7 @@ Click Apply or Start.
 ==Startup on Boot==
 
 ===Windows===
-This is done automatically during install. Synergy sets up a System Service which runs Synergy automatically. This allows Synergy to be used to login to Windows.
+This currently cannot be done.
 
 ===Mac and Linux===
 There is currently no way to log in to a Mac or Linux through Synergy. We have not found a good way to do this. The closest we can get is to set up Synergy as a login item, and then have your user auto-login to OS X or Linux.
