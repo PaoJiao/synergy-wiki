@@ -92,7 +92,7 @@ If you already have [MacPorts], run:
  PATH="$PATH:/usr/lib64/qt4/bin:/usr/lib/qt4/bin"
 
 ===Fedora 20===
- sudo yum install cmake make gcc-c++ libX11-devel libXtst-devel libXext-devel libXinerama-devel libcurl-devel qt-devel avahi-compat-libdns_sd-devel openssl-devel
+ sudo yum install cmake make gcc-c++ libX11-devel libXtst-devel libXext-devel libXinerama-devel libcurl-devel qt-devel avahi-compat-libdns_sd-devel openssl-devel rpm-build rpmlint
  PATH="$PATH:/usr/lib64/qt4/bin:/usr/lib/qt4/bin"
 
 ===OpenSUSE 11.1===
