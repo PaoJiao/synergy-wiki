@@ -35,8 +35,9 @@ Note: You may need to add your QT directory to your PATH environment variable, e
 ===Mac OS X===
 
 ====Mac OS X 10.10 and above====
-
-* Install cmake and Qt as usual (e.g. using brew)
+* Install [http://brew.sh/ Homebrew]
+* Install [https://developer.apple.com/xcode/download/ XCode] (also available via the Mac App Store)
+* Install cmake and Qt using Homebrew
 ```
 brew install cmake
 brew install qt
