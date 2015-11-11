@@ -92,6 +92,9 @@ If you already have [MacPorts], run:
  yum install cmake make gcc-c++ libX11-devel libXext-devel libXi-devel libXtst-devel libXinerama-devel libcurl-devel qt-devel avahi-compat-libdns_sd-devel openssl-devel
  PATH="$PATH:/usr/lib64/qt4/bin:/usr/lib/qt4/bin"
 
+===Debian 8===
+sudo apt-get install build-essential cmake libavahi-compat-libdnssd-dev libcurl4-openssl-dev libssl-dev python qt4-dev-tools xorg-dev
+
 ===Fedora 20===
  sudo yum install cmake make gcc-c++ libX11-devel libXtst-devel libXext-devel libXinerama-devel libcurl-devel qt-devel avahi-compat-libdns_sd-devel openssl-devel rpm-build rpmlint
  PATH="$PATH:/usr/lib64/qt4/bin:/usr/lib/qt4/bin"
