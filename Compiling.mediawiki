@@ -89,7 +89,7 @@ If you already have [MacPorts], run:
 
 ===CentOS 6.5===
  su
- yum install cmake make gcc-c++ libX11-devel libXext-devel libXi-devel libXtst-devel libXinerama-devel libcurl-devel qt-devel avahi-compat-libdns_sd-devel openssl-devel
+ yum install cmake make gcc-c++ libX11-devel libXext-devel libXi-devel libXtst-devel libXinerama-devel libcurl-devel qt-devel avahi-compat-libdns_sd-devel openssl-devel rpm-build rpmlint
  PATH="$PATH:/usr/lib64/qt4/bin:/usr/lib/qt4/bin"
 
 ===Debian 8===
