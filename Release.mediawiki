@@ -13,7 +13,7 @@
 # Delete the release branch
 # Close the release milestone
 # Upload to public website and test links
-## <code>website@marvin2:~/website-live/public/files/packages$ ./deploy.sh</code>
+## <code>website@marvin2:~/website-live/public/files$ ./deploy.sh</code>
 ## <code>./deploy.sh -b v1.7.5-stable-fa85a24 -r v1.7.5-stable-fa85a24</code>
 # Set current version in website settings
 # Install previous version and test update check feature
