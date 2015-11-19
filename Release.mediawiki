@@ -13,7 +13,7 @@
 # Delete the release branch
 # Close the release milestone
 # Upload to public website and test links
-## `website@marvin2:~/website-live/public/files/packages$ ./deploy.sh`
+## <code>website@marvin2:~/website-live/public/files/packages$ ./deploy.sh</code>
 # Set current version in website settings
 # Install previous version and test update check feature
 # '''If master:''' set next version in <code>CMakeLists.txt</code>
