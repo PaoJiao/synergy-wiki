@@ -4,7 +4,7 @@
 # Create release branch (e.g. 1.2.3-stable)
 # Copy [https://github.com/synergy/synergy/milestones milestone] to ChangeLog
 # Ensure version number in CMakeLists.txt is correct
-# Ensure stage name in CMakeLists.txt is correct
+# Ensure stage name in CMakeLists.txt is correct (stable, beta, etc)
 # Push and wait for buildbot to build (be patient)
 # Wait for packages to be uploaded to webserver
 # Test new bug fixes and features on all operating systems
