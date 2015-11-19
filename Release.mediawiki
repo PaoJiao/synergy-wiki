@@ -1,9 +1,10 @@
-== Checklist ==
+== Development ==
 '''Note:''' Takes approx 1-2 hours (depending on testing).
 
 # Create release branch (e.g. 1.2.3-stable)
 # Copy [https://github.com/synergy/synergy/milestones milestone] to ChangeLog
-# Ensure version in CMakeLists.txt is correct
+# Ensure version number in CMakeLists.txt is correct
+# Ensure stage name in CMakeLists.txt is correct
 # Push and wait for buildbot to build (be patient)
 # Wait for packages to be uploaded to webserver
 # Test new bug fixes and features on all operating systems
@@ -16,9 +17,7 @@
 # Install previous version and test update check feature
 # '''If master:''' set next version in <code>CMakeLists.txt</code>
 
-== Announce ==
-
-This should be done for major minor releases, but not for maintenance releases.
+== Announcement ==
 
 # Post on [http://synergyopensource.wordpress.com/ Synergy blog] (same as email)
 # Email subscription list (include blog link)
@@ -31,7 +30,5 @@ This should be done for major minor releases, but not for maintenance releases.
 # Share on [https://www.stumbleupon.com/ StumbleUpon]
 # Share on [https://www.reddit.com/ reddit]
 # Update Wikipedia versions ([http://en.wikipedia.org/wiki/Synergy_(software) en], [http://de.wikipedia.org/wiki/Synergy_(Software) de], [http://fr.wikipedia.org/wiki/Synergy_(logiciel) fr] [http://es.wikipedia.org/wiki/Synergy es], [http://no.wikipedia.org/wiki/Synergy_(programvare) no], [http://ru.wikipedia.org/wiki/Synergy_(%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0) ru])
-
-== Chinese ==
-# Post on [http://page.renren.com/601718008 Renren page]
-# Post on Weibo ([http://weibo.com/haoel 左耳朵耗子] [http://weibo.com/kuqin IT程序猿])
+# Share on [http://page.renren.com/601718008 Renren page]
+# Share on Weibo ([http://weibo.com/haoel 左耳朵耗子] [http://weibo.com/kuqin IT程序猿])
