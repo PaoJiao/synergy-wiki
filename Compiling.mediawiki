@@ -15,6 +15,7 @@ These are for Windows XP SP3 (the earliest Windows supported) and above.
 * [http://synergy-foss.org/mirror/qt-sdk-win-opensource-2010.02.exe Qt SDK 2010.02]
 * [http://wixtoolset.org/releases/ Wix v3.8]
 * [https://developer.apple.com/downloads/?q=Bonjour%20SDK%20for%20Windows Bonjour SDK for Windows]
+* Command line [https://git-scm.com/downloads git] in your PATH.
 
 You may need to add your Python install directory to the end of your PATH environment variable <pre>(System --> Advanced System Settings --> Environment Variables)</pre> so that <code>hm</code> can be called from the command prompt.
 
