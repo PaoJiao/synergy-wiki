@@ -126,7 +126,7 @@ If you already have [MacPorts], run:
 
 ==Compile==
 
-Use the <code>hm</code> (or <code>./hm.sh</code>) script located the root of our project directory. This is just a wrapper for <code>cmake</code>, so you don't need to us it, however we recommend you do. The <code>conf</code> command will generate the projects in the ''build'' directory (which can be opened manually and used for compiling).
+Use the <code>hm</code> (or <code>./hm.sh</code>) script located the root of our project directory. This is just a wrapper for <code>cmake</code>, so you don't need to use it, however we recommend you do. The <code>conf</code> command will generate the projects in the ''build'' directory (which can be opened manually and used for compiling).
 
 Use the <code>hm genlist</code> command to see other generators. The <code>-g1</code> argument (shown below) will cause the 1st ''CMake'' generator to be used. You may want to use other generators if you are building with ''Eclipse'', for example.
 
