@@ -1,0 +1,154 @@
+To unit test Synergy, we use googletest (Google C++ Testing Framework), also known as gtest.
+
+== Writing tests ==
+
+* Test classes (or "suites") must:
+** Be kept in either:
+*** <code>src/test/unittests</code> (for unit tests)
+*** <code>src/test/integtests</code> (for integration tests)
+** Be named like so: <code>{class-to-test}Tests</code> (e.g. <code>CClipboardTests</code>).
+** Test the logic of only 1 class (other classes must be mocked).
+
+* Test functions must:
+** Be named like so: <code>{function-to-test}_{scenario}_{expectation}</code>
+** Follow either:
+*** The AAA pattern, arrange-act-assert (see example below).
+*** Or, arrange-expect-act (see example below).
+** Test only 1 function in the "act" stage.
+** Have either:
+*** A single assert (at the end), with some rare exceptions.
+*** Or, a single EXPECT_CALL (before the call to the method under test).
+
+=== Example act-arrange-assert test ===
+
+<pre>
+#include <gtest/gtest.h>
+#include "CClipboard.h"
+
+TEST(CClipboardTests, getTime_defaultState_returnsZero)
+{
+	// arrange
+	CClipboard clipboard;
+
+	// act
+	CClipboard::Time actual = clipboard.getTime();
+
+	// assert
+	EXPECT_EQ(0, actual);
+}
+</pre>
+
+=== Example arrage-expect-assert test ===
+
+These are less favoured, since you should try to test the result of a function, not the internal behaviour. But some times (especially with legacy code) this is the only practical option.
+
+<pre>
+#include <gtest/gtest.h>
+#include <gmock/gmock.h>
+#include "CKeyStateTests.h"
+#include "CMockEventQueue.h"
+#include "CMockKeyMap.h"
+#include "CKeyStateImpl.h"
+
+using ::testing::_;
+using ::testing::NiceMock;
+
+TEST(CKeyStateTests, sendKeyEvent_keyRepeat_addEventCalledOnce)
+{
+	// arrange
+	NiceMock<CMockKeyMap> keyMap;
+	NiceMock<CMockEventQueue> eventQueue;
+	CKeyStateImpl keyState(eventQueue, keyMap);
+
+	// expect
+	EXPECT_CALL(eventQueue, addEvent(_)).Times(1);
+
+	// act
+	keyState.sendKeyEvent(NULL, false, true, 1, 0, 0, 0);
+}
+</pre>
+
+=== Working example ===
+
+[http://synergy-foss.org/code/filedetails.php?repname=synergy&path=%2Ftrunk%2Fsrc%2Ftest%2Funittests%2Fsynergy%2FCClipboardTests.cpp CClipboardTests.cpp]
+
+=== Integration tests ===
+
+There is an interesting problem with writing unit tests for Synergy.
+
+Each unit test should only test one component; if you test logic that uses the clipboard for example, then you're testing multiple components (both Synergy and the OS). A test that exercises multiple components is **not a true unit test**, but is in fact it is an integration test (in my opinion).
+
+So, any logic that ventures into non-Synergy territory, such as most of the code in CMSWindowsClipboard, should be tested with an integration test.
+
+I think that this can only be a good thing, because a developer will think twice about running integration tests, since it will cause strange things to happen, such as:
+
+* Where the hell has my clipboard data gone?
+* Why did my mouse just jump across my screen?
+* Where are all these random characters coming from?!
+* etc...
+
+== Compiling tests ==
+
+The tests are part of the existing build tool chain; so just build normally to build the unit tests.
+
+== Running tests ==
+
+=== Run all tests ===
+
+* Windows:
+** Unit tests: <code>bin\Debug\unittests.exe</code>
+** Integration tests: <code>bin\Debug\integtests.exe</code>
+* Linux/Mac:
+** Unit tests: <code>bin/debug/unittests</code>
+** Integration tests: <code>bin/debug/integtests</code>
+
+=== Run specific tests ===
+
+Use the filter argument to run specific tests:
+
+* Example: <code>bin\debug\unittests.exe --gtest_filter=CClipboardTests*</code>
+
+=== More help ===
+
+Use the <code>--help</code> argument.
+
+* Example: <code>bin\debug\unittests.exe --help</code>
+
+=== Example output ===
+
+<pre>
+>bin\debug\unittests.exe
+Running main() from gtest_main.cc
+[==========] Running 26 tests from 2 test cases.
+[----------] Global test environment set-up.
+[----------] 25 tests from CClipboardTests
+[ RUN      ] CClipboardTests.empty_openCalled_returnsTrue
+[       OK ] CClipboardTests.empty_openCalled_returnsTrue (0 ms)
+[ RUN      ] CClipboardTests.empty_singleFormat_hasReturnsFalse
+[       OK ] CClipboardTests.empty_singleFormat_hasReturnsFalse (0 ms)
+[ RUN      ] CClipboardTests.add_newValue_valueWasStored
+[       OK ] CClipboardTests.add_newValue_valueWasStored (0 ms)
+[ RUN      ] CClipboardTests.add_replaceValue_valueWasReplaced
+[       OK ] CClipboardTests.add_replaceValue_valueWasReplaced (0 ms)
+
+//
+// tests omitted to keep the example concise
+//
+
+[ RUN      ] CClipboardTests.copy_withSingleText_clipboardsAreEqual
+[       OK ] CClipboardTests.copy_withSingleText_clipboardsAreEqual (0 ms)
+[----------] 25 tests from CClipboardTests (13 ms total)
+
+[----------] 1 test from HelloWorldTests
+[ RUN      ] HelloWorldTests.helloWorld
+[       OK ] HelloWorldTests.helloWorld (0 ms)
+[----------] 1 test from HelloWorldTests (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 26 tests from 2 test cases ran. (15 ms total)
+[  PASSED  ] 26 tests.
+</pre>
+
+== Further reading ==
+
+[http://code.google.com/p/googletest/wiki/V1_6_Primer Getting started with Google C++ Testing Framework]
