@@ -13,6 +13,7 @@
 * [[Archived content]]
 * [[Sending Logs]]
 * [[Startup]]
+* [[Version 1.3]]
 * [http://synergy-project.org/wiki/User Legacy Wiki]
 
 ==Developer==
