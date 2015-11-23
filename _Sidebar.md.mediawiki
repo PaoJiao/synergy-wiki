@@ -12,6 +12,7 @@
 * [[Conflicting software]]
 * [[Archived content]]
 * [[Sending Logs]]
+* [[Startup]]
 * [http://synergy-project.org/wiki/User Legacy Wiki]
 
 ==Developer==
