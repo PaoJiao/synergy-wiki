@@ -2,5 +2,4 @@
 
 This code can be used with any platform, and was originally designed for the Playstation 3 platform (platform specific code has been replaced with callbacks).
 
-* [http://svn.synergy-foss.org/trunk/src/micro/uSynergy.h uSynergy.h]
-* [http://svn.synergy-foss.org/trunk/src/micro/uSynergy.c uSynergy.c]
+https://github.com/synergy/synergy/tree/master/src/micro
