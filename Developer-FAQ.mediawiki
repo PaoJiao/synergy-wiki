@@ -1,0 +1,96 @@
+== Developer FAQ ==
+
+Common questions and answers for new developers.
+
+=== Questions ===
+
+==== Q. I'm new, how do I get started? ====
+
+First, you'll need to get your hands on the [[Source Code|source code]], and then you can [[Compiling|compile]] it. If you're having any problems, then please use the [https://groups.google.com/forum/#!forum/synergy-dev developer mailing list]. If you're wondering what you can work on, check out what [https://github.com/synergy/synergy/issues needs fixing] on our issue tracker. Or maybe you feel like testing some [https://github.com/synergy/synergy/pulls/ pull requests]? Before sending us a [[Patches|patch]], read our [[Hacking]] guide.
+
+==== Q. How do input events reach the client? ====
+
+The [[Diagrams|event lifecycle diagram]] demonstrates how a mouse down event gets from the server to the client.
+
+==== Q. How do I start synergys and synergyc directly with Visual Studio? ====
+
+Right click either the synergys or synergyc projects, and select Properties. Click Debugging, and add the following to the Command Arguments textbox:
+
+*for synergys:*
+
+<pre>
+--no-daemon --debug DEBUG1 --name my-computer-1 --address :24800
+</pre>
+
+Replace 'my-computer-1' with your computer name.
+
+*for synergyc:*
+
+<pre>
+--no-daemon --debug DEBUG1 my-computer-1
+</pre>
+
+Replace 'my-computer-1' with your server's hostname.
+
+==== Q. How do I install the Windows service with a non-default debugging level? ====
+
+From the Windows config GUI, select the debug level (on the main screen) before installing the service. This stores the command line arguments in the Windows registry - to change the debug level after service is installed, uninstall the service, select new log level and reinstall service.
+
+==== Q. What is your code style guide? ====
+
+This can be found in [[Code Style]].
+
+==== Q. How do I build the new GUI in 1.4? ====
+
+You'll need to download Qt Creator or the SDK. See the [[Compiling]] for links to required versions.
+
+==== Q. Why do I get an XTest error when compiling on Ubuntu? ====
+
+Ensure that the libXtst-dev or libXtst-devel package is installed.
+
+* Discussion: [http://groups.google.com/group/synergy-plus/browse_thread/thread/75f1d29106a90b04/ee67a56d3240ed08?lnk=gst&q=xtest#ee67a56d3240ed08 XTest library]
+* Discussion: [http://groups.google.com/group/synergy-plus/browse_thread/thread/97b7f2cacd5a4c3/3875900c14f136c0?lnk=gst&q=xtest#3875900c14f136c0 configure: error: You must have the XTest library to build synergy]
+
+==== Q. How do I submit patches? ====
+
+Simply run <code>svn diff > foobar.patch</code> and submit by attaching to a [http://spit.synergy-foss.org/support/ new issue]. Once you submit your patch, we will review the patch and commit to the repository.
+
+==== Q. How do I make emacs use your indentation style? ====
+
+You could add this to the end of your <code>.emacs</code> file.
+
+<pre>
+; Visual Studio like indentation
+;; Turn on tabs
+(setq indent-tabs-mode t)
+(setq-default indent-tabs-mode t)
+
+;; Bind the TAB key 
+(global-set-key (kbd "TAB") 'self-insert-command)
+
+;; Set the tab width
+(setq default-tab-width 4)
+(setq tab-width 4)
+(setq c-basic-indent 4)
+
+; make python tabs 4 chars wide
+(add-hook 'python-mode-hook
+	  (lambda ()
+	    (setq indent-tabs-mode t)
+	    (setq tab-width 4)
+	    (setq python-indent 4)))
+</pre>
+
+This will make your indentation style similar to that in Visual Studio.
+
+==== Q. How do I make vim use your style guidelines? ====
+
+There is a .lvimrc included in the source code. To use it install [http://www.vim.org/scripts/script.php?script_id=441 Vim script 411]
+
+==== Q. What is the <code>ARCH</code> macro for? ====
+
+The <code>ARCH</code> macro is defined in <code>lib/arch/CArch.h</code> and accesses a static singleton pointer for the architecture tools.
+
+For example, <code>ARCH->addrToString(CArchNetAddress)</code> will convert an address instance to an IP address as type std::string.
+
+To use the ARCH macro, <code>#include "CArch.h"</code>
