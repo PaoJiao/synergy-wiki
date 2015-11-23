@@ -1,0 +1,141 @@
+==Testing==
+
+After changing the build environment, test packages on [[Supported Systems]].
+
+== Public access ==
+
+* [http://buildbot.synergy-foss.org:8000/builders Buildbot builders]
+* [http://synergy-foss.org/nightly Nightly packages]
+
+== Installing ==
+
+We use buildbot for our build machines. After the nightly build, the build machines must upload their packages to the [http://synergy-foss.org/nightly/ packages mirror]. All releases must be taken from this location; never release a build from a developer machine.
+
+=== Mac OS X (10.8) ===
+
+Install using MacPorts.
+
+<pre>
+sudo port install buildbot-slave
+</pre>
+
+=== Windows XP 32-bit ===
+
+Download and install:
+
+* [http://www.python.org/ftp/python/2.7.3/python-2.7.3.msi python-2.7.3.msi]
+* [https://pypi.python.org/packages/2.7/T/Twisted/Twisted-13.0.0.win32-py2.7.msi#md5=c2d453a344f56cf6f77204c5769288c0 Twisted-13.0.0.win32-py2.7.msi]
+* [http://freefr.dl.sourceforge.net/project/pywin32/pywin32/Build%20218/pywin32-218.win32-py2.7.exe pywin32-218.win32-py2.7.exe]
+* [https://pypi.python.org/packages/2.7/z/zope.interface/zope.interface-3.6.7.win32-py2.7.exe#md5=e67a544dc1cd13bd4da5793e40c277f6 zope.interface-3.6.7.win32-py2.7.exe]
+
+Append to the PATH environment variable:
+
+<pre>
+;C:\Python27;C:\Python27\Scripts
+</pre>
+
+Then download and extract [http://downloads.sourceforge.net/project/buildbot/buildbot/0.8.0/buildbot-0.8.0.zip?use_mirror=sunet buildbot-0.8.0.zip], and run:
+
+<pre>
+python setup.py build
+python setup.py install
+</pre>
+
+Finally, setup the slave:
+
+<pre>
+mkdir C:\Buildbot
+cd C:\Buildbot
+</pre>
+
+=== Ubuntu 10.04 ===
+
+<pre>
+apt-get install buildbot
+</pre>
+
+=== Fedora 20 (future use) ===
+
+<pre>
+sudo yum install buildbot-slave
+</pre>
+
+=== CentOS 6.0 ===
+
+Run all commands as root. First, install prerequisites (maybe this is not needed):
+
+<pre>
+yum install python-devel python-crypto pyOpenSSL zope
+</pre>
+
+Install Twisted:
+
+<pre>
+wget http://tmrc.mit.edu/mirror/twisted/Twisted/8.1/Twisted-8.1.0.tar.bz2
+tar jxvf Twisted-8.1.0.tar.bz2
+cd Twisted-8.1.0
+python setup.py install
+</pre>
+
+Install zope.interface:
+
+<pre>
+wget http://pypi.python.org/packages/source/z/zope.interface/zope.interface-3.6.1.tar.gz#md5=7a895181b8d10be4a7e9a3afa13cd3be
+tar xfvz zope.interface-3.6.1.tar.gz
+cd zope.interface-3.6.1
+python setup.py install
+</pre>
+
+Install Buildbot:
+
+<pre>
+wget http://pypi.python.org/packages/source/b/buildbot-slave/buildbot-slave-0.8.3.tar.gz#md5=cb9d9d0c2d925e51bb3c8d62083d77a7
+tar xvfz buildbot-slave-0.8.3.tar.gz
+cd buildbot-slave-0.8.3
+python setup.py install
+</pre>
+
+== Running ==
+
+<pre>
+buildbot create-slave synergy buildbot.synergy-project.org:9989 <bot-name> <bot-password>
+buildbot start synergy
+</pre>
+
+Alternatively, if running this after the Buildbot binary split, you may need to use <code>buildslave</code> instead:
+
+<pre>
+buildslave create-slave synergy buildbot.synergy-project.org:9989 <bot-name> <bot-password>
+buildslave start synergy
+</pre>
+
+== Startup ==
+
+=== Mac OS X ===
+
+Add the following .plist to: <code>~/Library/LaunchAgents/</code>
+
+<pre>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>buildslave</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/opt/local/bin/buildslave</string>
+		<string>start</string>
+		<string>/path/to/buildbot/synergy</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+</dict>
+</plist>
+</pre>
+
+Run this command to load the .plist (run as normal user).
+
+<pre>
+launchctl load ~/Library/LaunchAgents/buildslave.plist
+</pre>
