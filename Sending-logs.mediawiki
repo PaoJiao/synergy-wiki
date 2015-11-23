@@ -3,12 +3,12 @@ Using Synergy 1.4, it's easy to send us your log for when we need debug info abo
 
 First, turn up the logging to "Debug2". Go to '''Edit''' > '''Settings''' > '''Logging'''. Select '''Debug2''' from the '''Logging level''' drop down and then click '''OK'''.
 
-[[File:LogLevelDebug2.png]]
+[[Images/LogLevelDebug2.png]]
 
 
 Then click '''Apply''', or '''Stop''' and then '''Start''' if using desktop mode.
 
-[[File:ApplyHighlight.png]]
+[[Images/ApplyHighlight.png]]
 
 
 Right click the log output area and click '''Select All''' then '''Copy'''. Paste your results on [http://pastebin.com/ Pastebin] and send us the link!
