@@ -17,15 +17,31 @@
 * [[Use as a KVM]]
 * [[Conflicting Software]]
 * [[Related Software]]
+* [Legacy Wiki](http://synergy-project.org/wiki)
 
 # Developer
 
-* [[Release]]
+* [[Developer FAQ]]
 * [[Issues]]
+* [[Version Planning]]
+* [[How it works]]
+* [[Hacking Guide]]
+* [[Pull Requests]]
+* [[Plugins]]
+* [[Source Code]]
 * [[Compiling]]
 * [[Code Style]]
 * [[Buildbot]]
-* [[Source Code]]
-* [[Version Planning]]
-
-[Legacy Wiki](http://synergy-project.org/wiki)
+* [[Diagrams]]
+* [[Unit Testing]]
+* [[Release]]
+* [[Branches]]
+* [[Authors]]
+* [[Related Projects]]
+* [[Micro Synergy|μSynergy]]
+* [[Modifier keys]]
+* [[Protocol]]
+* [[Forks]]
+* [https://github.com/synergy/synergy/issues?q=milestone%3Anext](Next milestone)
+* [http://groups.google.com/group/synergy-dev](Dev mailing list)
+* [http://buildbot.synergy-project.org/builders](Buildbot builders)
