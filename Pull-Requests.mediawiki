@@ -1,0 +1,40 @@
+== Contributors ==
+
+To contribute to Synergy, please create a [https://help.github.com/articles/using-pull-requests/ pull request].
+
+# [https://help.github.com/articles/fork-a-repo/ Fork] our [https://github.com/synergy/synergy Github repository]
+# Make your changes on your fork
+# Create a pull request
+
+'''Pro tip:''' Check our [[Hacking Guide]] (especially the [[Code Style]]) to make sure you don't write bad code.
+
+== Synergy Team ==
+
+For [https://github.com/synergy/synergy/pulls each pull request]...
+
+'''1:''' Review the PR's code diff for any security exploits attempted on the build machine.
+
+'''2:''' Create a branch using the following procedure (note: the '''pr-''' prefix and username are important, please keep the [https://github.com/synergy/synergy/branches branch list] neat and consistent).
+
+<pre>
+git checkout -b pr-octocat-foobar-fix master
+git pull https://github.com/octocat/synergy.git NameOfPullRequest
+git push --set-upstream origin pr-octocat-foobar-fix
+</pre>
+
+'''3:''' Assign the '''pr-testing''' label, and post a comment on the PR, for example...
+
+<blockquote>
+<nowiki>
+Thanks for the pull request! Buildbot is now [building](http://buildbot.synergy-project.org/builders) your pull request (it usually takes about 30 minutes). When done, the packages will be automatically uploaded (http://synergy-project.org/nightly?filter=pr-octocat-foobar-fix). Please test and let me know if it worked.
+</nowiki>
+</blockquote>
+
+'''5:''' Later, when you get round to it...
+
+# Attempt to reproduce the bug before trying the packages
+# If you can't repro, post a comment on the PR
+# If you can repro, test the built packages (and comment on the PR)
+# Review the patch and check the [[CodeStyle|code style]]
+# If it's good, merge the PR branch into master
+# Hope that the fix didn't break something else
