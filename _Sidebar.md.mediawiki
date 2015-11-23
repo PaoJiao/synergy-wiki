@@ -11,7 +11,7 @@
 * [[Android client]]
 * [[Conflicting software]]
 * [[Archived content]]
-* [[Sending Logs]
+* [[Sending Logs]]
 * [http://synergy-project.org/wiki/User Legacy Wiki]
 
 ==Developer==
