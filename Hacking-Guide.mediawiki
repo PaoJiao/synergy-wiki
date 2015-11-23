@@ -1,0 +1,12 @@
+Before checking in code, make sure:
+
+# You read the [[Code Style]] guide
+# Considered writing [[UnitTesting|unit/integ tests]] for new code
+# That the '''existing''' unit/integ tests all pass
+# You've fully tested your fix (and any other feature it might affect)
+# Changes to cross-platform code compiles on all platforms (Windows, Mac and Linux)
+
+After checking in:
+
+# Update any issues you fixed or features added
+# Consider requesting a code review on the dev mailing list
