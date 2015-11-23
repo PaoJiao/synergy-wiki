@@ -14,6 +14,7 @@
 * [[Sending Logs]]
 * [[Startup]]
 * [[Version 1.3]]
+* [[Use as a KVM]]
 * [http://synergy-project.org/wiki/User Legacy Wiki]
 
 ==Developer==
