@@ -1,0 +1,87 @@
+This page is for collecting notes and obvservations on how modifier keys work in Synergy.
+
+== Undefined recv mask ==
+
+This behavior is from r1560 (v1.4.10).
+
+The mask received on the client differs between server platforms. The numlock key is off in this scenario (which is why 0x2000 isn't in the mask), so the only bit in the modifier mask is 0x0001 (the shift key). However, whether it's on or off on the key up or down is different on each platform's server (though Mac and Windows seem to be the same, if not the most similar). The 2nd result (mac client) is exactly the same as the 1st result (windows client), since the sever is the same.
+
+On Windows, the mask applies only for pressing down the left shift key. Linux, only ever on the key up, both left and right. Mac, only ever on the key down, both left and right. While undefined, this is not neccesarily a bug that the shift modifier bit isn't set when the shift key code is sent.
+
+However, there <strike>is</strike> was a bug in r1560 on the Windows server where the right shift doesn't affect the mask when another key is sent (see next snippet).
+
+<pre>
+windows server, linux client:
+
+  left
+    recv key down id=0x0000efe1, mask=0x0001, button=0x002a
+    recv key up id=0x0000efe1, mask=0x0000, button=0x002a
+
+  right
+    recv key down id=0x0000efe2, mask=0x0000, button=0x0036
+    recv key up id=0x0000efe2, mask=0x0000, button=0x0036
+
+windows server, mac client:
+
+  left
+    recv key down id=0x0000efe1, mask=0x0001, button=0x002a
+    recv key up id=0x0000efe1, mask=0x0000, button=0x002a
+
+  right
+    recv key down id=0x0000efe2, mask=0x0000, button=0x0036
+    recv key up id=0x0000efe2, mask=0x0000, button=0x0036
+
+linux server, windows client:
+
+  left
+    recv key down id=0x0000efe1, mask=0x0000, button=0x0032
+    recv key up id=0x0000efe1, mask=0x0001, button=0x0032
+
+  right
+    recv key down id=0x0000efe2, mask=0x0000, button=0x003e
+    recv key up id=0x0000efe2, mask=0x0001, button=0x003e
+
+    
+mac server, windows client:
+
+  left
+    recv key down id=0x0000efe1, mask=0x0001, button=0x0039
+    recv key up id=0x0000efe1, mask=0x0000, button=0x0039
+
+  right (note id is for left)
+    recv key down id=0x0000efe1, mask=0x0001, button=0x0039
+    recv key up id=0x0000efe1, mask=0x0000, button=0x0039
+</pre>
+
+Fixed [http://synergy-foss.org/spit/issues/details/2799/ bug #2799]: When pressing a key with the shift keys, a similar behavior occurrs, but this is a bug on Windows, since the "a" char key (0x00000041) is not sent with shift bit set in the modifier mask (left shift works fine).
+
+<pre>
+windows server, mac client:
+
+  left
+    recv key down id=0x0000efe1, mask=0x0001, button=0x002a
+    recv key down id=0x00000041, mask=0x0001, button=0x001e
+    recv key up id=0x00000041, mask=0x0001, button=0x001e
+    recv key up id=0x0000efe1, mask=0x0000, button=0x002a
+    
+  right (bug - no shift bit in mask)
+    recv key down id=0x0000efe2, mask=0x0000, button=0x0036
+    recv key down id=0x00000041, mask=0x0000, button=0x001e
+    recv key up id=0x00000041, mask=0x0000, button=0x001e
+    recv key up id=0x0000efe2, mask=0x0000, button=0x0036
+
+linux server, mac client:
+
+  left
+    recv key down id=0x0000efe1, mask=0x0000, button=0x0032
+    recv key down id=0x00000041, mask=0x0001, button=0x0026
+    recv key up id=0x00000041, mask=0x0001, button=0x0026
+    recv key up id=0x0000efe1, mask=0x0001, button=0x0032
+
+  right
+    recv key down id=0x0000efe1, mask=0x0000, button=0x0032
+    recv key down id=0x00000041, mask=0x0001, button=0x0026
+    recv key up id=0x00000041, mask=0x0001, button=0x0026
+    recv key up id=0x0000efe1, mask=0x0001, button=0x0032
+
+</pre>
