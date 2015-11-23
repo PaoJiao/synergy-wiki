@@ -1,0 +1,59 @@
+= Running Synergy on OSX via plist =
+These instructions <del>shamelessly</del> borrow the "answer" to a similar topic [http://stackoverflow.com/questions/9522324/running-python-in-background-on-os-x here]. 
+
+This page, on the other hand, is about the topic '''[please briefly explain the topic here]'''.  
+
+Here we create a shell script and a property list file (plist), and activate the plist using the launchctl command-line tool.
+
+The shell script runs the synergyc Unix executable, telling it to connect to a laboratory workstation.  The property list file '''[please briefly explain what the plist file does here]'''.  
+
+== Make a Shell Script ==
+First make a little bash script or whatever to contain your synergy calls..
+
+For example, I put mine in <code>~/.scripts/synergyscript.sh</code>
+
+Here's what my script looks like:
+<pre>
+#!/bin/bash
+
+## Synergy client, connecting to Lab workstation
+/Applications/Synergy.app/Contents/MacOS/synergyc -f -d FATAL -n Intrepid 192.168.1.102
+</pre>
+
+Here I'm telling the synergy client I'm running to announce my machine's name is ''Intrepid'' and I'm getting to to connect to the ip ''192.168.1.102''.
+
+I used this format so that I might later add additional separate instances of synergy, as this was on a laptop that moves around.
+
+Then make sure you make your script executable: <pre>chmod +x ~/.scripts/synergyscript.sh</pre>
+
+''does it need to be made executable?  we don't need that to run it manually.  Does launchctl or the plist require it?''
+
+Run the script manually to confirm it works: <pre>~/.scripts/synergyscript.sh</pre>
+
+If it works, you should see '''[please describe that here]'''.  If it doesn't work, you might see '''[please describe]'''.  In that case, try '''[please describe]'''.  
+
+== Create the corresponding plist file ==
+I created my plist file under <tt>~/Library/LaunchAgents/ca.dawning.scripts.osx.synergy.plist</tt>
+
+It contains:
+<pre>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC -//Apple Computer//DTD PLIST 1.0//EN http://www.apple.com/DTDs/PropertyList-1.0.dtd >
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>ca.dawning.scripts.osx.synergy</string>
+    <key>Program</key>
+    <string>/Users/j/.scripts/synergyscript.sh</string>
+    <key>KeepAlive</key>
+    <true/>
+  </dict>
+</plist>
+</pre>
+
+== Activate your plist with launchctl ==
+<pre>
+launchctl load ~/Library/LaunchAgents/ca.dawning.scripts.osx.synergy.plist
+</pre>
+
+To unload it, just swap that ''load'' above with ''unload''.
