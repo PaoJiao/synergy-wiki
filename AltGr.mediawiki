@@ -1,0 +1,36 @@
+Support for AltGr is limited in Synergy. Some users have good luck with remapping the Alt key to AltGr. You will have to use a config file for this, it is not supported in the GUI. Here are the instructions for that:
+
+Start by exporting your current configuration, using File -> Save Configuration As.
+
+Edit it using your favorite text editor, and find a section named Screens. Normally it looks like this:
+
+ section: screens
+   server:
+      option1 = value
+      option2 = value
+      etc
+   client:
+      option1 = value
+      option2 = value
+      etc
+
+What we want to do is add the option "alt=altgr" in the client section, like this:
+
+ section: screens
+   server:
+      option1 = value
+      option2 = value
+      etc
+   client:
+      option1 = value
+      option2 = value
+      etc
+      alt=altgr
+
+Be sure to save this file someplace safe, where Synergy will be able to find it but it won't be messed with, and point Synergy to this file using the "Use existing configuration" option.
+
+Some people have better results going the other way, using altgr=alt instead. Try this if you continue having troubles with the above example.
+
+See the GitHub issue here:
+
+https://github.com/synergy/synergy/issues/4411
