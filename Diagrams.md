@@ -1,1 +1,1 @@
-[[Image/EventLifecycle.png]]
+[[Images/EventLifecycle.png]]
