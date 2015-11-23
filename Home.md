@@ -17,7 +17,6 @@
 * [[Use as a KVM]]
 * [[Conflicting Software]]
 * [[Related Software]]
-* [http://synergy-project.org/wiki/User Legacy Wiki]
 
 # Developer
 
@@ -28,4 +27,5 @@
 * [[Buildbot]]
 * [[Source Code]]
 * [[Version Planning]]
-* [http://synergy-project.org/wiki/Developer Legacy Wiki]
+
+[http://synergy-project.org/wiki Legacy Wiki]
