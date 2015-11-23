@@ -28,4 +28,4 @@
 * [[Source Code]]
 * [[Version Planning]]
 
-[http://synergy-project.org/wiki Legacy Wiki]
+[Legacy Wiki](http://synergy-project.org/wiki)
