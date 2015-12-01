@@ -1,0 +1,5 @@
+Dead Corners is a feature of Synergy which affects the areas of the screen edge at which Synergy will cause the mouse cursor to switch to the other screen. The general idea is that when you have an application window (for example, a web browser) open on one screen, and zip your mouse up to the corner to hit the X on the window, we don't want it switching screens there. So, we configured a Dead Corner there so the mouse will stay on the current screen, and allow you to hit the X without having to aim carefully.
+
+This is found under the Configure Server button, in the individual screen options (double-click the screen icon for which you want to setup the Dead Corners). You can enable any of the 4 corners of the screen to be inactive or "dead" - be sure to configure a size, as the default of zero won't be very helpful.
+
+There are also options for this on the Advanced Server Options screen, which do not appear to function at all.

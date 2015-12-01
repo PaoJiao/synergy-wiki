@@ -1,0 +1,224 @@
+
+Other existing projects that are similar to ours.
+
+[http://alternativeto.net/software/synergy/ Alternativeto.net]
+
+== Active (Free and Open Source) ==
+
+=== QSynergy ===
+
+{| class="wikitable" cellpadding="2"
+| About || QT GUI (merged with Synergy 1.4)
+|-
+| Platform || Windows, Mac OS X, Linux
+|-
+| Author || Volker Lanz
+|-
+| Website || http://www.volker-lanz.de/en/software/qsynergy/
+|}
+
+=== SynergyKM ===
+
+{| class="wikitable" cellpadding="2"
+| Status || Recently Re-activated
+|-
+| Latest release || 2009-09-07
+|-
+| Website || http://sourceforge.net/projects/synergykm/
+|-
+| Wiki page || [[SynergyKM]]
+|-
+| Info date || Information updated: 2009-09-08
+|}
+
+=== Sinerji ===
+
+{| class="wikitable" cellpadding="2"
+| Author || Farslan
+|-
+| Last update || Sep 19 2008
+|-
+| Dependencies || PyKDE/!PyQt
+|-
+| Website || http://www.kde-apps.org/content/show.php?content=89732
+|-
+| Info date || Information updated: May 28, 2009
+|}
+
+=== SynergyOSX ===
+
+{| class="wikitable" cellpadding="2"
+| Status || Outdated
+|-
+| Latest update || December 30, 2008
+|-
+| Website || http://www.altuit.com/webs/altuit2/SynergyOSX/default.htm
+|-
+| Creators || Chipp Walters, Chris Bohnert
+|-
+| Platform || Windows, Mac OS X
+|-
+| Info date || Information updated: June 6, 2009
+|}
+
+=== synergy-bluetooth ===
+
+{| class="wikitable" cellpadding="2"
+| SVN || https://fsckyou.info/svn/synergy-bluetooth/ (currently down)
+|-
+| Patch || http://al.robotfuzz.com/~al/random/synergy-bluetooth.patch
+|-
+| Tarball || http://al.robotfuzz.com/~al/random/synergy-bluetooth-0.1.tar.gz
+|-
+| Creators || [http://al.robotfuzz.com Alistair Buxton]
+|}
+
+=== teleport ===
+
+{| class="wikitable" cellpadding="2"
+| Website || http://abyssoft.com/software/teleport/
+|-
+| Creators || Julien Robert
+|-
+| Platform || Mac OS X
+|}
+
+== Inactive (Free and Open Source) ==
+
+=== Synergy2 ===
+
+{| class="wikitable" cellpadding="2"
+| Detail || Synergy fork origin
+|-
+| Status || Abandoned
+|-
+| Latest release || April 2, 2006
+|-
+| Website || http://synergy2.sourceforge.net/
+|-
+| Info date || Information updated: May 23, 2009
+|}
+
+=== QuickSynergy ===
+
+{| class="wikitable" cellpadding="2"
+| Last change || 2006
+|-
+| Status || Abandoned
+|-
+| Platform || MacOS
+|-
+| Homepage || http://code.google.com/p/quicksynergy/
+|-
+| Info date || Information updated: May 28, 2009
+|}
+
+=== synergy-nightly ===
+
+{| class="wikitable" cellpadding="2"
+| About || Synergy with some fixes
+|-
+| Platform || Windows
+|-
+| Website || http://code.google.com/p/synergy-nightly/
+|}
+
+=== Mac OS X Synergy Configurator ===
+
+{| class="wikitable" cellpadding="2"
+| Developers || 1
+|-
+| Status || Abandoned
+|-
+| Latest release || March 26, 2005
+|-
+| Website || http://sourceforge.net/projects/osxsynergygui/
+|-
+| Info date || Information updated: June 6, 2009
+|}
+ 
+== Non-Free/Proprietary ==
+
+=== KaVoom ===
+
+{| class="wikitable" cellpadding="2"
+| Website || http://www.kavoom.biz
+|-
+| Platform || Windows only
+|-
+| Source || Closed-source
+|-
+| Cost || $39.95 (2 PCs)
+|-
+| Info date || Information updated: Jan 17 2011
+|}
+
+=== Input Director ===
+
+{| class="wikitable" cellpadding="2"
+| Website || http://www.inputdirector.com/
+|-
+| Platform || Windows only
+|-
+| Cost || Free (as in free beer)
+|-
+| Source || Closed-source
+|-
+| Info date || Information updated: Jan 17 2011
+|}
+
+=== MaxiVista ===
+
+{| class="wikitable" cellpadding="2"
+| Website || http://www.maxivista.com/kvm.htm
+|-
+| Platform || Windows only
+|-
+| Source || Closed-source
+|-
+| Cost || $99.95
+|-
+| Info date || Information updated: April 23 2011
+|}
+
+=== Desktop Rover ===
+
+{| class="wikitable" cellpadding="2"
+| Website || http://www.neslosoftware.com
+|-
+| Platform || Windows only
+|-
+| Source || Closed-source
+|-
+| Cost || $48
+|-
+| Info date || Information updated: Jan 17 2011
+|}
+
+=== Mouse Without Borders ===
+
+{| class="wikitable" cellpadding="2"
+| Website || http://blogs.technet.com/b/next/archive/2011/09/09/microsoft-garage-download-mouse-without-borders.aspx
+|-
+| Platform || Windows only
+|-
+| Source || Closed-source
+|-
+| Cost || Free (as in free beer)
+|-
+| Info date || Information updated: Apr 22 2012
+|}
+
+=== ShareMouse ===
+
+{| class="wikitable" cellpadding="2"
+| Website || http://www.keyboard-and-mouse-sharing.com/
+|-
+| Platform || Windows, Mac
+|-
+| Source || Closed-source
+|-
+| Cost || $59.38 (2 PCs)
+|-
+| Info date || Information updated: Apr 22 2012
+|}

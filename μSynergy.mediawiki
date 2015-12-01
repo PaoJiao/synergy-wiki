@@ -1,0 +1,5 @@
+μSynergy was developed by [http://en.wikipedia.org/wiki/Alex_Evans_(video_game_developer) Alex Evans], and contributed to by [http://en.wikipedia.org/wiki/Michiel_van_der_Leeuw Michiel van der Leeuw]. It exists in the Synergy [[Source Code|source code]] under the <code>src/micro</code> directory.
+
+This code can be used with any platform, and was originally designed for the Playstation 3 platform (platform specific code has been replaced with callbacks).
+
+https://github.com/synergy/synergy/tree/master/src/micro

@@ -57,3 +57,72 @@ launchctl load ~/Library/LaunchAgents/ca.dawning.scripts.osx.synergy.plist
 </pre>
 
 To unload it, just swap that ''load'' above with ''unload''.
+
+Using a Mac OS X 10.6.8 server with synergys 1.4.12 and a Windows 7 SP1 client with synergyc.exe 1.4.12
+
+== OS X Server ==
+Create a config file ~/Library/Synergy/synergy.conf (or where ever) with the following contents:
+<pre>
+section: screens
+	win:
+		alt = super
+		super = alt
+		halfDuplexCapsLock = false
+		halfDuplexNumLock = false
+		halfDuplexScrollLock = false
+		xtestIsXineramaUnaware = false
+		switchCorners = none +top-right +bottom-right 
+		switchCornerSize = 0
+	osx:
+		halfDuplexCapsLock = false
+		halfDuplexNumLock = false
+		halfDuplexScrollLock = false
+		xtestIsXineramaUnaware = false
+		switchCorners = none 
+		switchCornerSize = 0
+end
+
+section: aliases
+end
+
+section: links
+	win:
+		right = osx
+	osx:
+		left = win
+end
+
+section: options
+	relativeMouseMoves = false
+	screenSaverSync = true
+	win32KeepForeground = false
+	switchCorners = none +top-left +bottom-left 
+	switchCornerSize = 32
+end
+</pre>
+
+Create a file ~/bin/initsynergy.command with the following contents:
+ #!/bin/bash
+ 
+ # Hides tray icon. set to 0 to have it show again.
+ defaults write /Applications/Synergy.app/Contents/Info LSUIElement 1
+ 
+ /Applications/Synergy.app/Contents/MacOS/synergys --crypto-pass YOURCRYPTOPASSWORD --crypto-mode gcm --config ~/Library/Synergy/synergy.conf -n osx -l /var/log/synergy.log
+
+Make sure you:
+ sudo touch /var/log/synergy.log
+ sudo chown YOUROSXUSERNAME /var/log/synergy.log
+
+Add ~/bin/initsynergy.command to your account's Login Items in System Preferences -> Accounts -> Login Items
+
+== Windows 7 ==
+Install the client as a service. And go through the normal setup procedure. In my case I found that the crypto password I entered in the setup wizard was not used in the registry entry to double check that setting here:
+ HKLM\SOFTWARE\Synergy\Command = C:/Program Files/Synergy/synergyc.exe -f --no-tray  --name win --crypto-mode gcm --crypto-pass YOURCRYPTOPASSWORD --ipc --stop-on-desk-switch YourOSXServerFQDNorIP:24800
+
+I have no idea what -f, --ipc, or --stop-on-desk-switch do. They were there by default and I can't find any documentation about them.
+
+== Known issues ==
+
+* I'm getting some spill over while click and dragging on my Windows client.
+* While the UAC dialog is open or a program opened with UAC privs is running I'm unable to use the Windows client.
+* Opens a terminal window when you log in.
