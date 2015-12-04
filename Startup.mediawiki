@@ -13,6 +13,7 @@ You can use [[Startup/Mac OSX LoginItems Instructions | Login Items in the Accou
 ===Linux===
 
 Start synergy client (synergyc) on Fedora 22 using LightDM
+
 Apply all command as root, from a command line TTY (text console or remote SSH)
 
 Install LightDM <pre>
