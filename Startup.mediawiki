@@ -12,7 +12,40 @@ You can use [[Startup/Mac OSX LoginItems Instructions | Login Items in the Accou
 
 ===Linux===
 
-Originates from Bug #1755
+Start synergy client (synergyc) on Fedora 22 using LightDM
+Apply all command as root, from a command line TTY (text console or remote SSH)
+
+Install LightDM <pre>
+dnf install lightdm
+systemctl stop gdm
+systemctl disable gdm
+killall -u gdm
+systemctl enable lightdm
+systemctl start lightdm
+</pre>
+
+Create a start/stop script
+<pre>vi /etc/lightdm/syneryc-start.sh</pre><pre>
+#!/bin/sh
+# script to start/stop synergyc
+killall synergyc
+case $0 in *stop*) exit 0 ;; esac  # exit now if called 'stop'
+synergyc -n `hostname -s` -d INFO YOUR_SYNERGYS_SERVER_HOSTNAME
+exit 0
+</pre>
+Link as a stop script
+<pre>ln -s syneryc-start.sh /etc/lightdm/syneryc-stop.sh</pre>
+Tell lightdm to call scripts
+<pre>vi /etc/lightdm/lightdm.conf.d/synergy.conf</pre><pre>
+[SeatDefaults]
+greeter-setup-script=/etc/lightdm/syneryc-start.sh
+session-setup-script=/etc/lightdm/syneryc-stop.sh</pre>
+
+Remove that last line if the user does not want to start his own synergyc daemon.
+
+--------
+
+Originates from Bug #1755   -- This GDM method no longer works in Fedora 22 :-(
 
 Howto start synergy client (synergyc) at boot on FC11 (Fedora Core 11)
 
