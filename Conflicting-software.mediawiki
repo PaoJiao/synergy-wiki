@@ -11,3 +11,4 @@ These are applications known to either interfere with Synergy's operation, or Sy
 * Stardock Fences
 * World of Warcraft and other fullscreen games (mouse movement goes crazy)
 * Ableton Live (knob and slider movement for native UI controls is broken)
+* GuardedID (a keylogging prevention app)
