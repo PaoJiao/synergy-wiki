@@ -17,7 +17,9 @@ The following commands 1) make the directories, 2) create the certificate, 3) cr
   mkdir -p ~/.synergy/SSL/Fingerprints
   openssl req -x509 -nodes -days 365 -subj /CN=Synergy -newkey rsa:1024 -keyout ~/.synergy/SSL/Synergy.pem -out ~/.synergy/SSL/Synergy.pem
   openssl x509 -fingerprint -sha1 -noout -in ~/.synergy/SSL/Synergy.pem > ~/.synergy/SSL/Fingerprints/Local.txt
-  sed -e "s/.*=//" -i ~/.synergy/SSL/Fingerprints/Local.txt
+  sed -e "s/.*=//" -i ~/.synergy/SSL/Fingerprints/TrustedServers.txt
+
+
 
 ==For 1.4.12 to 1.6.x==
 
