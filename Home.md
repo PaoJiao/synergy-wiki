@@ -14,7 +14,6 @@
 * [[Sending Logs]]
 * [[Startup]]
 * [[Version 1.3]]
-* [[Use as a KVM]]
 * [[Conflicting Software]]
 * [[Related Software]]
 * [Legacy Wiki](http://synergy-project.org/wiki)
