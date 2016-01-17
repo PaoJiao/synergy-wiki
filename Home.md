@@ -9,7 +9,6 @@
 * [[Use as a KVM]]
 * [[IOS client]]
 * [[Android client]]
-* [[Conflicting software]]
 * [[Archived content]]
 * [[Sending Logs]]
 * [[Startup]]
