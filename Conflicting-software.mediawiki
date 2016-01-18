@@ -14,3 +14,4 @@ These are applications known to either interfere with Synergy's operation, or Sy
 * GuardedID (a keylogging prevention app)
 * Adobe Acrobat XI Pro
 * Wiznote
+* Pathfinder
