@@ -39,6 +39,6 @@
 * [[Micro Synergy|μSynergy]]
 * [[Modifier keys]]
 * [[Protocol]]
-* [Next milestone](https://github.com/synergy/synergy/issues?q=milestone%3Anext)
+* [Next milestone](https://github.com/symless/synergy/issues?q=milestone%3Anext)
 * [Dev mailing list](http://groups.google.com/group/synergy-dev)
 * [Buildbot builders](http://buildbot.synergy-project.org/builders)
