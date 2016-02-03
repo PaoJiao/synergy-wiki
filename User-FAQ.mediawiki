@@ -121,6 +121,8 @@ Usually when the client can't connect, it will give you a reason. Some common on
 
 This assumes that the mouse does work on the client. This most often happens on Mac OSX. There is an option for ''Secure Keyboard Entry'' that seems to be put into effect whether the user selects it or not. If you run SecureAnywhere, it does this too. Open the Terminal app, and then pull down the Terminal menu. You'll see the option listed here. If it's checked, uncheck it. If it's unchecked, check it, and then uncheck it again.
 
+Another possibility is that Synergy is not finding the right keyboard layout on the client.  In this case, setting the logging level on the client to "Debug1" may show "can't find keyboard layout" messages.  If this happens with a Windows client, go to the Control Panel, look for "Change Keyboards", and check what keyboards are listed as input language services.  You may need to add a layout, such as the "US" layout for English.
+
 ===What does ''Cannot initialize hook library'' mean?===
 
 This error can occur on a Synergy server running on a Microsoft Windows operating system. It means that Synergy is already running or possibly was not shut down properly. If it's running then first end the Synergy task. If it's not then try logging off and back on or rebooting then starting Synergy again.
