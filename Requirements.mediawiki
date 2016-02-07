@@ -4,7 +4,7 @@
 
 * Windows XP SP3 through latest non-beta Windows
 * Ubuntu 14.04
-* Mac OS X 10.6 through the latest non-beta version
+* Mac OS X 10.7 through the latest non-beta version
 * RedHat 6 and above
 * Fedora 19-21
 
@@ -22,7 +22,7 @@ We're not actively testing on these platforms, so our software may not work prop
 
 We are no longer supporting these platforms due to lack of support for new features.
 
-* Mac OS 10.5 Leopard and below
+* Mac OS 10.6 Snow Leopard and below
 * Windows NT/2000
 * Windows 95/98/ME
 
