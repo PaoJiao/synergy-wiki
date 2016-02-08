@@ -131,7 +131,7 @@ Use the <code>hm</code> (or <code>./hm.sh</code>) script located the root of our
 
 Use the <code>hm genlist</code> command to see other generators. The <code>-g1</code> argument (shown below) will cause the 1st ''CMake'' generator to be used. You may want to use other generators if you are building with ''Eclipse'', for example.
 
-With no extra arguments, release build will be compiled. If you need the debug release, use the <code>-d</code> argument.
+With no extra arguments, release build will be compiled. If you need the debug version, use the <code>-d</code> argument.
 
 ===Windows===
  hm conf -g1
