@@ -77,12 +77,7 @@ Click Apply or Start.
 '''Note:''' The port number on the Synergy client must be set to the same number as the port number on the Synergy server. You may check this by going to ''Edit'' --> ''Settings'' (Win/Linux) or ''Synergy'' --> ''Preferences'' (Mac) to display the port number that Synergy will use. The default is 24800.
 
 ==Startup on Boot==
-
-===Windows===
-This currently cannot be done.
-
-===Mac and Linux===
-There is currently no way to log in to a Mac or Linux through Synergy. We have not found a good way to do this. The closest we can get is to set up Synergy as a login item, and then have your user auto-login to OS X or Linux.
+When Synergy starts during a computer's bootup process, it can then be used to log in to a client using the server's keyboard and mouse. This is currently only possible on Windows. We have not found a good way to do this on Mac and Linux systems. The closest we can get is to set up Synergy as a login item, and then have your user auto-login to OS X or Linux.
 
 ==Troubleshooting==
 
