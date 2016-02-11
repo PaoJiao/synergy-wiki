@@ -54,7 +54,7 @@ The server computer will share its keyboard and mouse with clients. It needs to 
 * To move a client, drag the existing icon to another cell.
 * If you drag an icon on top of another, they will switch places.
 '''Note:''' This tool imposes a 5x3 limit of screens, though it is possible to have more screens
-by editing the [[User Guide#Text_Config|configuration file]] manually.
+by editing the [[Text-Config|configuration file]] manually.
 
 Once you have added a client to your grid, it will have the name ''Unnamed''. Double-click the icon to change its name to the name of your client.
 
