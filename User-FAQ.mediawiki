@@ -67,7 +67,7 @@ Many full screen applications, particularly games, automatically minimize when t
 
 Source: [http://www.robertwrose.com/2012/06/enabling-ctrl-alt-del-in-windows-7-over-synergy.html Enabling CTRL-ALT-DEL in Windows 7 over Synergy]
 
-Using a Windows 7 machine as a client: With the default Windows settings you can not enter a Ctrl+Alt+Del SAS (Secure Attention Sequence) over Synergy on the Windows lock screen. This can be frustrating if you lock your computer frequently or log in remotely.
+Using a Windows Vista or newer machine as a client: With the default Windows settings you can not enter a Ctrl+Alt+Del SAS (Secure Attention Sequence) over Synergy on the Windows lock screen. This can be frustrating if you lock your computer frequently or log in remotely.
 
 You can allow this behavior by allowing ''Services'' to issue the SAS in the ''Windows Logon Options''. These are found in the ''Local Group Policy Editor''.
 
@@ -76,7 +76,7 @@ You can allow this behavior by allowing ''Services'' to issue the SAS in the ''W
 #  Open up the ''Disable or enable software Secure Attention Sequence'' option
 #  Set it to ''Enabled'' and then select ''Services and Ease of Access applications'' below, click ''OK''
 
-You should now be able to issue a Ctrl+Alt+Del to Windows 7 over Synergy while on the lock screen. Note: Sometimes the Ctrl and Alt keys stick, just press them each once to un-stick them.
+You should now be able to issue a Ctrl+Alt+Del to Windows over Synergy while on the lock screen. Note: Sometimes the Ctrl and Alt keys stick, just press them each once to un-stick them.
 
 On Windows servers, Ctrl+Alt+Del is always intercepted by Windows and is never passed to Synergy. We have implemented Ctrl+Alt+Pause/Break as a workaround, which will send a ctrl+alt+del sequence across to the client.
 
@@ -147,7 +147,7 @@ Check that your Scroll Lock is not turned on. Also check that your screen icons 
 
 Check your ''Scroll Lock'' key status. If this key is activated, Synergy will not switch screens.
 
-There is a bug involving Windows 8 and high-resolution screens. When it uses ''Desktop Display Scaling'', Synergy is no longer able to read the mouse position correctly, and the cursor ends up stuck in the lower-right corner of the client (and invisible for some reason). You can tell if this is your case by right-clicking and see where the menu appears. See the bug [https://github.com/synergy/synergy/issues/4041 here].
+There is a bug involving Windows 8/10 and high-resolution screens. When it uses ''Desktop Display Scaling'', Synergy is no longer able to read the mouse position correctly, and the cursor ends up stuck in the lower-right corner of the client (and invisible for some reason). You can tell if this is your case by right-clicking and see where the menu appears. See the bug [https://github.com/synergy/synergy/issues/4041 here].
 
 If you have written your configuration file from scratch, you must indicate the neighbors of every screen. Just because you've configured ''Apple'' to be to the left of ''Orange'' does not mean that ''Orange'' is to the right of ''Apple''. You must provide both in the configuration.
 
