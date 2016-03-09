@@ -78,7 +78,7 @@ You can allow this behavior by allowing ''Services'' to issue the SAS in the ''W
 
 You should now be able to issue a Ctrl+Alt+Del to Windows over Synergy while on the lock screen. Note: Sometimes the Ctrl and Alt keys stick, just press them each once to un-stick them.
 
-On Windows servers, Ctrl+Alt+Del is always intercepted by Windows and is never passed to Synergy. We have implemented Ctrl+Alt+Pause/Break as a workaround, which will send a ctrl+alt+del sequence across to the client.
+On Windows servers, Ctrl+Alt+Del is always intercepted by Windows and is never passed to Synergy. We have implemented Ctrl+Alt+Pause/Break as a workaround, which will send a Ctrl+Alt+Del sequence across to the client. Note that the cursor must still be moved over to the client system for this to work.
 
 On Mac laptops, the key labeled ''Delete'' is actually backspace and Ctrl+Cmd+Del won't work. However Fn+Delete really is Delete so Fn+Ctrl+Cmd+Delete will act as Ctrl+Alt+Del on a windows secondary screen.
 
