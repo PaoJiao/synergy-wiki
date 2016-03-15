@@ -15,7 +15,6 @@
 * [[Version 1.3]]
 * [[Conflicting Software]]
 * [[Related Software]]
-* [Legacy Wiki](http://synergy-project.org/wiki)
 
 # Developer
 
