@@ -14,8 +14,9 @@
 10. Close the release milestone
 11. Upload to public website and test links
 12. Set current version in website settings
-13. Install previous version and test update check feature
-14. **If master:** set next version in CMakeLists.txt
+13. Add previous version to alternate downloads
+14. Install previous version and test update check feature
+15. **If master:** set next version in CMakeLists.txt
 
 ## Announce
 
