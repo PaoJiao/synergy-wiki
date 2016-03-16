@@ -26,8 +26,8 @@
 # Email subscription list (include blog link)
 # Message mailing list (include ChangeLog)
 # Post on the [http://synergy-project.org/forum/ Synergy Forums]
-# Post on [https://www.facebook.com/SynergyOpenSource Facebook page] (include blog link)
-# Post on [https://twitter.com/SynergyDev Twitter] (include blog link)
+# Post on [https://www.facebook.com/symless Facebook page] (include blog link)
+# Post on [https://twitter.com/symless Twitter] (include blog link)
 # Post on [https://plus.google.com/b/109104035534174281072/+Synergy/posts Google+ page] (include blog link)
 # Share on [https://www.linkedin.com/home LinkedIn]
 # Share on [https://www.stumbleupon.com/ StumbleUpon]
