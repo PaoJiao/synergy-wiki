@@ -16,6 +16,7 @@
 ## <code>website@marvin2:~/website-live/public/files$ ./deploy.sh</code>
 ## <code>./deploy.sh -b v1.7.5-stable-fa85a24 -r v1.7.5-stable-fa85a24</code>
 # Set current version in website settings
+# Add previous version to alternate downloads
 # Install previous version and test update check feature
 # '''If master:''' set next version in <code>CMakeLists.txt</code>
 
