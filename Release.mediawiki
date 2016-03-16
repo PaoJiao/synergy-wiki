@@ -30,6 +30,5 @@
 # Post on [https://twitter.com/symless Twitter] (include blog link)
 # Post on [https://plus.google.com/b/109104035534174281072/+Synergy/posts Google+ page] (include blog link)
 # Share on [https://www.linkedin.com/home LinkedIn]
-# Share on [https://www.stumbleupon.com/ StumbleUpon]
-# Share on [https://www.reddit.com/ reddit]
+# Share on [https://www.reddit.com/r/software/ reddit]
 # Update Wikipedia versions ([http://en.wikipedia.org/wiki/Synergy_(software) en], [http://de.wikipedia.org/wiki/Synergy_(Software) de], [http://fr.wikipedia.org/wiki/Synergy_(logiciel) fr] [http://es.wikipedia.org/wiki/Synergy es], [http://no.wikipedia.org/wiki/Synergy_(programvare) no], [http://ru.wikipedia.org/wiki/Synergy_(%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0) ru])
