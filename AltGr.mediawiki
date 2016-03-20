@@ -33,4 +33,4 @@ Some people have better results going the other way, using altgr=alt instead. Tr
 
 See the GitHub issue here:
 
-https://github.com/synergy/synergy/issues/4411
+https://github.com/symless/synergy/issues/4411
