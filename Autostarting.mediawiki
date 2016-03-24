@@ -2,13 +2,13 @@
 
 ===Windows===
 
-The official way is to use the Windows service feature in 1.4 which works with Windows Vista/7. This is now the default behavior upon installation. To have Synergy ''not'' start on boot, you need to edit the properties of the service and set it to Manual.
+The official way is to use the Windows service feature in 1.4+ which works with Windows XP and newer. This is now the default behavior upon installation. To have Synergy ''not'' start on boot, you need to edit the properties of the service and set it to Manual.
 
 ===Mac===
 
-You can use a [[Startup Mac OS X plist instructions|plist through launchd]]. There's also an example of this method in the source code.
+In OSX 10.8 and older, you can use a [[Startup Mac OS X plist instructions|plist through launchd]]. There's also an example of this method in the source code.
 
-You can use [[Mac OS X LoginItems instructions|Login Items in the Accounts control panel]]. 1.4.12 w/ encryption - 8/21/13 [[User:Kitz | Kitz]]
+There is not currently a known way to do this in OSX 10.9 or newer. In all versions of OSX, you can have the user login automatically, and set Synergy as a Login Item, which will have it start up upon user login.
 
 ===Linux===
 
@@ -160,3 +160,9 @@ You can also simply put the command to start synergy as a daemon in ~/.xinitrc, 
  synergys --daemon --restart --display :0 --address 10.137.10.163
  
  tinywm
+
+
+== Raspberry Pi ==
+Here are some resources a handy user provided to help get this working in Raspbian:
+https://learn.adafruit.com/synergy-on-raspberry-pi/setup-synergy-client-autostart
+http://www.stuffaboutcode.com/2012/06/raspberry-pi-run-program-at-start-up.html
