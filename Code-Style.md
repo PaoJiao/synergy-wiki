@@ -22,17 +22,17 @@ tidy.
 
 #### Member names are tab indented to column 25
 
-    class CMyClass {
+    class MyClass {
     public:
-        CFoobar             m_foobar;
-        CFoobar             foobar();
-        CReallyReallyLongClassName
+        Foobar              m_foobar;
+        Foobar              foobar();
+        ReallyReallyLongClassName
                             m_memberOnNextLine;
     };
 
 #### Arguments are tab indented twice, ctor init list only once
 
-    CMyClass::CMyClass(
+    MyClass::MyClass(
             CFoobar* foobar,
             CMoreStuff* moreStuff) :
         m_foobar(foobar)
@@ -42,24 +42,24 @@ tidy.
 
 #### Class, struct, and enum names are `PascalCase` and prefixed
 
-    class CMyClass { }; // class prefix is C
-    struct CMyStruct { }; // struct prefix is C
+    class MyClass { };
+    struct MyStruct { };
     enum EMyEnum { }; // enum prefix is E
 
 #### Member, and enum constant names are lower `camelCase`
 
-    class CMyClass {
+    class MyClass {
     public:
         void                helloWorld();
     };
 
 #### Member variables (public and private) begin with `m_`
 
-    class CMyClass {
+    class MyClass {
     public:
-        CMyClass*           m_myClass1;
+        MyClass*            m_myClass1;
     private:
-        CMyClass*           m_myClass2;
+        MyClass*            m_myClass2;
     };
 
 #### Enum constants are prefixed with `k`
@@ -71,7 +71,7 @@ tidy.
 
 #### Static variables are prefixed with `s_`
 
-    static CMyClass*       s_myClass;
+    static MyClass*        s_myClass;
 
 #### Comments and debug messages need not be grammatically correct
 
@@ -87,12 +87,12 @@ tidy.
 
     // correct
     int
-    CMyClass::helloWorld()
+    MyClass::helloWorld()
     {
     }
 
     // incorrect
-    int CMyClass::helloWorld()
+    int MyClass::helloWorld()
     {
     }
 
@@ -100,14 +100,14 @@ tidy.
 
     // correct
     int
-    CMyClass::helloWorld()
+    MyClass::helloWorld()
     {
         // ...
     }
 
     // incorrect
     int
-    CMyClass::helloWorld() {
+    MyClass::helloWorld() {
         // ...
     }
 
@@ -169,12 +169,12 @@ tidy.
 
 #### The const keyword is used regularly
 
-    class CMyClass {
+    class MyClass {
     public:
         const char*         helloWorld();
     };
 
-    CMyClass::CMyClass(const char* helloWorld)
+    MyClass:: MyClass(const char* helloWorld)
     {
     }
 
@@ -211,16 +211,16 @@ tidy.
 #### Pointers and references do not have prefixes
 
     // correct
-    CMyClass* myClass1 = new CMyClass();
-    CMyClass& myClass2 = *myClass1;
+    MyClass* myClass1 = new MyClass();
+    MyClass& myClass2 = *myClass1;
 
     // incorrect
-    CMyClass* p_myClass1 = new CMyClass();
-    CMyClass& p_myClass2 = *p_myClass1;
+    MyClass* p_myClass1 = new MyClass();
+    MyClass& p_myClass2 = *p_myClass1;
 
     // incorrect
-    CMyClass* pMyClass1 = new CMyClass();
-    CMyClass& pMyClass2 = *pMyClass1;
+    MyClass* pMyClass1 = new MyClass();
+    MyClass& pMyClass2 = *pMyClass1;
 
 #### The left comparator operand is a variable
 
