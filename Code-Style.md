@@ -33,8 +33,8 @@ tidy.
 #### Arguments are tab indented twice, ctor init list only once
 
     MyClass::MyClass(
-            CFoobar* foobar,
-            CMoreStuff* moreStuff) :
+            Foobar* foobar,
+            MoreStuff* moreStuff) :
         m_foobar(foobar)
     {
         // ...
