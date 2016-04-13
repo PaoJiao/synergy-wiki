@@ -1,8 +1,8 @@
 == Development ==
 '''Note:''' Takes approx 1-2 hours (depending on testing).
 
-# Create release branch (e.g. v1.2.3)
-# Do the development work, e.g. commit code etc (do not commit to master).
+# Create release branch (e.g. v1.2.3), if stable, then branch from tag, else branch from master
+# Do the development work, e.g. commit code etc (do not commit to master)
 # Copy [https://github.com/synergy/synergy/milestones milestone] to ChangeLog
 # Ensure version number in CMakeLists.txt is correct
 # Ensure stage name in CMakeLists.txt is correct (stable, beta, etc)
