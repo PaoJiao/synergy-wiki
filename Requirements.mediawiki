@@ -25,6 +25,7 @@ We are no longer supporting these platforms due to lack of support for new featu
 * Mac OS 10.6 Snow Leopard and below
 * Windows NT/2000
 * Windows 95/98/ME
+* Linux systems running OpenSSL < 1.0.1 (for encryption support)
 
 ==Network requirements==
 
