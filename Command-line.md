@@ -84,40 +84,36 @@ Again from the Synergy install directory:
 
 #### synergyc options
 
-Taken from linux system:
+Taken from MacOS X 10.11 system:
 
-`$ synergyc --help`\
-`Usage: synergyc [--yscroll `<delta>`] [--display `<display>`] [--no-xinitthreads] [--daemon|--no-daemon] [--name `<screen-name>`] [--restart|--no-restart] [--debug `<level>`] `<server-address>\
-\
-`Connect to a synergy mouse/keyboard sharing server.`\
-\
-` -d, --debug `<level>`      filter out log messages with priority below level.`\
-`                            level may be: FATAL, ERROR, WARNING, NOTE, INFO,`\
-`                            DEBUG, DEBUG1, DEBUG2.`\
-` -n, --name `<screen-name>` use screen-name instead the hostname to identify`\
-`                            this screen in the configuration.`\
-` -1, --no-restart         do not try to restart on failure.`\
-`*    --restart            restart the server automatically if it fails.`\
-` -l  --log `<file>`         write log messages to file.`\
-`     --no-tray            disable the system tray icon.`\
-`     --enable-drag-drop   enable file drag & drop.`\
-`     --display `<display>`  connect to the X server at `<display>\
-`     --no-xinitthreads    do not call XInitThreads()`\
-` -f, --no-daemon          run in the foreground.`\
-`*    --daemon             run as a daemon.`\
-`     --yscroll `<delta>`    defines the vertical scrolling delta, which is`\
-`                            120 by default.`\
-` -h, --help               display this help and exit.`\
-`     --version            display version information and exit.`
+```
+Usage: synergyc [--yscroll <delta>] [--daemon|--no-daemon] [--name <screen-name>] [--restart|--no-restart] [--debug <level>] <server-address>
 
-*\* marks defaults*
+Connect to a synergy mouse/keyboard sharing server.
 
-The *server address* is of the form:
+  -d, --debug <level>      filter out log messages with priority below level.
+                             level may be: FATAL, ERROR, WARNING, NOTE, INFO,
+                             DEBUG, DEBUG1, DEBUG2.
+  -n, --name <screen-name> use screen-name instead the hostname to identify
+                             this screen in the configuration.
+  -1, --no-restart         do not try to restart on failure.
+*     --restart            restart the server automatically if it fails.
+  -l  --log <file>         write log messages to file.
+      --no-tray            disable the system tray icon.
+      --enable-drag-drop   enable file drag & drop.
+  -f, --no-daemon          run in the foreground.
+*     --daemon             run as a daemon.
+      --yscroll <delta>    defines the vertical scrolling delta, which is
+                             120 by default.
+  -h, --help               display this help and exit.
+      --version            display version information and exit.
 
-    [<hostname>][:<port>]
+* marks defaults.
 
-. The *hostname* must be the address or hostname of the server. The
-*port* option overrides the default port which is 24800.
+The server address is of the form: [<hostname>][:<port>].  The hostname
+must be the address or hostname of the server.  The port overrides the
+default port, 24800.
+```
 
 Unlike the synergys (Synergy server), the synergyc (Synergy client) has
 no config file. The options are set either at runtime by the command
@@ -126,53 +122,40 @@ are set at connection time.
 
 #### synergys options
 
-Taken from a linux system:
+Taken from a MacOS X 10.11 system:
+```
+Usage: synergys [--address <address>] [--config <pathname>] [--daemon|--no-daemon] [--name <screen-name>] [--restart|--no-restart] [--debug <level>]
 
-`$ synergys --help`\
-`Usage: synergys [--address `
+Start the synergy mouse/keyboard sharing server.
 
-<address>
-\] \[--config <pathname>\] \[--display <display>\] \[--no-xinitthreads\]
-\[--daemon|--no-daemon\] \[--name <screen-name>\]
-\[--restart|--no-restart\] \[--debug <level>\]
+  -a, --address <address>  listen for clients on the given address.
+  -c, --config <pathname>  use the named configuration file instead.
+  -d, --debug <level>      filter out log messages with priority below level.
+                             level may be: FATAL, ERROR, WARNING, NOTE, INFO,
+                             DEBUG, DEBUG1, DEBUG2.
+  -n, --name <screen-name> use screen-name instead the hostname to identify
+                             this screen in the configuration.
+  -1, --no-restart         do not try to restart on failure.
+*     --restart            restart the server automatically if it fails.
+  -l  --log <file>         write log messages to file.
+      --no-tray            disable the system tray icon.
+      --enable-drag-drop   enable file drag & drop.
+  -f, --no-daemon          run in the foreground.
+*     --daemon             run as a daemon.
+  -h, --help               display this help and exit.
+      --version            display version information and exit.
 
-`Start the synergy mouse/keyboard sharing server.`\
-\
-` -a, --address `
+* marks defaults.
 
-<address>
-listen for clients on the given address.
-
-` -c, --config `<pathname>`  use the named configuration file instead.`\
-` -d, --debug `<level>`      filter out log messages with priority below level.`\
-`                            level may be: FATAL, ERROR, WARNING, NOTE, INFO,`\
-`                            DEBUG, DEBUG1, DEBUG2.`\
-` -n, --name `<screen-name>` use screen-name instead the hostname to identify`\
-`                            this screen in the configuration.`\
-` -1, --no-restart         do not try to restart on failure.`\
-`*    --restart            restart the server automatically if it fails.`\
-` -l  --log `<file>`         write log messages to file.`\
-`     --no-tray            disable the system tray icon.`\
-`     --enable-drag-drop   enable file drag & drop.`\
-`     --display `<display>`  connect to the X server at `<display>\
-`     --no-xinitthreads    do not call XInitThreads()`\
-` -f, --no-daemon          run in the foreground.`\
-`*    --daemon             run as a daemon.`\
-` -h, --help               display this help and exit.`\
-`     --version            display version information and exit.`
-
-*\* marks defaults*
-
-The argument for *address* is of the form:
-
-    [<hostname>][:<port>]
-
-. The hostname must be the address or hostname of an interface on the
-system. The default is to listen on all interfaces. The *port* option
-overrides the default port which is 24800.
+The argument for --address is of the form: [<hostname>][:<port>].  The
+hostname must be the address or hostname of an interface on the system.
+The default is to listen on all interfaces.  The port overrides the
+default port, 24800.
 
 If no configuration file pathname is provided then the first of the
 following to load successfully sets the configuration:
+  $HOME/.synergy.conf
+  /etc/synergy.conf
+```
 
-`/root/.synergy.conf`\
-`/etc/synergy.conf`</nowiki>
+</nowiki>
