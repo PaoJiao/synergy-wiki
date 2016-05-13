@@ -1,5 +1,5 @@
-# Building from Source Cent/OS 6.x
-Tested on Cent/OS 6.6
+# Building from Source CentOS 6.x
+Tested on CentOS 6.6
 
 ## Pull from GitHub
 `git clone git@github.com:synergy/synergy.git`
