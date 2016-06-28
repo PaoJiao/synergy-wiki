@@ -2,12 +2,12 @@ If you're writing your own Synergy client or server, you'll need to use the Syne
 
 These files describe the protocol:
 
-* [https://github.com/synergy/synergy/blob/master/src/lib/synergy/protocol_types.h ProtocolTypes.h]
-* [https://github.com/synergy/synergy/blob/master/src/lib/synergy/protocol_types.cpp ProtocolTypes.cpp]
+* [https://github.com/symless/synergy/blob/master/src/lib/synergy/protocol_types.h ProtocolTypes.h]
+* [https://github.com/symless/synergy/blob/master/src/lib/synergy/protocol_types.cpp ProtocolTypes.cpp]
 
 The uSynergy is a good example of how to use this protocol:
 
-* [http://github.com/synergy/synergy/blob/master/src/micro/uSynergy.h uSynergy.h]
-* [http://github.com/synergy/synergy/blob/master/src/micro/uSynergy.c uSynergy.c]
+* [http://github.com/symless/synergy/blob/master/src/micro/uSynergy.h uSynergy.h]
+* [http://github.com/symless/synergy/blob/master/src/micro/uSynergy.c uSynergy.c]
 
 For more help, please use the [http://groups.google.com/group/synergy-dev developer mailing list].
