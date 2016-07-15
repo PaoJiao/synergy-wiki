@@ -9,15 +9,15 @@
 # Push and wait for buildbot to build (be patient)
 # Wait for packages to be uploaded to webserver
 # Test new bug fixes and features on all operating systems
-# Tag the release branch (same name as branch)
+# Tag the release branch (branch-stage)
 # Merge release branch into master
 # Delete the release branch
 # Close the release milestone
 # Upload to public website and test links
-## <code>website@marvin2:~/website-live/public/files$ ./deploy.sh</code>
+## <code>website@marvin3:/srv/web/symless/public$ ./deploy.sh</code>
 ## <code>./deploy.sh -b v1.7.5-stable-fa85a24 -r v1.7.5-stable-fa85a24</code>
-# Set current version in website settings
-# Add previous version to alternate downloads
+# Set current version in website settings in /home/website/website-live
+# Add previous version to alternate downloads by modify php file
 # Install previous version and test update check feature
 # '''If master:''' set next version in <code>CMakeLists.txt</code>
 
