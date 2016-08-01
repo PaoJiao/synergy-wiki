@@ -15,6 +15,7 @@
 * [[Version 1.3]]
 * [[Conflicting Software]]
 * [[Related Software]]
+* [[Known workaround]]
 
 # Developer
 
