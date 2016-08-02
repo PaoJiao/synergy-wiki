@@ -2,4 +2,4 @@
 
 This code can be used with any platform, and was originally designed for the Playstation 3 platform (platform specific code has been replaced with callbacks).
 
-https://github.com/synergy/synergy/tree/master/src/micro
+https://github.com/symless/synergy/tree/master/src/micro
