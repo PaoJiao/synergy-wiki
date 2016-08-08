@@ -20,6 +20,8 @@
 # Developer
 
 * [[Developer FAQ]]
+* [[Public Release]]
+* [[Testing Release]]
 * [[Issues]]
 * [[Version Planning]]
 * [[How it works]]
@@ -32,7 +34,6 @@
 * [[Buildbot]]
 * [[Diagrams]]
 * [[Unit Testing]]
-* [[Release]]
 * [[Branches]]
 * [[Authors]]
 * [[Related Projects]]
