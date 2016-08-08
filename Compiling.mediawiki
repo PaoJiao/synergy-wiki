@@ -47,7 +47,7 @@ brew install qt
 * Now configure and build - if running El Capitan, change the mac-sdk parameter below from 10.10 to 10.11
 
 ```
-./hm.sh conf -g1 --mac-sdk 10.10 --mac-identity test
+./hm.sh conf -g2 --mac-sdk 10.10 --mac-identity test
 ./hm.sh build
 ```
 
