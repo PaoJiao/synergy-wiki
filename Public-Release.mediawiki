@@ -23,8 +23,10 @@
 
 == Announcement ==
 
+# Wait 1 day after deployment
+# Email announcement to entire user list
+# Wait 1 day after email announcement
 # Post on [http://synergyopensource.wordpress.com/ Synergy blog] (same as email)
-# Email subscription list (include blog link)
 # Message mailing list (include ChangeLog)
 # Post on the [http://synergy-project.org/forum/ Synergy Forums]
 # Post on [https://www.facebook.com/symless Facebook page] (include blog link)
