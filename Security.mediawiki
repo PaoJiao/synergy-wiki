@@ -19,7 +19,9 @@ The following commands 1) make the directories, 2) create the certificate, 3) cr
   openssl x509 -fingerprint -sha1 -noout -in ~/.synergy/SSL/Synergy.pem > ~/.synergy/SSL/Fingerprints/Local.txt
   sed -e "s/.*=//" -i ~/.synergy/SSL/Fingerprints/Local.txt
 
-You need to copy the content of server's "~/.synergy/SSL/Fingerprints/Local.txt" into client's "~/.synergy/SSL/Fingerprints/TrustedServers.txt". 
+You need to copy the content of server's "~/.synergy/SSL/Fingerprints/Local.txt" into client's "~/.synergy/SSL/Fingerprints/TrustedServers.txt".
+
+For OS X the file is located under "~/Library/Synergy/SSL/Fingerprints/TrustedServers.txt", make sure to copy "libns.dylib" from "/Applications/Synergy.app/Contents/MacOS/plugins/libns.dylib" to "~/Library/Synergy/plugins/libns.dylib". Now you can enable encryption within the GUI.
 
 
 
