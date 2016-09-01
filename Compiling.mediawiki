@@ -41,10 +41,12 @@ brew install cmake
 brew install qt
 ```
 * Fix "./ext/toolchain/commands1.py"
-* In the function "configure\_core()" at approx line 433, change <code>elif sys.platform == "darwin":</code> to read <code>if sys.platform == "darwin":</code>
-* In the function "macPostGuiMake()" at approx line 770 and/or 773 change the path to be what your Qt library path is, probably "frameworkRootDir = "/usr/local/Cellar/qt/4.8.7/Frameworks"
-* See [https://github.com/symless/synergy/issues/4572 this] github issue for more information.
-* Now configure and build - if running El Capitan, change the mac-sdk parameter below from 10.10 to 10.11
+** In the function <code>configureCore()</code> at approx line 433, change:
+*** <code>elif sys.platform == "darwin":</code> to read <code>if sys.platform == "darwin":</code>
+** In the function <code>macPostGuiMake()</code> at approx line 772 and 775 change the path of <code>frameworkRootDir</code> to be what your Qt library path is, something like:
+*** <code>frameworkRootDir = "/usr/local/Cellar/qt/4.8.7_2/Frameworks"</code>
+** See [https://github.com/symless/synergy/issues/4572 this] github issue for more information.
+* Now configure and build - if running El Capitan, change the mac-sdk parameter below from <code>10.10</code> to <code>10.11</code>
 
 ```
 ./hm.sh conf -g2 --mac-sdk 10.10 --mac-identity test
