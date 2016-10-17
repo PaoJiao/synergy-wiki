@@ -26,9 +26,9 @@
 # Wait 1 day after deployment
 # Email announcement to entire user list
 # Wait 1 day after email announcement
-# Post on [http://synergyopensource.wordpress.com/ Synergy blog] (same as email)
+# Post on [http://symless.wordpress.com/ Synergy blog] (same as email)
 # Message mailing list (include ChangeLog)
-# Post on the [http://synergy-project.org/forum/ Synergy Forums]
+# Post on the [http://symless.org/forum/ Synergy Forums]
 # Post on [https://www.facebook.com/symless Facebook page] (include blog link)
 # Post on [https://twitter.com/symless Twitter] (include blog link)
 # Post on [https://plus.google.com/b/109104035534174281072/+Synergy/posts Google+ page] (include blog link)
