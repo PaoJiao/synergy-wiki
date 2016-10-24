@@ -10,7 +10,7 @@
 # Wait for packages to be uploaded to webserver
 # Test new bug fixes and features on all operating systems
 # Ensure each person in the office is using the nightly
-# Wait for at least 2 days of in-house testing is done
+# Wait until at least 2 days of in-house testing is done
 # Go do something else, and come back in 2 days
 # Ask every last person in the office "Is it stable?"
 # If everyone thinks it's stable, go ahead with the release
