@@ -22,7 +22,7 @@
 ## <code>website@marvin3:/srv/web/symless/public$ ./deploy.sh</code>
 ## <code>./deploy.sh -b v1.7.5-stable-fa85a24 -r v1.7.5-stable-fa85a24</code>
 # Set current version in website settings in /home/website/website-live
-# Test or download links
+# Test all download links
 # Download all installers into NAS: \\BABBAGE\Engineering\Installers\Synergy
 # Add previous version to alternate downloads by modify php file
 # Install previous version and test update check feature
