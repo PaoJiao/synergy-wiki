@@ -2,8 +2,10 @@ As of March 2015 the Android client is in early Alpha, but is largely functional
 
 If you find this client useful, donate to the original creator.
 
+'''Source code:''' https://github.com/symless/synergy-android-cyanogen
+
 '''Download:''' http://sourceforge.net/projects/synergyandroid/files/
 
-'''Dogecoin:''' DFQj57xv8ujR44RPtkMU9jS5bR3rTiYh7j
-
 '''Bugs:''' http://sourceforge.net/p/synergyandroid/bugs/
+
+'''Donate:''' DFQj57xv8ujR44RPtkMU9jS5bR3rTiYh7j
