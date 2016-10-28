@@ -6,6 +6,4 @@ If you find this client useful, donate to the original creator.
 
 '''Download:''' http://sourceforge.net/projects/synergyandroid/files/
 
-'''Bugs:''' http://sourceforge.net/p/synergyandroid/bugs/
-
 '''Donate:''' DFQj57xv8ujR44RPtkMU9jS5bR3rTiYh7j (Dodgecoin)
