@@ -206,6 +206,11 @@ Actions are two lists of individual actions separated by commas. The two lists a
 * <code>keyDown(key[,screens])</code>
 
 * <code>keyUp(key[,screens])</code>
+
+* <code>mousebutton(number,screens) = mousebutton(number)</code>
+
+
+
 : Synthesizes the modifiers and key given in ''key'' which has the same form as described in the ''keystroke'' option. If given, ''screens'' lists the screen or screens to direct the event to, regardless of the active screen. If not given then the event is directed to the active screen only.
 : ''keyDown'' synthesizes a key press and ''keyUp'' synthesizes a key release. ''keystroke'' synthesizes a key press on activation and a release on deactivation and is equivalent to a ''keyDown'' on activation and ''keyUp'' on deactivation.
 : ''screens'' is either ''*'' (asterisk) to indicate all screens or a '':'' (colon) separated list of screen names. (Note that the screen name must have already been encountered in the configuration file so you'll probably want to put ''actions'' at the bottom of the file.)
