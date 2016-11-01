@@ -101,7 +101,7 @@ If you already have [MacPorts], run:
 
 ===OpenSUSE 11.1===
  su
- yast2 -i cmake python gcc-c++ xorg-x11-devel libcurl-devel (SSL dev package, not sure what it's called on SuSE)
+ yast2 -i cmake python gcc-c++ xorg-x11-devel libcurl-devel libopenssl-devel
 
 ===Mandriva One 200===
  su
