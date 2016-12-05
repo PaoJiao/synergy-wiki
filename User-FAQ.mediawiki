@@ -167,8 +167,6 @@ This is because Fedora 25 has switched to use Wayland by default instead of XOrg
 You can re-enable XOrg as a temporary workaround by doing the following:
 Edit `/etc/gdb/custom.conf` and change line 5 per line 4. You'll then need to reboot. This has the machine fall back onto Xorg for the session manager.
 
-'''
-[daemon] 
-# Uncoment the line below to force the login screen to use Xorg 
-WaylandEnable=false 
-''' 
+ [daemon] 
+ # Uncoment the line below to force the login screen to use Xorg 
+ WaylandEnable=false 
