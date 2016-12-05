@@ -160,3 +160,14 @@ If you're using a configuration file, check your links to make sure they point t
 ===Cursor Stuck in bottom corner of machine on windows===
 
 On Windows machines with HiDPI screens, Synergy malfunctions. To fix this, change the compatibility mode for the synergys.exe and syngergyc.exe to ''Deactivate scaling for hiDPI'' and ''run as Windows 7'' for ''All Users''. More information can be found in the [https://github.com/symless/synergy/issues/4041 GitHub issue].
+
+===I've updated to Fedora 25 and Synergy no longer works?===
+
+This is because Fedora 25 has switched to use Wayland by default instead of XOrg server.
+You can re-enable XOrg as a temporary workaround by doing the following:
+Edit `/etc/gdb/custom.conf` and change line 5 per line 4. You'll then need to reboot. This has the machine fall back onto Xorg for the session manager. 
+```
+[daemon] 
+# Uncoment the line below to force the login screen to use Xorg 
+WaylandEnable=false 
+``` 
