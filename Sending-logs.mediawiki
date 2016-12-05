@@ -1,7 +1,7 @@
 Using Synergy 1.4, it's easy to send us your log for when we need debug info about your problem.
 
 
-First, turn up the logging to "Debug2". Go to '''Edit''' > '''Settings''' > '''Logging'''. Select '''Debug2''' from the '''Logging level''' drop down and then click '''OK'''.
+First, turn up the logging to "Debug2". Go to '''Edit''' > '''Settings''' > '''Logging'''. Select '''Debug''', unless you have been requested with higher level, from the '''Logging level''' drop down and then click '''OK'''.
 
 [[Images/LogLevelDebug2.png]]
 
