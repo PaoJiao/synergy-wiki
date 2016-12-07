@@ -74,7 +74,7 @@ I changed my scripts as follows:
 
 Here's also /usr/local/bin/synergyc-ctl.sh:
 
-Here is an [https://gist.github.com/roadst4r/487bb0365d488a9f9ce7 updated version of this script] which includes support for setting crypto, display, logs, screenname.
+Here is an [https://gist.github.com/mark-vdb/487bb0365d488a9f9ce7 updated version of this script] which includes support for setting crypto, display, logs, screenname.
 
 <pre>
 #!/bin/sh
