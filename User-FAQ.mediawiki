@@ -49,13 +49,13 @@ Probably because the developers don't have access to platform XYZ and/or are unf
 
 ===Do all computers need to be on the same network?===
 
-Can the client ping the server? If so then Synergy should work. However, if the client can't connect directly to the server, then you'll be unable to use Synergy. You may be able to use VPN to connect the client to the same network as the server (if you're in a corporate environment, ask your system administrator).
+Can the client ping the server? If so, then Synergy should work. Can the client reach the server via SSH? If so, then Synergy should work using methods related to SSH encryption, described above. If the client can't connect to the server either directly or through a tunnel, then you'll be unable to use Synergy. You may be able to use VPN to connect the client to the same network as the server (if you're in a corporate environment, ask your system administrator).
 
 ===What should I call my screens in the configuration?===
 
 The short answer is that you should use the name Synergy automatically detects whenever possible. In the GUI, this appears under the Client section, labeled ''Screen Name''.
 
-You can use any unique name in the configuration file for each screen but it's easiest to use the hostname of the computer. That's the computer name not including the domain. For example, a computer with the fully qualified domain name xyz.foo.com has the hostname xyz. There should also be an alias for xyz to xyz.foo.com. If you don't use the computer's hostname, you have to tell Synergy the name of the screen using a command line option, or the startup dialog on Windows.
+You can use any unique name in the configuration file for each screen but it's easiest to use the hostname of the computer. That's the computer name not including the domain. For example, a computer with the fully qualified domain name xyz.example.com has the hostname xyz. There should also be an alias for xyz to xyz.example.com. If you don't use the computer's hostname, you have to tell Synergy the name of the screen using a command line option, or the startup dialog on Windows.
 
 Some systems are configured to report the fully qualified domain name as the hostname. For those systems it will be easier to use the FQDN as the screen name. Also note that a Mac OS X system named xyz may report its hostname as xyz.local. If that's the case for you then use xyz.local as the screen name.
 
@@ -107,6 +107,7 @@ Different platforms have different causes. Linux: The screen saver will not star
 ==Getting Help==
 
 ===How can I send my Synergy log content?===
+
 It's easy to send us your log content so that we can help debug an issue. First, turn up the logging level (for most cases) to at least ''Debug''. In the Synergy GUI, go to ''Edit'' -> ''Settings'' (on Windows/Linux) or ''Synergy'' -> ''Preferences'' (on Mac). Find the option labeled ''Logging level:'', choose ''Debug'' and click ''OK''. Then, click ''Apply''.
 
 In the ''Log'' output area, you can ''Select All'' highlight the log content to copy the entire log. However, for most troubleshooting the log content we need is just the lines from the time period of the issue (Synergy disconnect, failure to copy from remote clipboard...). You can paste your results on [http://pastebin.com/ Pastebin] and send us the link, or if just a few dozen lines or less simply copy the content into your email, Google Group message, or forum post.
