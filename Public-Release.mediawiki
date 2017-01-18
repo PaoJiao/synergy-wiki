@@ -1,4 +1,4 @@
-== Development ==
+== Development: Deploy ==
 '''Note:''' Takes approx 1-2 hours (depending on testing).
 
 # Create release branch (e.g. v1.2.3), if stable, then branch from tag, else branch from master
@@ -27,8 +27,9 @@
 # Add previous version to alternate downloads by modify php file
 # Install previous version and test update check feature
 # '''If master:''' set next version in <code>CMakeLists.txt</code>
+# Email team@ with standard template (ask Dan)
 
-== Announcement ==
+== Marketing: Announcement ==
 
 # Wait 1 day after deployment
 # Email announcement to entire user list
