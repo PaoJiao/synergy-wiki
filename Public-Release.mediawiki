@@ -9,15 +9,16 @@
 # Push and wait for buildbot to build (be patient)
 # Wait for packages to be uploaded to webserver
 # Test new bug fixes and features on all operating systems
+# Close the release milestone
 # Ensure each person in the office is using the nightly
 # Wait until at least 2 days of in-house testing is done
 # Go do something else, and come back in 2 days
 # Ask every last person in the office "Is it stable?"
 # If everyone thinks it's stable, go ahead with the release
+# If not, reopen the milestone and repeat
 # Tag the release branch (branch-stage)
 # Merge release branch into master
 # Delete the release branch
-# Close the release milestone
 # Upload to public website and test links
 ## <code>website@marvin3:/srv/web/symless/public$ ./deploy.sh</code>
 ## <code>./deploy.sh -b v1.7.5-stable-fa85a24 -r v1.7.5-stable-fa85a24</code>
