@@ -1,8 +1,4 @@
 = Running Synergy on OSX via plist =
-These instructions <del>shamelessly</del> borrow the "answer" to a similar topic [http://stackoverflow.com/questions/9522324/running-python-in-background-on-os-x here]. 
-
-This page, on the other hand, is about the topic '''[please briefly explain the topic here]'''.  
-
 Here we create a shell script and a property list file (plist), and activate the plist using the launchctl command-line tool.
 
 The shell script runs the synergyc Unix executable, telling it to connect to a laboratory workstation.  The property list file '''[please briefly explain what the plist file does here]'''.  
