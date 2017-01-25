@@ -1,4 +1,4 @@
-= Running Synergy on OSX via plist =
+= Running Synergy on MacOS via plist =
 Here we create a shell script and a property list file (plist), and activate the plist using the launchctl command-line tool.
 
 The shell script runs the synergyc Unix executable, telling it to connect to a laboratory workstation.  The property list file '''[please briefly explain what the plist file does here]'''.  
