@@ -110,15 +110,3 @@ Make sure you:
  sudo chown YOUROSXUSERNAME /var/log/synergy.log
 
 Add ~/bin/initsynergy.command to your account's Login Items in System Preferences -> Accounts -> Login Items
-
-== Windows 7 ==
-Install the client as a service. And go through the normal setup procedure. In my case I found that the crypto password I entered in the setup wizard was not used in the registry entry to double check that setting here:
- HKLM\SOFTWARE\Synergy\Command = C:/Program Files/Synergy/synergyc.exe -f --no-tray  --name win --crypto-mode gcm --crypto-pass YOURCRYPTOPASSWORD --ipc --stop-on-desk-switch YourOSXServerFQDNorIP:24800
-
-I have no idea what -f, --ipc, or --stop-on-desk-switch do. They were there by default and I can't find any documentation about them.
-
-== Known issues ==
-
-* I'm getting some spill over while click and dragging on my Windows client.
-* While the UAC dialog is open or a program opened with UAC privs is running I'm unable to use the Windows client.
-* Opens a terminal window when you log in.
