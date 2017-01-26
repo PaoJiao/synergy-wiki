@@ -103,7 +103,7 @@ Create a file ~/bin/initsynergy.command with the following contents:
  # Hides tray icon. set to 0 to have it show again.
  defaults write /Applications/Synergy.app/Contents/Info LSUIElement 1
  
- /Applications/Synergy.app/Contents/MacOS/synergys --crypto-pass YOURCRYPTOPASSWORD --crypto-mode gcm --config ~/Library/Synergy/synergy.conf -n osx -l /var/log/synergy.log
+ /Applications/Synergy.app/Contents/MacOS/synergys --enable-crypto --config ~/Library/Synergy/synergy.conf -n osx -l /var/log/synergy.log
 
 Make sure you:
  sudo touch /var/log/synergy.log
