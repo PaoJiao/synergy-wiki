@@ -35,6 +35,7 @@ Note: You may need to set your <code>QMAKESPEC</code> environmental variable. th
 ====Mac OS X 10.10 and above====
 * Install [http://brew.sh/ Homebrew]
 * Install [https://developer.apple.com/xcode/download/ XCode] (also available via the Mac App Store)
+** You may need to open XCode, go to Preferences, select Locations, and then make sure an option is selected for Command Line Tools.
 * Install cmake and Qt using Homebrew
 ```
 brew install cmake
