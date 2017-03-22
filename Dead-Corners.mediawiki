@@ -4,9 +4,13 @@ This is found under the Configure Server button, in the individual screen option
 
 Be sure to configure a Corner Size to set the size of all corners, measured in pixels. The cursor must be within N pixels of the corner to be considered to be in the corner.
 
-The default setting for Corner Size is 0 pixels, which basically disables the Dead Corner setting altogether. So for the Corners to be Dead, the corner size will need to have at least a size of 1 pixel for the two sides of the corner that will be Dead. To be on the corner of the screen is functionally not possible since the size of the cursor on the screen is at a minimum 1 pixel logically, and maybe 4 pixels or so visually. So while you can set 0, or 1 pixels for size, in most setups that will use this feature, you'll notice that 4 pixels about the threshold for the Dead Corners to actually be effective and prevent a screen switch.
+The default setting for Corner Size is 0 pixels, which basically disables the Dead Corner setting altogether. So for the Corners to be Dead, the corner size will need to have at least a size of 1 pixel for the two sides of the corner that will be Dead. To be on the corner of the screen is functionally not possible since the size of the cursor on the screen is at a minimum 1 pixel logically, and maybe 4 pixels or so visually. While you can set the corner size to 0, or 1 pixels for size, in most setups that will use this feature, you'll notice that 4 pixels about the threshold for the Dead Corners to actually be noticeable and prevent a screen switch.
 
-Note that the lower threshold will need to probably be at least 6-8 pixels or more for the following environments:
+Practical useage example:
+For corner size would be if you are trying to prevent a screen switch in the occasion that a user overshoots the "Back" button at the top left of a full screen browser window, for an average entry-level monitor running at 1366x768px resolution, the Dead Corner Size for a Top-Left selected corner would need to be around 38 pixels. Meaning to switch screens your cursor would need to be anywhere between the bottom left edge, and the top left edge minus 38 pixels, which is about the size of an average Title Bar and "Back" button UI elements for a that particular resolution display.
+
+Note: Lower threshold will need to probably be at least 6-8 pixels or more for the following environments:
 
 -Hi-DPI / Extremely High Resolution Displays ("Retina Displays") such as those found in current generation Apple products, including MacBook Pros, Thunderbolt Displays, iMac, iPhone, iPad, etc.)
+   -As an example, for a screen size of 2560x1600 pixels, to prevent screen switching when accidentally overshooting the back button on most browsers, the Dead Corner Size would need to be at least 80 pixels.
 -Enlarged Text Size and/or Cursor size when Accessibility display settings are set to anything above 105% scaling.
