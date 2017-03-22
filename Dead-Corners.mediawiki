@@ -1,5 +1,12 @@
 Dead Corners is a feature of Synergy which affects the areas of the screen edge at which Synergy will cause the mouse cursor to switch to the other screen. The general idea is that when you have an application window (for example, a web browser) open on one screen, and zip your mouse up to the corner to hit the X on the window, we don't want it switching screens there. So, we configured a Dead Corner there so the mouse will stay on the current screen, and allow you to hit the X without having to aim carefully.
 
-This is found under the Configure Server button, in the individual screen options (double-click the screen icon for which you want to setup the Dead Corners). You can enable any of the 4 corners of the screen to be inactive or "dead" - be sure to configure a size, as the default of zero won't be very helpful.
+This is found under the Configure Server button, in the individual screen options (double-click the screen icon for which you want to setup the Dead Corners). You can enable any of the 4 corners of the screen to be inactive or "dead"
 
-There are also options for this on the Advanced Server Options screen, which do not appear to function at all.
+Be sure to configure a Corner Size to set the size of all corners, measured in pixels. The cursor must be within N pixels of the corner to be considered to be in the corner.
+
+The default setting for Corner Size is 0 pixels, which basically disables the Dead Corner setting altogether. So for the Corners to be Dead, the corner size will need to have at least a size of 1 pixel for the two sides of the corner that will be Dead. To be on the corner of the screen is functionally not possible since the size of the cursor on the screen is at a minimum 1 pixel logically, and maybe 4 pixels or so visually. So while you can set 0, or 1 pixels for size, in most setups that will use this feature, you'll notice that 4 pixels about the threshold for the Dead Corners to actually be effective and prevent a screen switch.
+
+Note that the lower threshold will need to probably be at least 6-8 pixels or more for the following environments:
+
+-Hi-DPI / Extremely High Resolution Displays ("Retina Displays") such as those found in current generation Apple products, including MacBook Pros, Thunderbolt Displays, iMac, iPhone, iPad, etc.)
+-Enlarged Text Size and/or Cursor size when Accessibility display settings are set to anything above 105% scaling.
