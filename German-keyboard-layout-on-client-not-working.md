@@ -5,4 +5,9 @@ If the client swaps z and y, and can't write german letters correctly (öäüß)
 
 Now it works correctly.
 
-You might want to put that in some autostart for it to work automatically.
+I could not get it to work in my i3 or KDE session with .xinitrc.
+That's why I created a script like this, run at x login:
+`cat setxkbmap.sh`
+`#!/bin/bash`
+`setxkbmap de`
+`exit`
