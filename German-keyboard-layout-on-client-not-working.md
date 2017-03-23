@@ -8,6 +8,9 @@ Now it works correctly.
 I could not get it to work in my i3 or KDE session with .xinitrc.
 That's why I created a script like this, run at x login:
 `cat setxkbmap.sh`
+
 `#!/bin/bash`
+
 `setxkbmap de`
+
 `exit`
