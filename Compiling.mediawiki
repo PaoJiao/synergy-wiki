@@ -1,6 +1,6 @@
 ==Introduction==
 
-This guide is for Synergy version 1.3.5 and above. First you need to download the [[Source Code]] from our GitHub repo, then install the [[Compiling#dependencies|dependencies]], and finally follow the [[Compiling#Compile|compile instructions]].
+This guide is for Synergy version 1.3.5 and above. First you need to download the [[Source Code]] from our GitHub repo, then install the [[Compiling#dependencies|dependencies]], and finally, follow the [[Compiling#Compile|compile instructions]].
 
 ==Dependencies==
 
@@ -50,6 +50,7 @@ brew install qt
 ```
 ./hm.sh conf -g2 --mac-sdk 10.10 --mac-identity test
 ./hm.sh build
+./hm.sh dist mac
 ```
 
 Credits to [https://wordpress.update.sh/archives/410 this blog entry]
@@ -141,6 +142,7 @@ With no extra arguments, release build will be compiled. If you need the debug v
 ===Mac OS X===
  ./hm.sh conf -g1 [-d] --mac-sdk 10.11 --mac-identity Yosemite # Use -d to build a debug version and replace 10.11 / Yosemite with correct versions of your setup.
  ./hm.sh build [-d]
+ ./hm.sh dist mac
 
 Note: This project uses Qt4. If you have multiple versions of Qt installed, your system will default to the newest one. If that is Qt5, you can override this by specifying the env variable QT_SELECT=4, like so:
 
