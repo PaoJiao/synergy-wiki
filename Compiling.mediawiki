@@ -87,9 +87,8 @@ If you already have [MacPorts], run:
 ===Ubuntu 10.04 to 15.10===
  sudo apt-get install cmake make g++ xorg-dev libqt4-dev libcurl4-openssl-dev libavahi-compat-libdnssd-dev libssl-dev libx11-dev
 
-===CentOS 6.5===
- su
- yum install cmake make gcc-c++ libX11-devel libXext-devel libXi-devel libXtst-devel libXinerama-devel libcurl-devel qt-devel avahi-compat-libdns_sd-devel openssl-devel rpm-build rpmlint
+===CentOS 6 & 7===
+ sudo yum install cmake make gcc-c++ libX11-devel libXext-devel libXi-devel libXtst-devel libXinerama-devel libcurl-devel qt-devel avahi-compat-libdns_sd-devel openssl-devel rpm-build rpmlint
  PATH="$PATH:/usr/lib64/qt4/bin:/usr/lib/qt4/bin"
 
 ===Debian 7/8===
