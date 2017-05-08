@@ -31,6 +31,12 @@ Be sure to save this file someplace safe, where Synergy will be able to find it 
 
 Some people have better results going the other way, using altgr=alt instead. Try this if you continue having troubles with the above example.
 
+For recent versions of Synergy, at least partial success has been reported with using
+
+      altgr = shift
+
+for the clients in the Screen section of the Synergy configuration file (same place as above) instead.
+
 See the GitHub issue here:
 
 https://github.com/symless/synergy/issues/4411
