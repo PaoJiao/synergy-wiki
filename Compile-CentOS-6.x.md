@@ -29,7 +29,7 @@ Choose your build target
 
 Configure (1 or 2 from list)
 
-`./hm.sh setup-g 1`
+`./hm.sh setup -g 1`
 `./hm.sh conf`
 `./hm.sh build`
 
