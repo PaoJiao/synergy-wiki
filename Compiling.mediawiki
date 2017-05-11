@@ -139,8 +139,18 @@ With no extra arguments, release build will be compiled. If you need the debug v
  hm build
 
 ===Unix and Linux===
- ./hm.sh conf -g1 [-d] # Use -d to build a debug version.
+ git clone https://github.com/symless/synergy.git
+ cd synergy
+ # optionally add '-d' to build a debug version.
+ QT_SELECT=4 ./hm.sh conf -g1 
  ./hm.sh build [-d]
+ # optionally build a package if you wish to install it system-wide with a package manager instead of running from the cli
+ ./hm.sh package deb
+ sudo dpkg -i ./bin/synergy-master-stable-ec56ac4-Linux-x86_64.deb
+ # to run it successfully, you will need to create a configuration file
+ ./bin/synergy &
+ # or 
+ synergy & (if you created and installed the package)
 
 ===Mac OS X===
  ./hm.sh conf -g1 [-d] --mac-sdk 10.11 --mac-identity Yosemite # Use -d to build a debug version and replace 10.11 / Yosemite with correct versions of your setup.
