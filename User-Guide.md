@@ -1,0 +1,1 @@
+[Getting started with Synergy](https://symless.zendesk.com/hc/en-us/articles/115004888708-Getting-started-with-Synergy)
