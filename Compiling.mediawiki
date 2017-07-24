@@ -1,6 +1,6 @@
 ==Introduction==
 
-This guide is for Synergy version 1.3.5 and above. First you need to cloune the [[Source Code]] from our GitHub repo, then install the [[Compiling#dependencies|dependencies]], and finally, follow the [[Compiling#Compile|compile instructions]].
+This guide is for Synergy version 1.3.5 and above. First you need to clone the [[Source Code]] from our GitHub repo, then install the [[Compiling#dependencies|dependencies]], and finally, follow the [[Compiling#Compile|compile instructions]].
 
 ==Dependencies==
 
