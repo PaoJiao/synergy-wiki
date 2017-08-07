@@ -9,7 +9,7 @@ General Info
 The Synergy binaries generally take the same parameters on all 3
 platforms.
 
-See [https://github.com/symless/synergy/wiki/Text-Config] for information on how to create a config file. If you
+See [Text-Config] for information on how to create a config file. If you
 have another system on which you can use the GUI, you might consider
 setting up your system in that GUI, and then exporting the config file
 with File --&gt; Save Configuration As and copy it over to the system
