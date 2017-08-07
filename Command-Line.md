@@ -1,7 +1,4 @@
-Sometimes, for various reasons, the GUI doesn't work or is not ideal for
-starting up Synergy. In those cases, you can run it from the command
-line. This can be encapsulated in a batch file or shell script for easy
-access.
+Some users prefer to use the command line to run Synergy instead of using automatic configuration.
 
 General Info
 ------------
