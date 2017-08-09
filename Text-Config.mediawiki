@@ -1,4 +1,4 @@
-==About textual configuration files==
+==About text config files==
 
 Needing to deal with text-based configuration files directly can be avoided by using the GUI. However, if you want to run Synergy from the [[command line]], you'll need to write your own config file.
 
@@ -12,7 +12,7 @@ Synergy also checks certain pathnames to load the configuration file if you don'
 
 If you need to access a feature that is not available in the GUI, but otherwise have it working, you can get a good starting point by exporting your config from the GUI by using the ''File'' --> ''Save Configuration As...'' option.
 
-==Why would I want to use a text-based config?==
+==Why use text-based config?==
 
 The number one reason is that you don't really have a choice. If you aren't using a GUI then you have to use a text-based config file.
 
