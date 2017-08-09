@@ -12,8 +12,6 @@ Synergy also checks certain pathnames to load the configuration file if you don'
 
 If you need to access a feature that is not available in the GUI, but otherwise have it working, you can get a good starting point by exporting your config from the GUI by using the ''File'' --> ''Save Configuration As...'' option.
 
-==Why use text-based config?==
-
 The number one reason is that you don't really have a choice. If you aren't using a GUI then you have to use a text-based config file.
 
 The second reason is that it gives you more control. The GUI cannot create advanced configuration such as non-reciprocal connections. An example of a non-reciprocal connection would be that if you go right from screen A you get to screen B, but if you then go left from screen B you get to screen C rather than back to screen A as you would in a reciprocal connection.
