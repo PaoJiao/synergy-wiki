@@ -1,4 +1,4 @@
-==About text config files==
+==Using Text Config Files==
 
 Needing to deal with text-based configuration files directly can be avoided by using the GUI. However, if you want to run Synergy from the [[command line]], you'll need to write your own config file.
 
