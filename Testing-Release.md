@@ -2,6 +2,5 @@
 2. Ensure stage name in CMakeLists.txt is correct (beta or rc)
 3. Sanitize issue titles
 4. Update ChangeLog
-5. Copy ChangeLog from beta branch to Mailchimp email
 6. Test new bug fixes and features
 7. Release the hounds
