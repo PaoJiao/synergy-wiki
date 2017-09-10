@@ -36,24 +36,25 @@ Note: You may need to set your <code>QMAKESPEC</code> environmental variable. th
 * Install [http://brew.sh/ Homebrew]
 * Install [https://developer.apple.com/xcode/download/ XCode] (also available via the Mac App Store)
 ** You may need to open XCode, go to Preferences, select Locations, and then make sure an option is selected for Command Line Tools.
-* Install cmake and Qt using Homebrew
+* Install cmake, Qt, and openssh using Homebrew
 ```
 brew install cmake
 brew install qt
+brew install openssh
 ```
-* Fix "./ext/toolchain/commands1.py"
-** In the function <code>macPostGuiMake()</code> at approx line 781 change the path of <code>frameworkRootDir</code> to be what your Qt library path is, something like:
-*** <code>frameworkRootDir = "/usr/local/Cellar/qt/4.8.7_2/Frameworks"</code>
-** See [https://github.com/symless/synergy/issues/4572 this] github issue for more information.
-* Now configure and build - if running El Capitan, change the mac-sdk parameter below from <code>10.10</code> to <code>10.11</code> or as applicable from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
-
+* Find the path for Qt installation - this should be something like "usr/local/Cellar/qt/4.8.7_2/Frameworks"
 ```
-./hm.sh conf -g2 --mac-sdk 10.10 --mac-identity test
-./hm.sh build
-./hm.sh dist mac
+brew info qt
 ```
-
-Credits to [https://wordpress.update.sh/archives/410 this blog entry]
+* Add the qt installation path from the previous step to the CMAKE_PREFIX_PATH (replace "usr/local/Cellar/qt/4.8.7_2/Frameworks" with the path found in the previous step)
+```
+export CMAKE_PREFIX_PATH="usr/local/Cellar/qt/4.8.7_2/Frameworks"
+```
+* Build the packages and install
+```
+cmake CMakeLists.txt
+make install
+```
 
 ====Mac OS X 10.9 Mavericks====
 
