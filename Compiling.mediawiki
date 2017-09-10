@@ -50,11 +50,7 @@ brew info qt
 ```
 export CMAKE_PREFIX_PATH="usr/local/Cellar/qt/4.8.7_2/Frameworks"
 ```
-* Build the packages and install
-```
-cmake CMakeLists.txt
-make install
-```
+* Continue to the [[Compiling#Compile|compile instructions]] below
 
 ====Mac OS X 10.9 Mavericks====
 
@@ -128,12 +124,7 @@ After compiling, run the following to build and install the RPM:
 * SSL dev package
 
 ==Compile==
-
-Use the <code>hm</code> (or <code>./hm.sh</code>) script located the root of our project directory. This is just a wrapper for <code>cmake</code>, so you don't need to use it, however we recommend you do. The <code>conf</code> command will generate the projects in the ''build'' directory (which can be opened manually and used for compiling).
-
-Use the <code>hm genlist</code> command to see other generators. The <code>-g1</code> argument (shown below) will cause the 1st ''CMake'' generator to be used. You may want to use other generators if you are building with ''Eclipse'', for example.
-
-With no extra arguments, release build will be compiled. If you need the debug version, use the <code>-d</code> argument.
+Use <code>cmake</code> to build the project from the root directory of the git repository. Older versions of the git repository included a script called <code>hm</code> (or <code>./hm.sh</code>) that was a wrapper around <code>cmake</code>, but <code>hm</code> has since been removed.
 
 ===Windows===
  hm conf -g1
@@ -146,15 +137,10 @@ With no extra arguments, release build will be compiled. If you need the debug v
  make
 
 ===Mac OS X===
- ./hm.sh conf -g1 [-d] --mac-sdk 10.11 --mac-identity Yosemite # Use -d to build a debug version and replace 10.11 / Yosemite with correct versions of your setup.
- ./hm.sh build [-d]
- ./hm.sh dist mac
-
-Note: This project uses Qt4. If you have multiple versions of Qt installed, your system will default to the newest one. If that is Qt5, you can override this by specifying the env variable QT_SELECT=4, like so:
-
-QT_SELECT=4 ./hm.sh conf -g1
-
-After compiling, the binaries can be found in the ''bin'' directory in the root of the source tree (not in the build directory).
+ git clone https://github.com/symless/synergy.git
+ cd synergy
+ cmake CMakeLists.txt
+ make
 
 ==Building installers==
 Use the <code>hm package [os]</code> command to build installers. (<code>[os] = {deb,mac,rpm,win}</code>)
